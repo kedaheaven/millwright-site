@@ -773,8 +773,8 @@ html.lowh:not(.pin) .row{padding-top:4px}
 
 <section class="close" aria-labelledby="close-h">
   <div class="close-media" id="cup" aria-hidden="true">
-    <img src="/assets/cup-poster.jpg" width="1080" height="1080" alt="" loading="lazy" decoding="async">
-    <video muted playsinline loop preload="none" tabindex="-1">
+    <img src="/assets/cup-poster.jpg" width="1080" height="1080" alt="" decoding="async">
+    <video muted playsinline loop preload="none" poster="/assets/cup-poster.jpg" tabindex="-1">
       <source data-src="/assets/cup-720.mp4" type="video/mp4" media="(max-width: 899px)">
       <source data-src="/assets/cup-1080.mp4" type="video/mp4">
     </video>
@@ -827,9 +827,13 @@ html.lowh:not(.pin) .row{padding-top:4px}
   var cvid = cup && cup.querySelector('video');
   var cupTick = function () {};
   if (cvid && motion && hasIO && cvid.play) {
-    var cupLoaded = false, cupLanded = false, cupIn = false, FALL_A = 0.35, FALL_B = 1.5;
+    var cupLoaded = false, cupLanded = false, cupIn = false, cupSeeked = false, FALL_A = 0.35, FALL_B = 1.5;
     var cupPlay = function () { var p = cvid.play(); if (p && p.catch) p.catch(function () {}); };
-    cvid.addEventListener('playing', function () { cup.classList.add('live'); });
+    // show the film only once a frame is decoded, so the still is never covered by an empty video
+    var cupShow = function () { if (cvid.readyState >= 2) cup.classList.add('live'); };
+    cvid.addEventListener('playing', function () { if (!cvid.paused) cupShow(); });
+    cvid.addEventListener('loadeddata', function () { if (cupLanded || cupSeeked) cupShow(); });
+    cvid.addEventListener('seeked', function () { cupSeeked = true; cupShow(); });
     cupTick = function () {
       if (!cupLoaded || cupLanded || cvid.readyState < 1) return;
       var vh = window.innerHeight, r = cup.getBoundingClientRect();
@@ -843,25 +847,34 @@ html.lowh:not(.pin) .row{padding-top:4px}
         setTimeout(function () { cup.parentNode.classList.add('caught'); }, 260);
         return;
       }
-      cup.classList.add('live');
       cvid.currentTime = FALL_A + (FALL_B - FALL_A) * p;
     };
     cvid.addEventListener('loadedmetadata', function () { cupTick(); });
+    // wide observer (two screens out): fetch and prime only. It never plays or pauses.
     var cio = new IntersectionObserver(function (es) {
       es.forEach(function (e) {
-        cupIn = e.isIntersecting;
-        if (e.isIntersecting) {
-          if (!cupLoaded) {
+        if (e.isIntersecting && !cupLoaded) {
             cupLoaded = true;
             Array.prototype.forEach.call(cvid.querySelectorAll('source'), function (s) { s.src = s.getAttribute('data-src'); });
             cvid.preload = 'auto';
             cvid.load();
-          }
-          if (cupLanded) cupPlay(); else cupTick();
-        } else if (cupLoaded) cvid.pause();
+            // prime: a muted play then pause so iPhone Safari buffers before the landing (the film stays hidden until a decoded frame is shown)
+            var pp = cvid.play(); if (pp && pp.catch) pp.catch(function () {});
+            cvid.pause();
+        }
+      });
+    }, { rootMargin: '200% 0px', threshold: 0 });
+    cio.observe(cup);
+    // near observer (half a screen out, as before the fetch fix): owns cupIn, play and pause, so the film never runs off screen
+    var cio2 = new IntersectionObserver(function (es) {
+      es.forEach(function (e) {
+        cupIn = e.isIntersecting;
+        if (!cupLoaded) return;
+        if (e.isIntersecting) { if (cupLanded) cupPlay(); else cupTick(); }
+        else cvid.pause();
       });
     }, { rootMargin: '50% 0px', threshold: 0 });
-    cio.observe(cup);
+    cio2.observe(cup);
   }
 
   // ---- reveals ----
