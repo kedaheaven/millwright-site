@@ -286,7 +286,7 @@ html:not(.pin) .sum dd{font-size:3.4rem}
 .row.back{padding-top:12px;margin-top:6px;border-top:1px dashed var(--rule-2)}
 .row.back .lab{font-weight:700}
 .row.back .hrs{color:var(--amber)}
-.row.back .bar{width:calc(1307 / 1500 * 100%)}
+.row.back .bar{width:calc(1295 / 1500 * 100%)}
 .legend{display:flex;gap:4px 16px;flex-wrap:wrap;font-size:.78rem;color:var(--mute);padding-top:10px}
 .marks{position:absolute;left:0;top:0;width:0;height:0;pointer-events:none}
 .marks i{position:absolute;left:0;top:0;width:1px;transform-origin:0 0;background:var(--amber);border-radius:1px;will-change:transform}
@@ -636,7 +636,7 @@ html.lowh:not(.pin) .row{padding-top:4px}
         <dl class="sum">
           <div data-s="week count"><dt>Done by hand</dt><dd><span class="n" id="n-hand">31.7</span><small>h/wk</small></dd></div>
           <div data-s="judge"><dt>Found, worth going after</dt><dd>30.4<small>h/wk</small></dd></div>
-          <div data-s="back"><dt>Can come off, after the 8.6 a person still does</dt><dd>21.8<small>h/wk</small></dd></div>
+          <div data-s="back"><dt>Can come off, after the 8.8 a person still does</dt><dd>21.6<small>h/wk</small></dd></div>
           <div data-s="build"><dt>$35,000 a year by hand, wages plus employment costs</dt><dd>22.9<small>h/wk</small></dd></div>
         </dl>
       </div>
@@ -662,7 +662,7 @@ html.lowh:not(.pin) .row{padding-top:4px}
           <span class="lab"><span class="day fade" aria-hidden="true">Wed</span><span class="job fade">Chase timesheets and receipts</span></span>
           <span class="hrs"><span class="dayhrs fade" aria-hidden="true"></span><span class="jobhrs fade">1.2 h</span></span>
           <span class="vd fade">Tool</span>
-          <span class="track"><span class="bar" style="--m:72;--k:12"><i></i><i class="k"></i></span><span class="how fade">12 a week &times; 6 min</span></span>
+          <span class="track"><span class="bar" style="--m:72;--k:24"><i></i><i class="k"></i></span><span class="how fade">12 a week &times; 6 min</span></span>
         </li>
         <li class="row su" data-job="3">
           <span class="lab"><span class="day fade" aria-hidden="true">Thu</span><span class="job fade">Retype quotes from a price sheet</span></span>
@@ -678,7 +678,7 @@ html.lowh:not(.pin) .row{padding-top:4px}
         </li>
         <li class="row back">
           <span class="lab fade">Can come off</span>
-          <span class="hrs fade">21.8 h</span>
+          <span class="hrs fade">21.6 h</span>
           <span class="vd" aria-hidden="true"></span>
           <span class="track"><span class="bar"><i></i></span></span>
         </li>
@@ -701,7 +701,7 @@ html.lowh:not(.pin) .row{padding-top:4px}
       <p><i class="key keep" aria-hidden="true"></i>Some of each job stays with a person.</p>
     </div></div>
     <div class="step" data-stage="back"><div class="cap">
-      <h2><span class="amber">21.8 hours</span> can come off.</h2>
+      <h2><span class="amber">21.6 hours</span> can come off.</h2>
       <p>The guarantee needs five.</p>
     </div></div>
     <div class="step" data-stage="build"><div class="cap">
@@ -919,12 +919,12 @@ html.lowh:not(.pin) .row{padding-top:4px}
   var DAY = 540, DAYS = 5, JOBSPAN = 1500;   // a day is 9 hours; after the week, each job is drawn on 25 hours
 
   // The specimen: how many a week, minutes each, units a person still does.
-  // Totals match the published specimen: 31.7 by hand, 30.4 worth going after, 8.6 kept, 21.8 off.
+  // Totals match the published specimen: 31.7 by hand, 30.4 worth going after, 8.8 kept, 21.6 off.
   // Re-keying orders is the one build: 22.9 h a week x 52 = 1,192 h a year x $40,000 x 1.3 / 1,750 = $35,410.
   var JOBS = [
     { n: 125, unit: 11, keep: 31 },            // re-key orders, 22.9 h, I build
     { n: 10, unit: 15, keep: 3, block: true },  // Friday report, 1 x 150 min drawn as one block
-    { n: 12, unit: 6, keep: 2 },                // chase timesheets, 1.2 h
+    { n: 12, unit: 6, keep: 4 },                // chase timesheets, 1.2 h
     { n: 25, unit: 9, keep: 13 },               // retype quotes, 3.8 h
     { n: 40, unit: 2, leave: true }             // file photos, 1.3 h, leave it
   ];
