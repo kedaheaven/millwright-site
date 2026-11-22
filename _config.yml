@@ -1,0 +1,5 @@
+# GitHub Pages builds this repository with Jekyll. Files listed here are kept out of the
+# published site. Do not add a .nojekyll file: it switches Jekyll off, and with it this list.
+exclude:
+  - README.md
+  - _src

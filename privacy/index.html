@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Privacy | Millwright</title>
+<meta name="description" content="What this site collects (almost nothing), what happens when you email or book a call, and who else sees a visit.">
+<link rel="canonical" href="https://millwright.works/privacy/">
+<meta property="og:title" content="Privacy | Millwright">
+<meta property="og:description" content="What this site collects (almost nothing), what happens when you email or book a call, and who else sees a visit.">
+<meta property="og:url" content="https://millwright.works/privacy/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Millwright">
+<meta property="og:image" content="https://millwright.works/assets/og-home.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Privacy | Millwright">
+<meta name="twitter:description" content="What this site collects (almost nothing), what happens when you email or book a call, and who else sees a visit.">
+<meta name="twitter:image" content="https://millwright.works/assets/og-home.png">
+<meta name="theme-color" content="#080807">
+<link rel="icon" href="/favicon.ico" sizes="48x48">
+<link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="/assets/favicon-32.png" type="image/png" sizes="32x32">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..100,400..800&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebSite",
+      "@id": "https://millwright.works/#website",
+      "url": "https://millwright.works/",
+      "name": "Millwright",
+      "inLanguage": "en-US"
+    },
+    {
+      "@type": "WebPage",
+      "@id": "https://millwright.works/privacy/#page",
+      "url": "https://millwright.works/privacy/",
+      "name": "Privacy",
+      "description": "What this site collects (almost nothing), what happens when you email or book a call, and who else sees a visit.",
+      "isPartOf": {"@id": "https://millwright.works/#website"},
+      "breadcrumb": {"@id": "https://millwright.works/privacy/#breadcrumb"},
+      "inLanguage": "en-US"
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://millwright.works/privacy/#breadcrumb",
+      "itemListElement": [
+        {"@type": "ListItem", "position": 1, "name": "Millwright", "item": "https://millwright.works/"},
+        {"@type": "ListItem", "position": 2, "name": "Privacy", "item": "https://millwright.works/privacy/"}
+      ]
+    }
+  ]
+}
+</script>
+<style>
+/* Same tokens as the home page: carbon ground, bone paper, one amber. */
+:root{
+  --ink:#080807; --ink-2:#141412; --ink-3:#1F1E1B;
+  --bone:#EFEBE1; --bone-2:#E3DDCE;
+  --amber:#FFB23F; --amber-hi:#FFC56C; --amber-deep:#9C420A;
+  --mute:#A9A598; --mute-paper:#57544A;
+  --rule:#2E2D29; --rule-2:#45433C; --rule-paper:#CBC4B2;
+  --display:'Archivo',system-ui,sans-serif; --body:'Archivo',system-ui,sans-serif; --mono:'IBM Plex Mono',ui-monospace,monospace;
+  --gutter:clamp(16px,4vw,48px);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{font-family:var(--body);font-size:1.0625rem;line-height:1.6;color:var(--bone);background:var(--ink);-webkit-font-smoothing:antialiased;min-height:100vh;display:flex;flex-direction:column;overflow-x:hidden}
+main{flex:1}
+h1,h2{font-family:var(--display);font-weight:800;font-stretch:68%;text-wrap:balance;letter-spacing:-.005em;word-spacing:.06em}
+p{text-wrap:pretty}
+a{color:inherit;text-underline-offset:.22em;text-decoration-thickness:1px}
+a:focus-visible{outline:3px solid var(--amber);outline-offset:3px}
+.paper :focus-visible{outline-color:var(--ink)}
+.wrap{max-width:1180px;margin:0 auto;padding-inline:var(--gutter)}
+
+/* header: the home page's, on solid carbon */
+.top-bar{border-bottom:1px solid var(--rule)}
+.nav{display:flex;align-items:center;justify-content:space-between;gap:16px;padding-block:16px}
+.wordmark{display:flex;align-items:center;gap:11px;text-decoration:none}
+.wordmark svg{display:block}
+.wordmark span{font-family:var(--display);font-weight:800;font-stretch:80%;font-size:1.28rem;letter-spacing:.09em;color:var(--bone)}
+.wordmark span b{color:var(--amber);font-weight:800}
+.nav-links{display:flex;align-items:center;gap:26px}
+.nav-links .txt{font-size:.95rem;color:var(--mute);text-decoration:none}
+.nav-links .txt:hover{color:var(--bone)}
+.btn-ghost{display:inline-block;font-family:var(--display);font-weight:700;font-stretch:85%;letter-spacing:.06em;text-transform:uppercase;text-decoration:none;color:var(--bone);border:1px solid var(--rule-2);padding:9px 15px;font-size:.88rem;white-space:nowrap}
+.btn-ghost:hover{border-color:var(--bone)}
+
+/* masthead */
+.mast{padding-block:56px 48px;position:relative}
+.kicker{font-family:var(--mono);font-size:.74rem;letter-spacing:.04em;color:var(--mute)}
+.mast h1{margin-top:14px;font-size:clamp(2.6rem,10.4vw,5.4rem);line-height:.9;max-width:12em}
+.mast h1 span{display:block;color:var(--amber)}
+.mast .lede{margin-top:22px;font-size:1.12rem;color:var(--mute);max-width:30em}
+
+/* at a glance: a ledger in the week figure's hand (mono values, ruled rows) */
+.glance{margin-top:34px;max-width:560px;border-top:1px solid var(--rule)}
+.glance div{display:grid;grid-template-columns:minmax(0,1fr) auto;align-items:baseline;gap:14px;padding:9px 0;border-bottom:1px solid var(--rule)}
+.glance dt{font-size:.95rem;color:var(--bone)}
+.glance dd{font-family:var(--mono);font-size:.8rem;color:var(--mute);text-align:right}
+.glance dd.none{color:var(--amber)}
+.glance-h{font-family:var(--mono);font-size:.7rem;color:var(--mute);letter-spacing:.02em;margin-top:34px}
+.glance-h + .glance{margin-top:8px}
+
+/* the clauses, on bone paper, numbered like the questions on the home page */
+.paper{background:var(--bone);color:var(--ink);position:relative}
+.paper::before{content:"";position:absolute;left:0;right:0;top:0;height:14px;pointer-events:none;
+  background:repeating-linear-gradient(90deg,rgba(8,8,7,.42) 0 1px,transparent 1px 8px) 0 0 / 100% 6px no-repeat,
+             repeating-linear-gradient(90deg,rgba(8,8,7,.78) 0 1px,transparent 1px 40px) 0 0 / 100% 13px no-repeat}
+.clauses{padding-block:56px 72px;counter-reset:c}
+.clause{counter-increment:c;border-top:1px solid var(--rule-paper);padding-block:22px 26px;display:grid;grid-template-columns:minmax(0,1fr);gap:8px}
+.clause:last-child{border-bottom:1px solid var(--rule-paper)}
+.clause h2{font-size:clamp(1.7rem,6.6vw,2.4rem);line-height:.98;display:flex;gap:12px;align-items:baseline}
+.clause h2::before{content:counter(c,decimal-leading-zero);font-family:var(--mono);font-weight:400;font-stretch:100%;font-size:.74rem;letter-spacing:0;color:var(--amber-deep);min-width:2.1em;flex:none;position:relative;top:-.2em}
+.clause p{color:var(--mute-paper);max-width:36em;font-size:1.06rem}
+.clause p a{color:var(--ink)}
+
+footer{background:var(--ink);color:var(--mute);border-top:1px solid var(--rule)}
+.foot{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px 28px;padding-block:24px 30px;font-size:.92rem}
+.foot nav{display:flex;flex-wrap:wrap;gap:8px 22px}
+.foot a{color:var(--bone)}
+
+@media (min-width:900px){
+  .nav{padding-block:22px}
+  .mast{padding-block:88px 72px}
+  .mast-grid{display:grid;grid-template-columns:minmax(0,1.25fr) minmax(0,.75fr);gap:64px;align-items:end}
+  .glance-h{margin-top:0}
+  .clauses{padding-block:96px 110px}
+  .clause{grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr);gap:72px;padding-block:30px 34px}
+  .clause h2{font-size:2.3rem}
+}
+@media (max-width:899px){ .nav-links .txt{display:none} }
+@media (prefers-reduced-motion:no-preference){
+  @keyframes rise{from{opacity:0;transform:translateY(.45em)}to{opacity:1;transform:none}}
+  .mast h1{animation:rise .8s cubic-bezier(.2,.7,.2,1) both}
+}
+@media (max-width:374px){
+  /* the header on one line at 320: a slightly tighter wordmark and button */
+  .nav{gap:10px}
+  .wordmark{gap:9px}
+  .wordmark span{font-size:1.12rem;letter-spacing:.07em}
+  .btn-ghost{padding-inline:11px}
+}
+@media (max-width:360px){
+  .cta .btn,.links .btn{font-size:.94rem;padding-inline:12px;letter-spacing:.04em}
+}
+</style>
+</head>
+<body>
+
+<header class="top-bar">
+  <div class="wrap nav">
+    <a class="wordmark" href="/" aria-label="Millwright, home">
+      <svg width="28" height="28" viewBox="0 0 32 32" aria-hidden="true">
+        <circle cx="16" cy="16" r="12" fill="none" stroke="#EFEBE1" stroke-width="1.6"/>
+        <path d="M16 11.2c2.2 3 3.4 4.8 3.4 6.4a3.4 3.4 0 0 1-6.8 0c0-1.6 1.2-3.4 3.4-6.4z" fill="#FFB23F"/>
+        <line x1="16" y1="0" x2="16" y2="6" stroke="#FFB23F" stroke-width="1.6"/>
+        <line x1="16" y1="26" x2="16" y2="32" stroke="#FFB23F" stroke-width="1.6"/>
+        <line x1="0" y1="16" x2="6" y2="16" stroke="#FFB23F" stroke-width="1.6"/>
+        <line x1="26" y1="16" x2="32" y2="16" stroke="#FFB23F" stroke-width="1.6"/>
+      </svg>
+      <span>MILLWRIGHT<b>.</b></span>
+    </a>
+    <nav class="nav-links" aria-label="Main">
+      <a class="txt" href="/#check">The Reality Check</a>
+      <a class="txt" href="/worth-fixing/">Calculator</a>
+      <a class="btn-ghost" aria-label="Book a free 20-minute intro call" href="/book/">Intro call</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <div class="mast">
+    <div class="wrap mast-grid">
+      <div>
+        <p class="kicker">Privacy · updated November 2026</p>
+        <h1>What this site collects, <span>and who else sees a visit.</span></h1>
+        <p class="lede">Short version: this site collects almost nothing. I don't run analytics, I don't set cookies, and
+        there is no sign-up form.</p>
+      </div>
+      <div>
+        <p class="glance-h" id="glance-h">At a glance</p>
+        <dl class="glance" aria-labelledby="glance-h">
+          <div><dt>Analytics</dt><dd class="none">None</dd></div>
+          <div><dt>Cookies this site sets</dt><dd class="none">None</dd></div>
+          <div><dt>Sign-up forms</dt><dd class="none">None</dd></div>
+          <div><dt>The two typefaces</dt><dd>Google Fonts</dd></div>
+          <div><dt>Everything else</dt><dd>This site</dd></div>
+          <div><dt>Booking a call</dt><dd>By email, on Microsoft 365</dd></div>
+        </dl>
+      </div>
+    </div>
+  </div>
+
+  <div class="paper">
+    <div class="wrap clauses">
+      <section class="clause" aria-labelledby="c1">
+        <h2 id="c1">Browsing the site</h2>
+        <p>The pages are plain files with no tracking, no cookies and no advertising. The company that hosts
+        the site may log visits the way any web host does. The two typefaces load from Google Fonts, so
+        your browser contacts Google to fetch them. Everything else, the short films on the home page,
+        the calculator and the booking page included, comes from this site.</p>
+      </section>
+      <section class="clause" aria-labelledby="c2">
+        <h2 id="c2">The calculator</h2>
+        <p>The <a href="/worth-fixing/">calculator</a> does its arithmetic in your browser. What you type
+        isn't sent anywhere. The print and mail buttons hand the result to your own printer or mail program,
+        and only what you then choose to send leaves your device.</p>
+      </section>
+      <section class="clause" aria-labelledby="c3">
+        <h2 id="c3">If you email me</h2>
+        <p>I get your email address and whatever you write. I use it to reply to you and for nothing else. I
+        don't sell it or pass it to anyone.</p>
+      </section>
+      <section class="clause" aria-labelledby="c4">
+        <h2 id="c4">If you book a call</h2>
+        <p>For now you book a call by email. The button on the booking page only opens your own mail
+        program, and nothing on this site collects what you write. Your email reaches my mailbox on
+        Microsoft 365, and I treat it like any other email, as above.</p>
+      </section>
+      <section class="clause" aria-labelledby="c5">
+        <h2 id="c5">Questions, or a request to delete something</h2>
+        <p>Write to <a href="mailto:kevin@millwright.works">kevin@millwright.works</a> and I'll answer
+        myself.</p>
+      </section>
+    </div>
+  </div>
+</main>
+
+<footer>
+  <div class="wrap foot">
+    <span>Millwright, West metro Atlanta, Georgia</span>
+    <nav aria-label="Footer">
+      <a href="/worth-fixing/">Free calculator</a>
+      <a href="/which-jobs/">Guide</a>
+      <a href="/privacy/" aria-current="page">Privacy</a>
+      <a href="mailto:kevin@millwright.works">kevin@millwright.works</a>
+    </nav>
+  </div>
+</footer>
+</body>
+</html>

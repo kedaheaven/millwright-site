@@ -1,0 +1,48 @@
+# Millwright
+
+> Millwright is a one-person practice run by Kevin Hudgens, based in west metro Atlanta, Georgia, working with companies locally and remotely. It finds the manual work in companies of 10 to 100 people and says which jobs can come off, with what. The first step is a free 20-minute intro call, with no obligation.
+
+## How to start
+
+- Book a free 20-minute intro call (no obligation; it comes before the AI Reality Check and is separate from it). In Kevin's words: "Twenty minutes to see whether a Reality Check is worth it for you. If it isn't, I'll say so." Booking: https://millwright.works/book/ (for now the call is booked by email: a name, a company and two or three times that suit, with a time zone, sent to the address below).
+- Email: kevin@millwright.works. Kevin answers every email himself, within one working day.
+
+## The offer
+
+- Name: the AI Reality Check.
+- Price: $999. $499 for the first five clients. Fixed, and invoiced after the review call, never on signing.
+- What it is: a 45 to 60 minute conversation about how the company's week runs, then a written report of the manual work found (hours a week per job and one of five answers for each: stop doing it, buy a tool, have Kevin set one up, build, or leave it alone), then a 30-minute review call.
+- Guarantee: if Kevin can't find at least five hours a week of manual work he can help the client get rid of, the client pays nothing. The client judges that at the review call and keeps the report either way.
+- Who it is for: owners of companies with 10 to 100 people, especially those already on Microsoft 365. It works whatever software the company runs.
+
+## Building
+
+- Kevin builds only when one job takes at least 15 to 20 hours a week by hand.
+- Builds are agent-first on Microsoft Power Platform: the software works the routine cases and hands people the exceptions. They live in the client's own Microsoft 365 and the client owns the source.
+- Below that bar he names an off-the-shelf product and takes no commission, referral fee or cut, or sets one up himself for a fixed price.
+- Data: the Reality Check needs no access to the client's systems. What he builds lives in the client's Microsoft 365 and he keeps no copy of client data. If a job would use an AI model outside Microsoft's, part of what it reads leaves that boundary; that is disclosed in writing first and the client's own admin switches it on, or it is not used.
+- Not offered: IT support (laptops, email accounts, passwords, networks).
+
+## The free calculator, and its method
+
+https://millwright.works/worth-fixing/ prices one manual job. It runs in the browser and needs JavaScript; no email is needed to see the answer. The same arithmetic, by hand:
+
+1. Hours a week: times a week x minutes each / 60. Hours a year: times a week x minutes each x 0.8667 (52 weeks / 60).
+2. The share that would come off, by the kind of work: information coming in from outside 0.75; copying between two systems 0.70; chasing people 0.70; the same facts kept in several places 0.50; someone's judgment 0.40. If nobody uses what comes out, the work can stop: 0.80.
+3. Times a factor for the ones that go straight through: 8 to 10 in ten, 1.00; 5 to 7 in ten, that number / 10 + 0.20; under 5, 0.50.
+4. Hours off a desk a week: hours a week x the share x the factor, and x 52 for a year. Worth: salary x 1.3 / 1,750 an hour, times those hours. That is capacity, not cash. Default salaries: admin $40,000, field $45,000, bookkeeper $52,000, coordinator $60,000, manager $75,000, owner $50,000 (the cost of hiring someone).
+5. The verdict, checked in this order: nobody uses it, stop doing it; under 5 in ten straight through, fix the input first; under 0.75 hours a week off, leave it alone; under 1.5 hours a week off when the work is copying between systems or facts kept in several places, not first; the job's cost by hand at the salary entered (hours a year x salary x 1.3 / 1,750) reaches the bar Kevin builds at (15 to 20 hours a week at typical office pay) and isn't judgment work, build candidate if it was counted, count it first if it's a feel; otherwise set it up (copying between systems, facts in several places) or buy a tool.
+
+These rates are practitioner judgment at the conservative end of each range, not measurement. One job is not the whole week: the five hours the Reality Check has to find are usually spread across several jobs and people.
+
+## About Kevin Hudgens
+
+- Twenty-two years running operations.
+
+## Pages
+
+- [Home](https://millwright.works/): the AI Reality Check, the guarantee, and a specimen week (an illustration, not a client).
+- [Is it worth fixing?](https://millwright.works/worth-fixing/): the free calculator above.
+- [Which manual jobs are worth automating?](https://millwright.works/which-jobs/): a guide for owners. The short answer: the jobs somebody uses, that mostly go straight through, and that would give back enough hours to be worth changing how people work; most of the time the fix is a tool to buy or one set up properly, not new software, and Kevin builds only when one job takes at least 15 to 20 hours a week by hand. It covers the five kinds of manual work with the share of each that comes off, why messy input is fixed first, and the lines between stopping a job, leaving it alone, buying a tool, setting one up and building, in the order the calculator checks them.
+- [Book a free 20-minute intro call](https://millwright.works/book/): for now, how to book the call by email: a name, a company and two or three times that suit, with a time zone, sent to kevin@millwright.works.
+- [Privacy](https://millwright.works/privacy/): what the site collects.

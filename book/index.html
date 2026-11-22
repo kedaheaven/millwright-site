@@ -1,0 +1,1051 @@
+<!DOCTYPE html>
+<!--
+  BOOKING FORM SWITCH: the data-booking-form attribute on the html element below.
+    "off" (the default, and what the page does for any value but "on"): the page shows how to
+      book by email (the block with id="interim") and never contacts the booking service.
+    "on": the booking form; the email block is hidden.
+  Change only that one word. Nothing else in the page needs to change.
+-->
+<html lang="en" data-booking-form="off">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data:; media-src 'self'; connect-src https://book.millwright.works; form-action 'none'; base-uri 'none'; object-src 'none'">
+<title>Book a Free 20-Minute Intro Call | Millwright</title>
+<meta name="description" content="Book a free 20-minute call with Kevin Hudgens. For now it's booked by email: your name, your company and two or three times that suit you. Free, no obligation.">
+<link rel="canonical" href="https://millwright.works/book/">
+<meta property="og:title" content="Book a free 20-minute intro call">
+<meta property="og:description" content="Twenty minutes to see whether a Reality Check is worth it for you. If it isn't, I'll say so. Free, no obligation.">
+<meta property="og:url" content="https://millwright.works/book/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Millwright">
+<meta property="og:image" content="https://millwright.works/assets/og-home.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="A drop of oil about to fall from a steel nozzle, beside the line: Your week is leaking hours, four minutes at a time.">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Book a free 20-minute intro call">
+<meta name="twitter:description" content="Twenty minutes to see whether a Reality Check is worth it for you. If it isn't, I'll say so. Free, no obligation.">
+<meta name="twitter:image" content="https://millwright.works/assets/og-home.png">
+<meta name="twitter:image:alt" content="A drop of oil about to fall from a steel nozzle, beside the line: Your week is leaking hours, four minutes at a time.">
+<meta name="theme-color" content="#080807">
+<link rel="icon" href="/favicon.ico" sizes="48x48">
+<link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="/assets/favicon-32.png" type="image/png" sizes="32x32">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..100,400..800&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebSite",
+      "@id": "https://millwright.works/#website",
+      "url": "https://millwright.works/",
+      "name": "Millwright",
+      "inLanguage": "en-US"
+    },
+    {
+      "@type": "WebPage",
+      "@id": "https://millwright.works/book/#page",
+      "url": "https://millwright.works/book/",
+      "name": "Book a free 20-minute intro call",
+      "description": "How to book the free 20-minute intro call with Kevin Hudgens on Microsoft Teams. For now it is booked by email: a name, a company and two or three times that suit, with a time zone, sent to kevin@millwright.works. Kevin answers every email himself, within one working day. Free, no obligation.",
+      "isPartOf": {"@id": "https://millwright.works/#website"},
+      "about": {"@id": "https://millwright.works/#intro-call"},
+      "breadcrumb": {"@id": "https://millwright.works/book/#breadcrumb"},
+      "inLanguage": "en-US"
+    },
+    {
+      "@type": "Service",
+      "@id": "https://millwright.works/#intro-call",
+      "name": "20-minute intro call",
+      "url": "https://millwright.works/book/",
+      "provider": {"@type": "ProfessionalService", "@id": "https://millwright.works/#business", "name": "Millwright", "url": "https://millwright.works/"}
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://millwright.works/book/#breadcrumb",
+      "itemListElement": [
+        {"@type": "ListItem", "position": 1, "name": "Millwright", "item": "https://millwright.works/"},
+        {"@type": "ListItem", "position": 2, "name": "Book a free 20-minute intro call", "item": "https://millwright.works/book/"}
+      ]
+    }
+  ]
+}
+</script>
+<style>
+/* Same tokens as the home page and the calculator: carbon ground, bone paper, one amber. */
+:root{
+  --ink:#080807; --ink-2:#141412; --ink-3:#1F1E1B;
+  --bone:#EFEBE1; --bone-2:#E3DDCE; --field:#F7F4EC;
+  --amber:#FFB23F; --amber-hi:#FFC56C; --amber-deep:#9C420A;
+  --mute:#A9A598; --mute-paper:#57544A;
+  --rule:#2E2D29; --rule-2:#45433C; --rule-paper:#CBC4B2;
+  --display:'Archivo',system-ui,sans-serif; --body:'Archivo',system-ui,sans-serif; --mono:'IBM Plex Mono',ui-monospace,monospace;
+  --gutter:clamp(16px,4vw,48px);
+  --edge:max(var(--gutter),calc((100vw - 1180px) / 2 + var(--gutter)));
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{font-family:var(--body);font-size:1.0625rem;line-height:1.55;color:var(--bone);background:var(--ink);-webkit-font-smoothing:antialiased;overflow-x:hidden}
+h1,h2,h3{font-family:var(--display);font-weight:800;font-stretch:68%;text-wrap:balance;letter-spacing:-.005em;word-spacing:.06em}
+p{text-wrap:pretty}
+a{color:inherit;text-underline-offset:.22em;text-decoration-thickness:1px}
+a:focus-visible,button:focus-visible,input:focus-visible{outline:3px solid var(--amber);outline-offset:3px}
+.paper :focus-visible{outline-color:var(--ink)}
+[tabindex="-1"]:focus{outline:none}
+[hidden]{display:none!important}
+.wrap{max-width:1180px;margin:0 auto;padding-inline:var(--gutter)}
+.sr-only{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+.mono-label{font-family:var(--mono);font-size:.72rem;letter-spacing:.04em}
+.nw{white-space:nowrap}
+
+.btn{display:inline-block;font-family:var(--display);font-weight:700;font-stretch:85%;font-size:1.02rem;letter-spacing:.06em;text-transform:uppercase;text-decoration:none;padding:16px 26px;border:none;border-radius:0;cursor:pointer;transition:background-color .15s ease}
+.btn-amber{background:var(--amber);color:var(--ink)}
+.btn-amber:hover{background:var(--amber-hi)}
+.btn-ink{background:var(--ink);color:var(--bone)}
+.btn-ink:hover{background:var(--ink-3)}
+.btn-ghost{background:rgba(12,12,11,.35);color:var(--bone);border:1px solid var(--rule-2);padding:9px 15px;font-size:.88rem;white-space:nowrap}
+.btn-ghost:hover{border-color:var(--bone)}
+
+/* ---------- header (over the hero), as on every page ---------- */
+.top-bar{position:absolute;inset:0 0 auto 0;z-index:5;background:linear-gradient(rgba(8,8,7,.9),rgba(8,8,7,.8) 55%,rgba(8,8,7,0))}
+.nav{display:flex;align-items:center;justify-content:space-between;gap:16px;padding-block:16px 24px}
+.wordmark{display:flex;align-items:center;gap:11px;text-decoration:none}
+.wordmark svg{display:block}
+.wordmark span{font-family:var(--display);font-weight:800;font-stretch:80%;font-size:1.28rem;letter-spacing:.09em;color:var(--bone)}
+.wordmark span b{color:var(--amber);font-weight:800}
+.nav-links{display:flex;align-items:center;gap:26px}
+.nav-links .txt{font-size:.95rem;color:var(--mute);text-decoration:none}
+.nav-links .txt:hover{color:var(--bone)}
+
+/* ---------- hero: the drop on the nozzle, waiting ---------- */
+.hero{position:relative;background:var(--ink);overflow:hidden}
+.drip{position:relative;height:clamp(196px,30svh,260px);z-index:0;
+  -webkit-mask-image:linear-gradient(#000 50%,transparent 96%);mask-image:linear-gradient(#000 50%,transparent 96%)}
+.drip img{position:absolute;top:-8px;left:50%;width:max(118%,440px);height:auto;aspect-ratio:1;transform:translateX(-50%);display:block}
+.hero-copy{position:relative;z-index:2;margin-top:-30px;padding-bottom:34px}
+.kicker{font-family:var(--mono);font-size:.74rem;letter-spacing:.04em;color:var(--mute)}
+.hero h1{margin-top:10px;font-size:clamp(3rem,13.4vw,4.3rem);line-height:.9;letter-spacing:-.01em;word-spacing:.08em}
+.hero h1 .l1,.hero h1 .l2{display:block}
+.hero h1 .l2{color:var(--amber)}
+.hero .lede{margin-top:16px;font-size:1.1rem;color:var(--mute);max-width:27em}
+.hero .lede strong{display:block;margin-top:6px;color:var(--bone);font-weight:600}
+@media (prefers-reduced-motion:no-preference){
+  @keyframes rise{from{opacity:0;transform:translateY(.45em)}to{opacity:1;transform:none}}
+  @keyframes fadein{from{opacity:0}to{opacity:1}}
+  .hero h1 .l1,.hero h1 .l2{animation:rise .9s cubic-bezier(.2,.7,.2,1) both}
+  .hero h1 .l2{animation-delay:.18s}
+  .hero .lede{animation:fadein .8s ease .45s both}
+}
+
+/* ---------- the booking sheet, on paper like the calculator ---------- */
+.paper{background:var(--bone);color:var(--ink);position:relative}
+.paper::before{content:"";position:absolute;left:0;right:0;top:0;height:14px;pointer-events:none;
+  background:repeating-linear-gradient(90deg,rgba(8,8,7,.42) 0 1px,transparent 1px 8px) 0 0 / 100% 6px no-repeat,
+             repeating-linear-gradient(90deg,rgba(8,8,7,.78) 0 1px,transparent 1px 40px) 0 0 / 100% 13px no-repeat}
+.book{padding-block:40px 44px}
+.book .wrap{max-width:980px}
+
+.zone{font-family:var(--mono);font-size:.8rem;line-height:1.5;color:var(--ink);background:var(--bone-2);border-left:3px solid var(--amber-deep);padding:10px 14px;margin-bottom:6px;max-width:46em}
+.zone b{font-weight:500;color:var(--amber-deep)}
+
+/* waiting for the times: an empty rule with one amber tick traveling along it (motion only) */
+.loading{padding:22px 0 30px;max-width:520px}
+.loading p{font-family:var(--mono);font-size:.84rem;color:var(--mute-paper)}
+.loading .rule{margin-top:12px;height:16px;position:relative;overflow:hidden;
+  background-image:repeating-linear-gradient(90deg,var(--rule-paper) 0 1px,transparent 1px calc(100% / 12));box-shadow:inset 0 -1px 0 var(--rule-paper)}
+.loading .rule i{position:absolute;top:0;bottom:0;left:0;width:calc(100% / 12);background:var(--amber)}
+@media (prefers-reduced-motion:no-preference){
+  @keyframes sweep{0%{transform:translateX(0)}100%{transform:translateX(1100%)}}
+  .loading .rule i{animation:sweep 1.6s steps(11,end) infinite alternate}
+}
+
+.q{border-top:1px solid var(--rule-paper);padding:20px 0 22px;display:grid;grid-template-columns:minmax(0,1fr);gap:12px}
+.q.first{border-top:none;padding-top:12px}
+.qhead{display:flex;align-items:baseline;gap:4px 10px}
+.qn{font-family:var(--mono);font-size:.74rem;color:var(--amber-deep);flex:none;width:1.9em}
+.qt{font-family:var(--display);font-weight:800;font-stretch:72%;font-size:clamp(1.4rem,5.6vw,1.75rem);line-height:1.04;flex:1 1 0;min-width:0;text-wrap:balance}
+.qbody{display:grid;grid-template-columns:minmax(0,1fr);gap:12px;min-width:0}
+
+/* days: a card per day that has a time; one small mark per open time */
+.days{display:grid;grid-template-columns:repeat(auto-fill,minmax(64px,1fr));gap:6px;max-width:620px}
+.day{position:relative;display:flex;flex-direction:column;align-items:center;padding:9px 2px 8px;cursor:pointer;color:var(--ink);background:var(--field);border:1px solid var(--mute-paper);line-height:1.1;text-align:center}
+.day input,.tm input{position:absolute;opacity:0;width:0;height:0}
+.day .dw,.day .dm{font-family:var(--mono);font-size:.66rem;letter-spacing:.06em;text-transform:uppercase}
+.day .dn{font-family:var(--display);font-weight:800;font-stretch:62%;font-size:1.9rem;line-height:1;margin:3px 0 2px;font-variant-numeric:tabular-nums}
+.day .dc{display:flex;gap:2px;margin-top:6px;height:3px}
+.day .dc i{display:block;width:6px;height:3px;background:var(--amber-deep)}
+.day:hover{border-color:var(--ink)}
+.day:has(input:checked),.day.on{background:var(--ink);color:var(--bone);border-color:var(--ink);box-shadow:inset 0 -4px 0 var(--amber)}
+.day:has(input:checked) .dc i,.day.on .dc i{background:var(--amber)}
+.day:has(input:focus-visible),.tm:has(input:focus-visible){outline:3px solid var(--ink);outline-offset:2px;z-index:2}
+
+/* times: the visitor's time large, mine under it */
+.times{display:grid;grid-template-columns:repeat(auto-fill,minmax(124px,1fr));gap:6px;max-width:620px}
+.tm{position:relative;display:flex;flex-direction:column;gap:2px;padding:11px 14px 12px;cursor:pointer;color:var(--ink);background:var(--field);border:1px solid var(--mute-paper)}
+.tm .tl{font-family:var(--display);font-weight:800;font-stretch:72%;font-size:1.55rem;line-height:1;font-variant-numeric:tabular-nums;white-space:nowrap}
+.tm .te{font-family:var(--mono);font-size:.7rem;color:var(--mute-paper);white-space:nowrap}
+.tm:hover{border-color:var(--ink)}
+.tm:has(input:checked),.tm.on{background:var(--ink);color:var(--bone);border-color:var(--ink);box-shadow:inset 0 -4px 0 var(--amber)}
+.tm:has(input:checked) .te,.tm.on .te{color:var(--mute)}
+.daynote{font-family:var(--mono);font-size:.76rem;color:var(--mute-paper)}
+
+/* the details */
+.pick{font-weight:600;font-size:1.04rem;line-height:1.35;max-width:34em}
+.pick .mine{display:block;font-family:var(--mono);font-weight:400;font-size:.76rem;color:var(--mute-paper);margin-top:3px}
+.pick.none{font-weight:400;color:var(--mute-paper)}
+.fields{display:grid;grid-template-columns:minmax(0,1fr);gap:14px 18px;max-width:640px}
+.f{display:grid;gap:5px;min-width:0;align-content:start}
+.f label{font-weight:600;font-size:.98rem}
+.f .opt,.f .why{font-family:var(--mono);font-weight:400;font-size:.7rem;color:var(--mute-paper);letter-spacing:.03em;margin-left:.45em}
+input[type=text],input[type=email]{font-family:var(--body);font-size:1.04rem;color:var(--ink);background:var(--field);
+  border:1px solid var(--mute-paper);padding:12px 14px;width:100%;border-radius:0;-webkit-appearance:none;appearance:none}
+input::placeholder{color:var(--mute-paper);opacity:1}
+input[aria-invalid=true]{border-color:var(--amber-deep);box-shadow:inset 3px 0 0 var(--amber-deep)}
+.ferr{font-size:.92rem;font-weight:600;color:var(--amber-deep)}
+.ferr:empty{display:none}
+.hp{position:absolute;left:-9999px;top:auto;width:1px;height:1px;overflow:hidden}
+
+.notice{border-left:3px solid var(--amber-deep);background:var(--bone-2);padding:13px 16px;font-size:.98rem;color:var(--ink);max-width:40em}
+.notice:empty{display:none}
+.notice a{color:var(--ink);font-weight:600}
+.near{display:flex;flex-wrap:wrap;gap:6px;margin-top:12px}
+.near button{font-family:var(--body);font-size:.95rem;font-weight:600;color:var(--ink);background:var(--field);border:1px solid var(--mute-paper);padding:10px 14px;cursor:pointer;border-radius:0}
+.near button:hover{border-color:var(--ink)}
+.near button span{font-family:var(--mono);font-weight:400;font-size:.72rem;color:var(--mute-paper);margin-right:6px}
+
+.go{margin-top:4px;border-top:1px solid var(--ink);padding-top:22px;display:flex;gap:12px 18px;align-items:center;flex-wrap:wrap}
+.go .free{font-weight:600;font-size:.95rem}
+.go .btn[aria-disabled=true]{background:var(--ink-3);cursor:progress}
+.go .btn .dots{display:inline-block;min-width:1.1em;text-align:left}
+
+/* states that replace the sheet */
+.panel{padding:22px 0 8px;max-width:40em}
+.panel h2{font-size:clamp(1.9rem,7.6vw,2.6rem);line-height:.96}
+.panel p{margin-top:12px;color:var(--mute-paper);font-size:1.04rem}
+.panel p a{color:var(--ink);font-weight:600}
+.panel .cta{margin-top:20px;display:flex;flex-wrap:wrap;align-items:center;gap:12px 20px}
+.alt{margin-top:26px;padding-top:14px;border-top:1px solid var(--rule-paper);font-family:var(--mono);font-size:.76rem;color:var(--mute-paper)}
+.alt a{color:var(--ink)}
+.nojs{border-left:3px solid var(--amber-deep);background:var(--bone-2);padding:16px 18px;max-width:40em}
+.nojs p{color:var(--ink)}
+.nojs p + p{margin-top:10px}
+.nojs .cta{margin-top:16px;display:flex;flex-wrap:wrap;gap:12px 20px;align-items:center}
+
+/* ---------- booked: the drop lands ---------- */
+.done{position:relative;background:var(--ink);overflow:hidden;isolation:isolate;padding-bottom:56px}
+.cup{position:relative;height:clamp(200px,30svh,300px);z-index:0;
+  -webkit-mask-image:linear-gradient(#000 60%,transparent 98%);mask-image:linear-gradient(#000 60%,transparent 98%)}
+.cup img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 64%;display:block}
+.cup .fall,.cup .ring{display:none}
+.done-copy{position:relative;z-index:1;margin-top:-18px}
+.done .kicker{color:var(--mute)}
+.done h1{margin-top:10px;font-size:clamp(3.2rem,15vw,5.2rem);line-height:.86;color:var(--bone)}
+.ticket{margin-top:22px;border:1px solid var(--rule);background:var(--ink-2);padding:16px 18px 18px;max-width:30em}
+.ticket .th{color:var(--mute);border-bottom:1px solid var(--rule);padding-bottom:10px;text-transform:uppercase}
+.ticket .td{margin-top:14px;font-size:1.12rem;font-weight:600;color:var(--bone)}
+.ticket .tt{margin-top:6px;font-family:var(--display);font-weight:800;font-stretch:62%;font-size:clamp(4.2rem,22vw,6rem);line-height:.82;color:var(--amber);font-variant-numeric:tabular-nums;letter-spacing:-.02em}
+.ticket .tt small{font-size:.36em;letter-spacing:.02em;margin-left:.12em}
+.ticket .tz{margin-top:10px;font-family:var(--mono);font-size:.8rem;color:var(--bone)}
+.ticket .tm2{margin-top:4px;font-family:var(--mono);font-size:.8rem;color:var(--mute)}
+.done .say{margin-top:20px;max-width:32em;color:var(--bone);font-size:1.06rem}
+.done .say b{font-weight:600;overflow-wrap:anywhere}
+.done .say.m{margin-top:10px;color:var(--mute);font-size:1rem}
+.done .say a{color:var(--bone)}
+.done .after{margin-top:22px;display:flex;flex-wrap:wrap;gap:12px 18px;align-items:center}
+.btn-line{background:transparent;color:var(--bone);border:1px solid var(--rule-2);font-family:var(--display);font-weight:700;font-stretch:85%;
+  font-size:.9rem;letter-spacing:.06em;text-transform:uppercase;padding:12px 18px;cursor:pointer;text-decoration:none;border-radius:0}
+.btn-line:hover{border-color:var(--bone)}
+@media (prefers-reduced-motion:no-preference){
+  /* the drop from the hero falls into the cup, and the ring runs out; once */
+  .done.land .cup .fall{display:block;position:absolute;left:50%;top:0;width:18px;height:25px;margin-left:-9px;
+    background:radial-gradient(circle at 44% 70%,#FFE1A3 0 12%,var(--amber) 38%,#C86A10 70%,var(--amber-deep) 100%);
+    clip-path:path('M9 0C9 0 18 11.7 18 15.9A9 8.1 0 0 1 0 15.9C0 11.7 9 0 9 0Z');filter:drop-shadow(0 0 6px rgba(255,178,63,.7));
+    animation:drop .62s cubic-bezier(.55,0,.9,.5) .25s both}
+  .done.land .cup .ring{display:block;position:absolute;left:50%;top:var(--surface,66%);width:90px;height:20px;margin:-10px 0 0 -45px;border:2px solid var(--amber);border-radius:50%;
+    opacity:0;animation:ring .9s cubic-bezier(.2,.7,.3,1) .85s both}
+  @keyframes drop{0%{transform:translateY(-30px);opacity:0}12%{opacity:1}90%{transform:translateY(calc(var(--fall,180px) - 12px));opacity:1}100%{transform:translateY(calc(var(--fall,180px) - 4px)) scale(.6,.3);opacity:0}}
+  @keyframes ring{0%{opacity:1;transform:scale(.1)}100%{opacity:0;transform:scale(2.8)}}
+  .done.land h1{animation:rise .8s cubic-bezier(.2,.7,.2,1) .6s both}
+  .done.land .ticket,.done.land .say,.done.land .after{animation:fadein .7s ease .9s both}
+}
+
+/* ---------- the booking form switch (see the comment above <html>) ---------- */
+html:not([data-booking-form="on"]) #app,html:not([data-booking-form="on"]) .nojs{display:none!important}
+html[data-booking-form="on"] #interim{display:none!important}
+.panel p.addr{display:inline-block;margin-top:16px;font-family:var(--mono);font-size:1.02rem;color:var(--ink);background:var(--bone-2);border-left:3px solid var(--amber-deep);padding:10px 14px;overflow-wrap:anywhere;-webkit-user-select:all;user-select:all}
+
+footer{background:var(--ink);color:var(--mute);border-top:1px solid var(--rule)}
+.foot{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px 28px;padding-block:24px 30px;font-size:.92rem}
+.foot nav{display:flex;flex-wrap:wrap;gap:8px 22px}
+.foot a{color:var(--bone)}
+
+@media (min-width:640px){
+  .fields{grid-template-columns:minmax(0,1fr) minmax(0,1fr)}
+  .f.wide{grid-column:1 / -1}
+}
+@media (min-width:900px){
+  .top-bar .nav{padding-block:22px 30px}
+  .hero{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,.8fr);min-height:min(58svh,500px)}
+  .drip{grid-column:2;grid-row:1;height:auto;min-height:100%;
+    -webkit-mask-image:linear-gradient(90deg,transparent 0,#000 26%),linear-gradient(#000 70%,transparent 100%);-webkit-mask-composite:source-in;
+    mask-image:linear-gradient(90deg,transparent 0,#000 26%),linear-gradient(#000 70%,transparent 100%);mask-composite:intersect}
+  .drip img{top:64px;width:max(112%,560px)}
+  .hero-copy{grid-column:1;grid-row:1;align-self:center;margin:0;padding:120px 24px 52px var(--edge)}
+  .hero h1{font-size:clamp(4.6rem,7.3vw,7.2rem)}
+  .hero .lede{font-size:1.18rem}
+  .book{padding-block:60px 64px}
+  .q{grid-template-columns:minmax(0,15rem) minmax(0,1fr);column-gap:40px;padding-block:24px 26px;align-items:start}
+  .q.first{padding-top:14px}
+  .done{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,.9fr);padding:0;min-height:min(80svh,720px)}
+  .cup{grid-column:2;grid-row:1;height:auto;min-height:560px;
+    -webkit-mask-image:linear-gradient(90deg,transparent 0,#000 30%),linear-gradient(#000 64%,transparent 98%);-webkit-mask-composite:source-in;
+    mask-image:linear-gradient(90deg,transparent 0,#000 30%),linear-gradient(#000 64%,transparent 98%);mask-composite:intersect}
+  .done-copy{grid-column:1;grid-row:1;align-self:center;margin:0;max-width:none;padding:120px 24px 80px var(--edge)}
+  .ticket{padding:20px 24px 22px}
+}
+@media (max-width:899px){ .nav-links .txt{display:none} }
+@media (max-width:420px){
+  .go{flex-direction:column;align-items:stretch}
+  .go .btn,.panel .cta .btn,.nojs .cta .btn{display:block;width:100%;text-align:center}
+  .go .free{text-align:center}
+  .done .after .btn{display:block;width:100%;text-align:center}
+}
+@media (max-width:374px){
+  /* the header on one line at 320: a slightly tighter wordmark and button */
+  .nav{gap:10px}
+  .wordmark{gap:9px}
+  .wordmark span{font-size:1.12rem;letter-spacing:.07em}
+  .btn-ghost{padding-inline:11px}
+  .tm{padding-inline:11px}
+  .tm .tl{font-size:1.4rem}
+}
+@media (max-width:360px){
+  .btn{font-size:.94rem;padding-inline:12px;letter-spacing:.04em}
+  .days{grid-template-columns:repeat(auto-fill,minmax(60px,1fr))}
+}
+</style>
+</head>
+<body>
+
+<header class="top-bar">
+  <div class="wrap nav">
+    <a class="wordmark" href="/" aria-label="Millwright, home">
+      <svg width="28" height="28" viewBox="0 0 32 32" aria-hidden="true">
+        <circle cx="16" cy="16" r="12" fill="none" stroke="#EFEBE1" stroke-width="1.6"/>
+        <path d="M16 11.2c2.2 3 3.4 4.8 3.4 6.4a3.4 3.4 0 0 1-6.8 0c0-1.6 1.2-3.4 3.4-6.4z" fill="#FFB23F"/>
+        <line x1="16" y1="0" x2="16" y2="6" stroke="#FFB23F" stroke-width="1.6"/>
+        <line x1="16" y1="26" x2="16" y2="32" stroke="#FFB23F" stroke-width="1.6"/>
+        <line x1="0" y1="16" x2="6" y2="16" stroke="#FFB23F" stroke-width="1.6"/>
+        <line x1="26" y1="16" x2="32" y2="16" stroke="#FFB23F" stroke-width="1.6"/>
+      </svg>
+      <span>MILLWRIGHT<b>.</b></span>
+    </a>
+    <nav class="nav-links" aria-label="Main">
+      <a class="txt" href="/#check">The Reality Check</a>
+      <a class="txt" href="/worth-fixing/">Calculator</a>
+      <a class="btn btn-ghost" aria-label="Book a free 20-minute intro call" aria-current="page" href="#book">Intro call</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <div class="hero" id="hero">
+    <div class="drip" aria-hidden="true">
+      <img src="/assets/drip-poster.jpg" width="1080" height="1080" alt="" decoding="async" fetchpriority="high">
+    </div>
+    <div class="hero-copy wrap">
+      <p class="kicker">Free intro call · 20 minutes · Microsoft Teams</p>
+      <h1><span class="l1">Pick a time.</span> <span class="l2">I'll be there.</span></h1>
+      <p class="lede">Twenty minutes to see whether a Reality Check is worth it for you. If it isn't, I'll say so. <strong>Free, no obligation.</strong></p>
+    </div>
+  </div>
+
+  <section class="book paper" id="book" aria-labelledby="book-h">
+    <div class="wrap">
+      <h2 class="sr-only" id="book-h">Book the call</h2>
+
+      <div class="panel" id="interim">
+        <h2>Book it by email for now.</h2>
+        <p>Email me your name, your company and two or three times that suit you, with your time zone. I answer every email myself, within one working day.</p>
+        <p class="addr">kevin@millwright.works</p>
+        <div class="cta"><a class="btn btn-ink" href="mailto:kevin@millwright.works?subject=Intro%20call&amp;body=Name%3A%20%0D%0ACompany%3A%20%0D%0ATwo%20or%20three%20times%20that%20suit%20me%2C%20with%20my%20time%20zone%3A%20%0D%0A">Write the email</a></div>
+      </div>
+
+      <div id="app" hidden>
+        <div class="loading" id="loading" role="status">
+          <p id="loadingText">Finding open times…</p>
+          <div class="rule" aria-hidden="true"><i></i></div>
+        </div>
+
+        <div id="sheet" hidden>
+          <p class="zone" id="zone"></p>
+
+          <div class="q first">
+            <div class="qhead"><span class="qn" aria-hidden="true">01</span><span class="qt" id="q1t">Which day?</span></div>
+            <div class="qbody">
+              <div class="days" id="days" role="radiogroup" aria-labelledby="q1t"></div>
+            </div>
+          </div>
+
+          <div class="q">
+            <div class="qhead"><span class="qn" aria-hidden="true">02</span><span class="qt" id="q2t">What time?</span></div>
+            <div class="qbody">
+              <div class="times" id="times" role="radiogroup" aria-labelledby="q2t q2d"></div>
+              <p class="daynote" id="q2d"></p>
+            </div>
+          </div>
+
+          <form class="q" id="form" novalidate hidden aria-labelledby="q3t">
+            <div class="qhead"><span class="qn" aria-hidden="true">03</span><span class="qt" id="q3t">Who should I expect?</span></div>
+            <div class="qbody">
+              <p class="pick" id="pick"></p>
+              <div class="fields">
+                <div class="f">
+                  <label for="name">Your name</label>
+                  <input type="text" id="name" name="name" autocomplete="name" maxlength="80" required aria-describedby="name-err">
+                  <p class="ferr" id="name-err"></p>
+                </div>
+                <div class="f">
+                  <label for="email">Email <span class="why" id="email-why" aria-hidden="true">the invitation goes here</span></label>
+                  <input type="email" id="email" name="email" autocomplete="email" inputmode="email" maxlength="254" required spellcheck="false" autocapitalize="off" aria-describedby="email-why email-err">
+                  <p class="ferr" id="email-err"></p>
+                </div>
+                <div class="f">
+                  <label for="company">Company <span class="opt">optional</span></label>
+                  <input type="text" id="company" name="company" autocomplete="organization" maxlength="100" aria-describedby="company-err">
+                  <p class="ferr" id="company-err"></p>
+                </div>
+                <div class="f">
+                  <label for="note">One manual job you'd like gone <span class="opt">optional</span></label>
+                  <input type="text" id="note" name="note" autocomplete="off" maxlength="500" placeholder="e.g. re-typing orders from email" aria-describedby="note-err">
+                  <p class="ferr" id="note-err"></p>
+                </div>
+              </div>
+              <div class="hp" aria-hidden="true"><label for="website">Website</label><input type="text" id="website" name="website" tabindex="-1" autocomplete="off"></div>
+              <div class="notice" id="notice" tabindex="-1"></div>
+              <div class="go">
+                <button type="submit" class="btn btn-ink" id="go"><span id="goText">Book the call</span></button>
+                <span class="free">Free, no obligation.</span>
+              </div>
+            </div>
+          </form>
+        </div>
+
+        <div class="panel" id="p-none" hidden>
+          <h2 tabindex="-1">No open times in the next three weeks.</h2>
+          <p>Email <a href="mailto:kevin@millwright.works?subject=Intro%20call">kevin@millwright.works</a> and I'll find one.</p>
+        </div>
+
+        <div class="panel" id="p-door" hidden>
+          <h2 tabindex="-1" id="p-door-h">The booking form isn't answering right now.</h2>
+          <p>You can book the same call on Microsoft's booking page, or email <a href="mailto:kevin@millwright.works?subject=Intro%20call">kevin@millwright.works</a>.</p>
+          <div class="cta"><a class="btn btn-ink" href="https://bookings.cloud.microsoft/bookwithme/user/73bc17138422435f99f5ee6f41186201@millwright.works/meetingtype/PrR5ajATlEiAxdjIvDMYWg2?anonymous&amp;ismsaljsauthenabled" target="_blank" rel="noopener">Book on Microsoft's page</a></div>
+        </div>
+
+        <div class="panel" id="p-unknown" hidden>
+          <h2 tabindex="-1">I couldn't confirm the booking.</h2>
+          <p>If an invitation reaches you in the next few minutes, you're booked. If not, email <a href="mailto:kevin@millwright.works?subject=Intro%20call">kevin@millwright.works</a>.</p>
+        </div>
+
+        <p class="sr-only" id="announce" role="alert"></p>
+
+        <p class="alt" id="alt">Or use <a id="msLink" href="https://bookings.cloud.microsoft/bookwithme/user/73bc17138422435f99f5ee6f41186201@millwright.works/meetingtype/PrR5ajATlEiAxdjIvDMYWg2?anonymous&amp;ismsaljsauthenabled" target="_blank" rel="noopener">Microsoft's booking page</a> · <a href="mailto:kevin@millwright.works?subject=Intro%20call">kevin@millwright.works</a></p>
+      </div>
+    </div>
+  </section>
+
+  <section class="done" id="done" hidden aria-labelledby="done-h">
+    <div class="cup" id="cup" aria-hidden="true">
+      <img id="cupImg" width="1080" height="1080" alt="" decoding="async">
+      <span class="fall"></span><span class="ring"></span>
+    </div>
+    <div class="done-copy wrap">
+      <p class="kicker">Free intro call · confirmed</p>
+      <h1 id="done-h" tabindex="-1">Booked.</h1>
+      <div class="ticket">
+        <p class="th mono-label">Intro call · 20 minutes · Microsoft Teams</p>
+        <p class="td" id="tDay"></p>
+        <p class="tt" id="tTime"></p>
+        <p class="tz" id="tZone"></p>
+        <p class="tm2" id="tMine"></p>
+      </div>
+      <p class="say">The invitation is on its way to <b id="tEmail"></b> from Kevin Hudgens.</p>
+      <p class="say m">Not there in ten minutes? Check spam, or email <a href="mailto:kevin@millwright.works?subject=Intro%20call">kevin@millwright.works</a>.</p>
+      <div class="after"><button type="button" class="btn btn-amber" id="ics">Add to my calendar</button></div>
+      <p class="say m">Can't make it? Decline the invitation and I'll see it, or reply to it with a better time.</p>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap foot">
+    <span>Millwright, West metro Atlanta, Georgia</span>
+    <nav aria-label="Footer">
+      <a href="/worth-fixing/">Free calculator</a>
+      <a href="/which-jobs/">Guide</a>
+      <a href="/privacy/">Privacy</a>
+      <a href="mailto:kevin@millwright.works">kevin@millwright.works</a>
+    </nav>
+  </div>
+</footer>
+
+<script>
+(function () {
+  'use strict';
+
+  /* The booking form switch (the comment above <html>). Off: return before anything runs,
+     so the page makes no request to the booking service. */
+  if (document.documentElement.getAttribute('data-booking-form') !== 'on') return;
+
+  /* The booking service. This is the only place its address is written (the page's
+     Content-Security-Policy names the same host). The requests it is sent and the
+     answers it is expected to give are fixed by the service. */
+  var BOOKING_API = 'https://book.millwright.works';
+
+  var OWNER_TZ = 'America/New_York';  // my calendar's zone; slots arrive as UTC instants
+  var SLOW_MS = 3000;                 // after this, say the service is waking up
+  var GIVE_UP_MS = 10000;             // after this, show the other ways to book
+  var BOOK_WAIT_MS = 25000;           // longest wait for an answer to a booking
+  var CHALLENGE_WAIT_MS = 10000;
+
+  var $ = function (id) { return document.getElementById(id); };
+  var reduce = !!(window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches);
+
+  var app = $('app'), sheet = $('sheet'), loading = $('loading'), form = $('form');
+  var daysEl = $('days'), timesEl = $('times'), notice = $('notice'), goBtn = $('go'), goText = $('goText');
+  app.hidden = false;
+
+  /* ---------- what the browser can do ---------- */
+  var capable = !!(window.fetch && window.Promise && window.Intl && window.crypto && window.crypto.subtle &&
+                   window.TextEncoder && window.AbortController);
+  if (!capable) {
+    $('p-door-h').textContent = "This browser can't run the booking form.";
+    return showPanel('door');
+  }
+
+  /* ---------- time zones ---------- */
+  var VZ = (function () {
+    try {
+      var z = Intl.DateTimeFormat().resolvedOptions().timeZone;
+      if (!z || typeof z !== 'string') return null;
+      new Intl.DateTimeFormat('en-US', { timeZone: z }).format(new Date());
+      return z;
+    } catch (e) { return null; }
+  })();
+  var SHOW_TZ = VZ || OWNER_TZ;
+
+  var FMT = {};
+  function fmt(tz, opts) {
+    var k = tz + JSON.stringify(opts);
+    if (!FMT[k]) { var o = { timeZone: tz }; for (var p in opts) o[p] = opts[p]; FMT[k] = new Intl.DateTimeFormat('en-US', o); }
+    return FMT[k];
+  }
+  function part(f, d, type) {
+    var ps = f.formatToParts(d);
+    for (var i = 0; i < ps.length; i++) if (ps[i].type === type) return ps[i].value;
+    return '';
+  }
+  function tStr(d, tz) { return fmt(tz, { hour: 'numeric', minute: '2-digit' }).format(d); }
+  function dayKey(d, tz) {
+    var f = fmt(tz, { year: 'numeric', month: '2-digit', day: '2-digit' });
+    return part(f, d, 'year') + '-' + part(f, d, 'month') + '-' + part(f, d, 'day');
+  }
+  function longDay(d, tz) { return fmt(tz, { weekday: 'long', month: 'long', day: 'numeric' }).format(d); }
+  function longDayYear(d, tz) { return fmt(tz, { weekday: 'long', month: 'long', day: 'numeric', year: 'numeric' }).format(d); }
+  function zoneName(tz, d) {
+    var n = '';
+    try { n = part(fmt(tz, { timeZoneName: 'longGeneric' }), d, 'timeZoneName'); } catch (e) {}
+    if (!n) { try { n = part(fmt(tz, { timeZoneName: 'long' }), d, 'timeZoneName'); } catch (e) {} }
+    if (!n || /^(GMT|UTC)/.test(n)) {
+      if (/^(Etc\/)?(UTC|GMT|Universal|Zulu)$/.test(tz)) return 'UTC';
+      var city = tz.split('/').pop().replace(/_/g, ' ');
+      return city + ' time' + (offsetName(tz, d) ? ' (' + offsetName(tz, d) + ')' : '');
+    }
+    return n;
+  }
+  function offsetName(tz, d) {
+    try { return part(fmt(tz, { timeZoneName: 'shortOffset' }), d, 'timeZoneName').replace('-', '\u2212'); } catch (e) { return ''; }
+  }
+
+  /* ---------- talking to the booking service ---------- */
+  function call(path, opts, waitMs) {
+    var ctl = new AbortController();
+    var timer = setTimeout(function () { ctl.abort(); }, waitMs);
+    var init = { method: opts.method || 'GET', mode: 'cors', credentials: 'omit', cache: 'no-store', referrerPolicy: 'no-referrer', signal: ctl.signal };
+    if (opts.body) { init.headers = { 'Content-Type': 'application/json' }; init.body = JSON.stringify(opts.body); }
+    return fetch(BOOKING_API + path, init).then(function (res) {
+      return res.text().then(function (t) {
+        clearTimeout(timer);
+        var b = null; try { b = t ? JSON.parse(t) : null; } catch (e) { b = null; }
+        return { status: res.status, body: b && typeof b === 'object' ? b : null };
+      });
+    }, function () { clearTimeout(timer); return { status: 0, body: null }; });
+  }
+
+  /* ---------- state ---------- */
+  var slots = [];          // Date objects, ascending
+  var byDay = {};          // dayKey -> [Date]
+  var dayOrder = [];
+  var sameZone = false;    // the visitor's zone shows the same clock as mine for every open time
+  var selDay = null, selTime = null;   // dayKey, ISO string
+  var formShown = false, busy = false, finished = false;
+  var idemKey = null, lastSig = null;
+  var pow = null;          // {promise, got, ttl, wait, used}
+
+  function showPanel(which) {
+    loading.hidden = true;
+    sheet.hidden = true;
+    ['none', 'door', 'unknown'].forEach(function (w) { $('p-' + w).hidden = w !== which; });
+    // after an unknown outcome, no second door to a double booking; on the fallback panel the door is the panel itself
+    $('alt').hidden = which === 'unknown' || which === 'door';
+    // move focus to the news only when the visitor was already working in the form
+    if (formShown || app.contains(document.activeElement)) $('p-' + which).querySelector('h2').focus();
+  }
+
+  /* ---------- 1. the open times ---------- */
+  function loadTimes(after) {
+    if (!formShown) { sheet.hidden = true; loading.hidden = false; }
+    $('loadingText').textContent = 'Finding open times\u2026';
+    var slow = setTimeout(function () { $('loadingText').textContent = 'Waking the booking service, a few seconds more\u2026'; }, SLOW_MS);
+    return call('/api/availability', {}, GIVE_UP_MS).then(function (r) {
+      clearTimeout(slow);
+      if (r.status !== 200 || !r.body || r.body.enabled === false || !Array.isArray(r.body.slots)) { showPanel('door'); return false; }
+      setSlots(r.body.slots);
+      if (after) after();
+      return true;
+    });
+  }
+
+  var ORIG = {};           // normalized ISO -> the exact string the service sent, which is what goes back to it
+  function setSlots(list) {
+    var seen = {};
+    slots = []; ORIG = {};
+    (list || []).forEach(function (s) {
+      if (typeof s !== 'string') return;
+      var d = new Date(s);
+      if (isNaN(d.getTime()) || seen[d.toISOString()]) return;
+      seen[d.toISOString()] = 1; ORIG[d.toISOString()] = s; slots.push(d);
+    });
+    slots.sort(function (a, b) { return a - b; });
+    byDay = {}; dayOrder = [];
+    sameZone = !VZ || slots.every(function (d) { return tStr(d, VZ) === tStr(d, OWNER_TZ) && dayKey(d, VZ) === dayKey(d, OWNER_TZ); });
+    slots.forEach(function (d) {
+      var k = dayKey(d, SHOW_TZ);
+      if (!byDay[k]) { byDay[k] = []; dayOrder.push(k); }
+      byDay[k].push(d);
+    });
+    if (!slots.length) { showPanel('none'); return; }
+    if (selTime && !slots.some(function (d) { return d.toISOString() === selTime; })) selTime = null;
+    if (!selDay || !byDay[selDay]) selDay = selTime ? dayKey(new Date(selTime), SHOW_TZ) : dayOrder[0];
+    loading.hidden = true;
+    ['none', 'door', 'unknown'].forEach(function (w) { $('p-' + w).hidden = true; });
+    sheet.hidden = false;
+    renderZone();
+    renderDays();
+    renderTimes();
+    renderPick();
+  }
+
+  function renderZone() {
+    var z = $('zone'), now = slots[0] || new Date();
+    z.textContent = '';
+    if (!VZ) {
+      z.appendChild(document.createTextNode('Times are in '));
+      z.appendChild(bold('Eastern Time'));
+      z.appendChild(document.createTextNode(", my time zone. Your browser didn't share yours."));
+    } else if (sameZone) {
+      z.appendChild(document.createTextNode('Times are in '));
+      z.appendChild(bold(zoneName(VZ, now)));
+      z.appendChild(document.createTextNode(', your time zone and mine.'));
+    } else {
+      z.appendChild(document.createTextNode('Times are in your time zone, '));
+      z.appendChild(bold(zoneName(VZ, now)));
+      z.appendChild(document.createTextNode('. Under each one is mine, Eastern.'));
+    }
+  }
+  function bold(t) { var b = document.createElement('b'); b.textContent = t; return b; }
+
+  function renderDays() {
+    daysEl.textContent = '';
+    dayOrder.forEach(function (k) {
+      var first = byDay[k][0], n = byDay[k].length;
+      var lab = document.createElement('label'); lab.className = 'day';
+      var inp = document.createElement('input');
+      inp.type = 'radio'; inp.name = 'day'; inp.value = k; inp.checked = k === selDay;
+      inp.setAttribute('aria-label', longDay(first, SHOW_TZ) + ', ' + n + (n === 1 ? ' open time' : ' open times'));
+      lab.appendChild(inp);
+      lab.appendChild(span('dw', part(fmt(SHOW_TZ, { weekday: 'short' }), first, 'weekday')));
+      lab.appendChild(span('dn', part(fmt(SHOW_TZ, { day: 'numeric' }), first, 'day')));
+      lab.appendChild(span('dm', part(fmt(SHOW_TZ, { month: 'short' }), first, 'month')));
+      var dc = span('dc', ''); dc.setAttribute('aria-hidden', 'true');
+      for (var i = 0; i < Math.min(n, 6); i++) dc.appendChild(document.createElement('i'));
+      lab.appendChild(dc);
+      lab.classList.toggle('on', inp.checked);
+      daysEl.appendChild(lab);
+    });
+  }
+  function span(c, t) { var s = document.createElement('span'); s.className = c; s.textContent = t; return s; }
+
+  function renderTimes() {
+    timesEl.textContent = '';
+    var list = byDay[selDay] || [];
+    $('q2d').textContent = list.length ? longDay(list[0], SHOW_TZ) : '';
+    list.forEach(function (d) {
+      var iso = d.toISOString();
+      var lab = document.createElement('label'); lab.className = 'tm';
+      var inp = document.createElement('input');
+      inp.type = 'radio'; inp.name = 'time'; inp.value = iso; inp.checked = iso === selTime;
+      var mine = tStr(d, OWNER_TZ);
+      inp.setAttribute('aria-label', sameZone ? tStr(d, SHOW_TZ) : tStr(d, SHOW_TZ) + ' your time, ' + mine + ' Eastern');
+      lab.appendChild(inp);
+      lab.appendChild(span('tl', tStr(d, SHOW_TZ)));
+      if (!sameZone) lab.appendChild(span('te', mine + ' ET'));
+      lab.classList.toggle('on', inp.checked);
+      timesEl.appendChild(lab);
+    });
+  }
+
+  function paint(container) {
+    var ls = container.querySelectorAll('label');
+    for (var i = 0; i < ls.length; i++) ls[i].classList.toggle('on', ls[i].querySelector('input').checked);
+  }
+
+  daysEl.addEventListener('change', function (e) {
+    if (e.target.name !== 'day') return;
+    selDay = e.target.value;
+    paint(daysEl);
+    renderTimes();
+  });
+  timesEl.addEventListener('change', function (e) {
+    if (e.target.name !== 'time') return;
+    selTime = e.target.value;
+    paint(timesEl);
+    onPicked();
+  });
+
+  function pickSlot(iso) {
+    selTime = iso;
+    selDay = dayKey(new Date(iso), SHOW_TZ);
+    renderDays(); renderTimes(); onPicked();
+    var r = timesEl.querySelector('input:checked');
+    if (r) r.focus();
+  }
+
+  function onPicked() {
+    renderPick();
+    var first = !formShown;
+    form.hidden = false; formShown = true;
+    if (!pow) prefetchChallenge();
+    if (noticeKind === 'pick') sayNotice('');
+    if (first) {
+      var top = form.getBoundingClientRect().top;
+      if (top > window.innerHeight - 120) form.scrollIntoView({ behavior: reduce ? 'auto' : 'smooth', block: 'start' });
+    }
+  }
+
+  function renderPick() {
+    var p = $('pick');
+    p.textContent = '';
+    if (!selTime) { p.className = 'pick none'; p.textContent = 'Pick a time above.'; return; }
+    var d = new Date(selTime);
+    p.className = 'pick';
+    var zone = VZ ? zoneName(VZ, d) : 'Eastern Time';
+    p.appendChild(document.createTextNode(longDay(d, SHOW_TZ) + ', ' + tStr(d, SHOW_TZ) + ' ' + zone));
+    if (!sameZone) p.appendChild(span('mine', tStr(d, OWNER_TZ) + ' Eastern, my time'));
+  }
+
+  /* ---------- 2. the proof of work ----------
+     The service hands out a signed puzzle; the browser finds a number that makes
+     SHA-256(token + "." + number) start with `difficulty` zero bits. It costs a person
+     about a second and a flood of fake bookings a lot of computing. Fetched as soon as a
+     time is picked, so it is usually solved before the form is filled in. */
+  function prefetchChallenge() {
+    pow = { promise: null, got: 0, ttl: 0, wait: 0, used: false };
+    var me = pow;
+    me.promise = call('/api/challenge', {}, CHALLENGE_WAIT_MS).then(function (r) {
+      var c = r.body;
+      if (r.status !== 200 || !c || typeof c.token !== 'string' || typeof c.difficulty !== 'number' || c.difficulty < 1 || c.difficulty > 24) throw new Error('challenge');
+      me.got = performance.now();
+      var issued = Date.parse(c.issuedAt), exp = Date.parse(c.expires), nb = Date.parse(c.notBefore);
+      me.ttl = isNaN(exp - issued) ? 300000 : exp - issued;       // measured on the service's clock, not this one
+      me.wait = isNaN(nb - issued) ? 3000 : Math.max(0, nb - issued);
+      return solve(c.token, c.difficulty).then(function (n) { return { challenge: c, solution: n }; });
+    });
+    me.promise.catch(function () {});
+  }
+  function freshChallenge() {
+    if (!pow || pow.used || (pow.got && performance.now() - pow.got > pow.ttl - 30000)) prefetchChallenge();
+    var me = pow;
+    return me.promise.then(function (s) {
+      var left = me.got + me.wait + 300 - performance.now();
+      me.used = true;
+      return left > 0 ? new Promise(function (ok) { setTimeout(function () { ok(s); }, left); }) : s;
+    }, function (e) { pow = null; throw e; });
+  }
+  function solve(token, bits) {
+    var enc = new TextEncoder(), n = 0, BATCH = 256, full = bits >> 3, rem = bits & 7;
+    function ok(buf) {
+      var b = new Uint8Array(buf);
+      for (var i = 0; i < full; i++) if (b[i] !== 0) return false;
+      return rem === 0 || (b[full] >> (8 - rem)) === 0;
+    }
+    function round() {
+      var start = n, ps = [];
+      for (var i = 0; i < BATCH; i++) ps.push(crypto.subtle.digest('SHA-256', enc.encode(token + '.' + (start + i))));
+      n += BATCH;
+      return Promise.all(ps).then(function (hs) {
+        for (var i = 0; i < hs.length; i++) if (ok(hs[i])) return String(start + i);
+        if (n > 33554432) throw new Error('unsolved');
+        return round();
+      });
+    }
+    return round();
+  }
+
+  /* ---------- 3. the details ---------- */
+  var FIELDS = ['name', 'email', 'company', 'note'];
+  var LINK = /(https?:|www\.|\b[a-z0-9-]+\.(com|net|org|io|co|us|ai|biz|info|dev|app|ly|me|xyz|link|site|online|shop)\b)/i;
+  var EMAIL = /^[^\s@,;:<>()\[\]"'\\]+@[^\s@,;:<>()\[\]"'\\]+\.[^\s@,;:<>()\[\]"'\\.]{2,}$/;
+
+  function setFieldError(f, msg) {
+    var el = $(f), err = $(f + '-err');
+    err.textContent = msg;
+    el.setAttribute('aria-invalid', 'true');
+  }
+  function clearFieldError(f) {
+    var el = $(f), err = $(f + '-err');
+    err.textContent = '';
+    el.removeAttribute('aria-invalid');
+  }
+  FIELDS.forEach(function (f) { $(f).addEventListener('input', function () { if ($(f).getAttribute('aria-invalid')) clearFieldError(f); }); });
+
+  function clean(s) { return String(s || '').replace(/[\u0000-\u001f\u007f]+/g, ' ').replace(/\s+/g, ' ').trim(); }
+
+  function validate() {
+    var v = { name: clean($('name').value), email: clean($('email').value), company: clean($('company').value), note: clean($('note').value) };
+    var errs = [];
+    FIELDS.forEach(clearFieldError);
+    if (!v.name) errs.push(['name', 'Add your name.']);
+    else if (LINK.test(v.name)) errs.push(['name', "Leave links out; I'll ask on the call."]);
+    if (!v.email) errs.push(['email', 'Add your email address; the invitation goes there.']);
+    else if (!EMAIL.test(v.email) || v.email.length > 254) errs.push(['email', "That email address doesn't look complete. Check it?"]);
+    if (v.company && LINK.test(v.company)) errs.push(['company', "Leave links out; I'll ask on the call."]);
+    if (v.note && LINK.test(v.note)) errs.push(['note', "Leave links out; I'll ask on the call."]);
+    if (!selTime) {
+      sayNotice('Pick a time above first.'); noticeKind = 'pick';
+      if (!errs.length) { var t = timesEl.querySelector('input') || daysEl.querySelector('input'); if (t) t.focus(); return null; }
+    }
+    if (errs.length) {
+      errs.forEach(function (e) { setFieldError(e[0], e[1]); });
+      announce(errs.map(function (e) { return e[1]; }).join(' '));
+      $(errs[0][0]).focus();
+      return null;
+    }
+    if (!selTime) return null;
+    v.slot = selTime;
+    return v;
+  }
+
+  function announce(t) { var a = $('announce'); a.textContent = ''; setTimeout(function () { a.textContent = t; }, 30); }
+
+  /* notice text: {email} and {ms} become links */
+  var noticeKind = '';
+  function sayNotice(text, near) {
+    notice.textContent = '';
+    noticeKind = text ? 'say' : '';
+    if (!text) return;
+    var p = document.createElement('p');
+    text.split(/(\{email\}|\{ms\})/).forEach(function (bit) {
+      if (bit === '{email}') { var a = document.createElement('a'); a.href = 'mailto:kevin@millwright.works?subject=Intro%20call'; a.textContent = 'kevin@millwright.works'; p.appendChild(a); }
+      else if (bit === '{ms}') { var m = document.createElement('a'); m.href = $('msLink').href; m.target = '_blank'; m.rel = 'noopener'; m.textContent = "Microsoft's booking page"; p.appendChild(m); }
+      else if (bit) p.appendChild(document.createTextNode(bit));
+    });
+    notice.appendChild(p);
+    if (near && near.length) {
+      var box = document.createElement('div'); box.className = 'near';
+      near.forEach(function (d) {
+        var b = document.createElement('button'); b.type = 'button';
+        b.appendChild(span('', part(fmt(SHOW_TZ, { weekday: 'short' }), d, 'weekday') + ' ' + part(fmt(SHOW_TZ, { month: 'short' }), d, 'month') + ' ' + part(fmt(SHOW_TZ, { day: 'numeric' }), d, 'day')));
+        b.appendChild(document.createTextNode(tStr(d, SHOW_TZ)));
+        b.setAttribute('aria-label', 'Choose ' + longDay(d, SHOW_TZ) + ', ' + tStr(d, SHOW_TZ));
+        b.addEventListener('click', function () { sayNotice(''); pickSlot(d.toISOString()); });
+        box.appendChild(b);
+      });
+      notice.appendChild(box);
+    }
+    announce(p.textContent);
+  }
+
+  function setBusy(on) {
+    busy = on;
+    goBtn.setAttribute('aria-disabled', on ? 'true' : 'false');
+    goText.textContent = on ? 'Booking\u2026' : 'Book the call';
+    form.setAttribute('aria-busy', on ? 'true' : 'false');
+  }
+
+  function newKey() {
+    if (crypto.randomUUID) return crypto.randomUUID();
+    var b = crypto.getRandomValues(new Uint8Array(16)), s = '';
+    for (var i = 0; i < 16; i++) s += (b[i] + 256).toString(16).slice(1);
+    return s;
+  }
+
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
+    if (busy || finished) return;
+    sayNotice('');
+    var v = validate();
+    if (!v) return;
+    book(v);
+  });
+
+  function book(v) {
+    setBusy(true);
+    var sig = [v.slot, v.name, v.email, v.company, v.note].join('\u0001');
+    if (sig !== lastSig) { idemKey = newKey(); lastSig = sig; }   // the same booking, sent again, carries the same key
+    var body = { slotStartUtc: ORIG[v.slot] || v.slot, name: v.name, email: v.email, idempotencyKey: idemKey, hp: $('website').value || '' };
+    if (v.company) body.company = v.company;
+    if (v.note) body.note = v.note;
+    if (VZ) body.visitorTimeZone = VZ;
+
+    freshChallenge().then(function (s) {
+      body.challenge = s.challenge;
+      body.solution = s.solution;
+      return send(body, 1);
+    }, function () { return { status: -1, body: null }; }).then(function (r) {
+      setBusy(false);
+      answer(r, v);
+    });
+  }
+
+  /* A booking that got no answer is sent once more with the same key: the service
+     either books it or returns what it already did. A second silence is not a "no". */
+  function send(body, tries) {
+    return call('/api/book', { method: 'POST', body: body }, BOOK_WAIT_MS).then(function (r) {
+      if (r.status === 0 && tries > 0) return new Promise(function (ok) { setTimeout(ok, 1500); }).then(function () { return send(body, tries - 1); });
+      return r;
+    });
+  }
+
+  function answer(r, v) {
+    var b = r.body || {}, o = b.outcome;
+    if ((r.status === 201 || r.status === 200) && o === 'booked') return booked(v);
+    if (r.status === -1) { prefetchLater(); return sayNotice("I couldn't book that, and nothing was booked. Try again, or use {ms}."); }
+    if (r.status === 0 || (r.status >= 500 && o !== 'busy' && o !== 'not_booked' && o !== 'disabled') || o === 'outcome_unknown') {
+      finished = true; return showPanel('unknown');
+    }
+    if (o === 'disabled') return showPanel('door');
+    prefetchLater();
+    switch (o) {
+      case 'slot_taken': return taken(v, b);
+      case 'already_booked': return already(b);
+      case 'invalid_email':
+        setFieldError('email', "That address doesn't look like it can get mail. Check it or use another.");
+        announce($('email-err').textContent); return $('email').focus();
+      case 'disposable_email':
+        setFieldError('email', "Please use an address you'll keep; the invitation goes there.");
+        announce($('email-err').textContent); return $('email').focus();
+      case 'invalid_field':
+        var f = FIELDS.indexOf(b.field) >= 0 ? b.field : 'note';
+        setFieldError(f, b.reason === 'link' ? "Leave links out; I'll ask on the call."
+          : b.reason === 'phone' ? "Leave phone numbers out; I'll ask on the call."
+          : "That's more than I can take here. Shorten it?");
+        announce($(f + '-err').textContent); return $(f).focus();
+      case 'slot_not_open':
+        sayNotice("That time isn't open. Here are the times that are.");
+        return loadTimes();
+      case 'challenge_failed':
+        sayNotice('This page sat open a while. Pick your time again.');
+        selTime = null;
+        return loadTimes();
+      case 'refused': return sayNotice("That didn't go through. Email {email}.");
+      case 'rate_limited': return sayNotice('Too many tries from this connection. Try again in an hour, or email {email}.');
+      case 'daily_cap': return sayNotice("The calendar's had a rush today. Email {email} and I'll fit you in.");
+      case 'busy': return sayNotice('Busy for a moment. Try again.');
+      case 'not_booked': return sayNotice("I couldn't book that, and nothing was booked. Try again, or use {ms}.");
+      default: return sayNotice("I couldn't book that, and nothing was booked. Try again, or use {ms}.");
+    }
+  }
+  function prefetchLater() { if (!pow || pow.used) prefetchChallenge(); }
+
+  function taken(v, b) {
+    var gone = new Date(v.slot);
+    var after = function () {
+      var near = slots.slice().sort(function (a, c) { return Math.abs(a - gone) - Math.abs(c - gone); }).slice(0, 3)
+                      .sort(function (a, c) { return a - c; });
+      selTime = null; renderTimes(); renderPick();
+      if (!slots.length) return showPanel('none');
+      sayNotice('Someone just took ' + tStr(gone, SHOW_TZ) + '. Here are the nearest open times.', near);
+    };
+    if (Array.isArray(b.slots)) { setSlots(b.slots.filter(function (s) { var d = new Date(s); return isNaN(d.getTime()) || d.toISOString() !== v.slot; })); after(); }
+    else loadTimes(after);
+  }
+
+  function already(b) {
+    var d = b.existingSlotStartUtc ? new Date(b.existingSlotStartUtc) : null;
+    if (d && !isNaN(d.getTime())) {
+      sayNotice('You already have a call on ' + longDay(d, SHOW_TZ) + ' at ' + tStr(d, SHOW_TZ) + (VZ ? ' your time' : ' Eastern') + '. To change it, reply to the invitation.');
+    } else {
+      sayNotice('That address already has a call booked. To change it, reply to the invitation.');
+    }
+  }
+
+  /* ---------- 4. booked ---------- */
+  var bookedSlot = null;
+  function booked(v) {
+    finished = true;
+    bookedSlot = new Date(v.slot);
+    var d = bookedSlot, end = new Date(d.getTime() + 20 * 60000);
+    $('tDay').textContent = longDayYear(d, SHOW_TZ);
+    var t = tStr(d, SHOW_TZ), m = /^(.*?)[\s\u202f]?([AP]M)$/.exec(t);
+    var tt = $('tTime'); tt.textContent = '';
+    if (m) { tt.appendChild(document.createTextNode(m[1])); var sm = document.createElement('small'); sm.textContent = m[2]; tt.appendChild(sm); }
+    else tt.textContent = t;
+    $('tZone').textContent = 'to ' + tStr(end, SHOW_TZ) + ' \u00b7 ' + (VZ ? zoneName(VZ, d) : 'Eastern Time') + (offsetName(SHOW_TZ, d) ? ' (' + offsetName(SHOW_TZ, d) + ')' : '');
+    $('tMine').textContent = sameZone ? '' : tStr(d, OWNER_TZ) + ' Eastern, my time';
+    $('tMine').hidden = sameZone;
+    $('tEmail').textContent = v.email;
+    $('hero').hidden = true;
+    $('book').hidden = true;
+    var done = $('done'), img = $('cupImg');
+    img.src = '/assets/cup-poster.jpg';
+    done.hidden = false;
+    window.scrollTo(0, 0);
+    if (!reduce) {
+      var cup = $('cup'), h = cup.getBoundingClientRect().height;
+      cup.style.setProperty('--fall', Math.round(h * 0.6) + 'px');
+      cup.style.setProperty('--surface', '60%');
+      done.classList.add('land');
+    }
+    $('done-h').focus();
+  }
+
+  $('ics').addEventListener('click', function () {
+    if (!bookedSlot) return;
+    var z = function (d) { return d.toISOString().replace(/[-:]/g, '').replace(/\.\d{3}/, ''); };
+    var end = new Date(bookedSlot.getTime() + 20 * 60000);
+    var ics = ['BEGIN:VCALENDAR', 'VERSION:2.0', 'PRODID:-//Millwright//Intro call//EN', 'CALSCALE:GREGORIAN', 'METHOD:PUBLISH',
+      'BEGIN:VEVENT', 'UID:' + (idemKey || newKey()) + '@millwright.works', 'DTSTAMP:' + z(new Date()),
+      'DTSTART:' + z(bookedSlot), 'DTEND:' + z(end),
+      'SUMMARY:Intro call with Kevin Hudgens\\, Millwright',
+      'DESCRIPTION:Free 20-minute intro call on Microsoft Teams. The join link is in the invitation from Kevin.',
+      'END:VEVENT', 'END:VCALENDAR'].join('\r\n') + '\r\n';
+    var url = URL.createObjectURL(new Blob([ics], { type: 'text/calendar;charset=utf-8' }));
+    var a = document.createElement('a'); a.href = url; a.download = 'intro-call-millwright.ics';
+    document.body.appendChild(a); a.click(); a.remove();
+    setTimeout(function () { URL.revokeObjectURL(url); }, 4000);
+  });
+
+  /* coming back to the page from the browser's history: the times may have moved */
+  window.addEventListener('pageshow', function (e) { if (e.persisted && !finished && !busy) loadTimes(); });
+
+  loadTimes();
+})();
+</script>
+</body>
+</html>

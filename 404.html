@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Page not found | Millwright</title>
+<meta name="robots" content="noindex">
+<meta name="theme-color" content="#080807">
+<link rel="icon" href="/favicon.ico" sizes="48x48">
+<link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="/assets/favicon-32.png" type="image/png" sizes="32x32">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..100,400..800&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+/* Same tokens as the home page. The dead end is the home page's first screen with the drop gone. */
+:root{
+  --ink:#080807; --ink-2:#141412; --ink-3:#1F1E1B;
+  --bone:#EFEBE1; --amber:#FFB23F; --amber-hi:#FFC56C;
+  --mute:#A9A598; --rule:#2E2D29; --rule-2:#45433C;
+  --display:'Archivo',system-ui,sans-serif; --body:'Archivo',system-ui,sans-serif; --mono:'IBM Plex Mono',ui-monospace,monospace;
+  --gutter:clamp(16px,4vw,48px);
+  --edge:max(var(--gutter),calc((100vw - 1180px) / 2 + var(--gutter)));
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{font-family:var(--body);font-size:1.0625rem;line-height:1.55;color:var(--bone);background:var(--ink);-webkit-font-smoothing:antialiased;min-height:100vh;min-height:100svh;display:flex;flex-direction:column;overflow-x:hidden}
+h1{font-family:var(--display);font-weight:800;font-stretch:68%;text-wrap:balance;letter-spacing:-.01em;word-spacing:.08em}
+a{color:inherit;text-underline-offset:.22em;text-decoration-thickness:1px}
+a:focus-visible{outline:3px solid var(--amber);outline-offset:3px}
+.wrap{max-width:1180px;margin:0 auto;padding-inline:var(--gutter)}
+
+.top-bar{position:absolute;inset:0 0 auto 0;z-index:5;background:linear-gradient(rgba(8,8,7,.9),rgba(8,8,7,.8) 55%,rgba(8,8,7,0))}
+.nav{display:flex;align-items:center;justify-content:space-between;gap:16px;padding-block:16px 24px}
+.wordmark{display:flex;align-items:center;gap:11px;text-decoration:none}
+.wordmark svg{display:block}
+.wordmark span{font-family:var(--display);font-weight:800;font-stretch:80%;font-size:1.28rem;letter-spacing:.09em;color:var(--bone)}
+.wordmark span b{color:var(--amber);font-weight:800}
+
+main{flex:1;position:relative;display:flex;flex-direction:column;overflow:hidden}
+.dry{position:relative;height:clamp(240px,40svh,400px);
+  -webkit-mask-image:linear-gradient(#000 55%,transparent 94%);mask-image:linear-gradient(#000 55%,transparent 94%)}
+.dry img{position:absolute;top:0;left:50%;width:max(132%,470px);height:auto;aspect-ratio:1;transform:translateX(-50%);display:block;
+  -webkit-mask-image:linear-gradient(transparent 0,#000 14%,#000 62%,transparent 96%);mask-image:linear-gradient(transparent 0,#000 14%,#000 62%,transparent 96%)}
+.copy{position:relative;z-index:2;padding-block:0 56px;margin-top:-20px}
+.kicker{font-family:var(--mono);font-size:.74rem;letter-spacing:.04em;color:var(--mute)}
+h1{margin-top:12px;font-size:clamp(3rem,13.4vw,4.3rem);line-height:.9}
+h1 .l1,h1 .l2{display:block}
+h1 .l2{color:var(--amber)}
+/* an empty week: the tick track from the home page, with nothing on it */
+.empty{margin-top:22px;max-width:420px}
+.empty .track{height:16px;background-image:repeating-linear-gradient(90deg,var(--rule-2) 0 1px,transparent 1px calc(100% / 9));box-shadow:inset 0 -1px 0 var(--rule-2)}
+.empty .axis{display:flex;justify-content:space-between;font-family:var(--mono);font-size:.66rem;color:var(--mute);padding-top:6px}
+p.say{margin-top:20px;color:var(--mute);max-width:26em;font-size:1.1rem}
+.links{margin-top:26px;display:flex;gap:12px 22px;flex-wrap:wrap;align-items:center}
+.btn{display:inline-block;font-family:var(--display);font-weight:700;font-stretch:85%;font-size:1.02rem;letter-spacing:.06em;text-transform:uppercase;text-decoration:none;padding:16px 26px;background:var(--amber);color:var(--ink);transition:background-color .15s ease}
+.btn:hover{background:var(--amber-hi)}
+.links a.alt{color:var(--bone)}
+
+@media (prefers-reduced-motion:no-preference){
+  @keyframes rise{from{opacity:0;transform:translateY(.45em)}to{opacity:1;transform:none}}
+  @keyframes fadein{from{opacity:0}to{opacity:1}}
+  h1 .l1,h1 .l2{animation:rise .9s cubic-bezier(.2,.7,.2,1) both}
+  h1 .l2{animation-delay:.18s}
+  .empty,p.say,.links{animation:fadein .8s ease .45s both}
+}
+@media (min-width:900px){
+  .top-bar .nav{padding-block:22px 30px}
+  main{display:grid;grid-template-columns:minmax(0,1.12fr) minmax(0,.88fr)}
+  .dry{grid-column:2;grid-row:1;height:auto;min-height:100%;
+    -webkit-mask-image:linear-gradient(90deg,transparent 0,#000 24%);mask-image:linear-gradient(90deg,transparent 0,#000 24%)}
+  .dry img{top:40px;width:max(118%,600px)}
+  .copy{grid-column:1;grid-row:1;align-self:center;margin:0;padding:128px 24px 72px var(--edge)}
+  h1{font-size:clamp(4.6rem,7.3vw,7.6rem)}
+}
+@media (max-width:420px){
+  .links .btn{display:block;width:100%;text-align:center}
+  .links a.alt{width:100%;text-align:center}
+}
+@media (max-width:374px){
+  /* the header on one line at 320: a slightly tighter wordmark and button */
+  .nav{gap:10px}
+  .wordmark{gap:9px}
+  .wordmark span{font-size:1.12rem;letter-spacing:.07em}
+  .btn-ghost{padding-inline:11px}
+}
+@media (max-width:360px){
+  .cta .btn,.links .btn{font-size:.94rem;padding-inline:12px;letter-spacing:.04em}
+}
+</style>
+</head>
+<body>
+<header class="top-bar">
+  <div class="wrap nav">
+    <a class="wordmark" href="/" aria-label="Millwright, home">
+      <svg width="28" height="28" viewBox="0 0 32 32" aria-hidden="true">
+        <circle cx="16" cy="16" r="12" fill="none" stroke="#EFEBE1" stroke-width="1.6"/>
+        <path d="M16 11.2c2.2 3 3.4 4.8 3.4 6.4a3.4 3.4 0 0 1-6.8 0c0-1.6 1.2-3.4 3.4-6.4z" fill="#FFB23F"/>
+        <line x1="16" y1="0" x2="16" y2="6" stroke="#FFB23F" stroke-width="1.6"/>
+        <line x1="16" y1="26" x2="16" y2="32" stroke="#FFB23F" stroke-width="1.6"/>
+        <line x1="0" y1="16" x2="6" y2="16" stroke="#FFB23F" stroke-width="1.6"/>
+        <line x1="26" y1="16" x2="32" y2="16" stroke="#FFB23F" stroke-width="1.6"/>
+      </svg>
+      <span>MILLWRIGHT<b>.</b></span>
+    </a>
+  </div>
+</header>
+<main>
+  <div class="dry" aria-hidden="true">
+    <img src="/assets/nozzle-dry.jpg" width="1080" height="1080" alt="" decoding="async">
+  </div>
+  <div class="copy wrap">
+    <p class="kicker">Error 404 · page not found</p>
+    <h1><span class="l1">That page</span> <span class="l2">isn't here.</span></h1>
+    <div class="empty" aria-hidden="true">
+      <div class="track"></div>
+      <div class="axis"><span>0</span><span>nothing to count</span></div>
+    </div>
+    <p class="say">The address may have a typo, or the page may have moved.</p>
+    <div class="links">
+      <a class="btn" href="/">Go to the home page</a>
+      <a class="alt" href="/worth-fixing/">Try the free calculator</a>
+    </div>
+  </div>
+</main>
+</body>
+</html>

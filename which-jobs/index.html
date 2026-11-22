@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Which Manual Jobs Are Worth Automating? | Millwright</title>
+<meta name="description" content="A plain guide for owners of companies of 10 to 100 people: which manual jobs are worth automating, which to stop, and when a tool beats new software.">
+<link rel="canonical" href="https://millwright.works/which-jobs/">
+<meta property="og:title" content="Which manual jobs are worth automating?">
+<meta property="og:description" content="A plain guide for owners of companies of 10 to 100 people: which manual jobs are worth automating, which to stop, and when a tool beats new software.">
+<meta property="og:url" content="https://millwright.works/which-jobs/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Millwright">
+<meta property="og:image" content="https://millwright.works/assets/og-home.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Which manual jobs are worth automating?">
+<meta name="twitter:description" content="A plain guide for owners of companies of 10 to 100 people: which manual jobs are worth automating, which to stop, and when a tool beats new software.">
+<meta name="twitter:image" content="https://millwright.works/assets/og-home.png">
+<meta name="theme-color" content="#080807">
+<link rel="icon" href="/favicon.ico" sizes="48x48">
+<link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="/assets/favicon-32.png" type="image/png" sizes="32x32">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..100,400..800&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebSite",
+      "@id": "https://millwright.works/#website",
+      "url": "https://millwright.works/",
+      "name": "Millwright",
+      "inLanguage": "en-US"
+    },
+    {
+      "@type": "WebPage",
+      "@id": "https://millwright.works/which-jobs/#page",
+      "url": "https://millwright.works/which-jobs/",
+      "name": "Which manual jobs are worth automating?",
+      "description": "A plain guide for owners of companies of 10 to 100 people: which manual jobs are worth automating, which to stop, and when a tool beats new software.",
+      "about": "Deciding which manual jobs in a small company are worth automating",
+      "author": {"@type": "Person", "@id": "https://millwright.works/#kevin", "name": "Kevin Hudgens"},
+      "isPartOf": {"@id": "https://millwright.works/#website"},
+      "breadcrumb": {"@id": "https://millwright.works/which-jobs/#breadcrumb"},
+      "inLanguage": "en-US"
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://millwright.works/which-jobs/#breadcrumb",
+      "itemListElement": [
+        {"@type": "ListItem", "position": 1, "name": "Millwright", "item": "https://millwright.works/"},
+        {"@type": "ListItem", "position": 2, "name": "Which manual jobs are worth automating?", "item": "https://millwright.works/which-jobs/"}
+      ]
+    }
+  ]
+}
+</script>
+<style>
+/* Same tokens as the home page: carbon ground, bone paper, one amber. The layout is the privacy page's
+   (masthead with a ruled ledger, then numbered sections on paper); the buttons are the home page's. */
+:root{
+  --ink:#080807; --ink-2:#141412; --ink-3:#1F1E1B;
+  --bone:#EFEBE1; --bone-2:#E3DDCE;
+  --amber:#FFB23F; --amber-hi:#FFC56C; --amber-deep:#9C420A;
+  --mute:#A9A598; --mute-paper:#57544A;
+  --rule:#2E2D29; --rule-2:#45433C; --rule-paper:#CBC4B2;
+  --display:'Archivo',system-ui,sans-serif; --body:'Archivo',system-ui,sans-serif; --mono:'IBM Plex Mono',ui-monospace,monospace;
+  --gutter:clamp(16px,4vw,48px);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{font-family:var(--body);font-size:1.0625rem;line-height:1.6;color:var(--bone);background:var(--ink);-webkit-font-smoothing:antialiased;min-height:100vh;display:flex;flex-direction:column;overflow-x:hidden}
+main{flex:1}
+h1,h2,h3{font-family:var(--display);font-weight:800;font-stretch:68%;text-wrap:balance;letter-spacing:-.005em;word-spacing:.06em}
+p{text-wrap:pretty}
+a{color:inherit;text-underline-offset:.22em;text-decoration-thickness:1px}
+a:focus-visible{outline:3px solid var(--amber);outline-offset:3px}
+.paper :focus-visible{outline-color:var(--ink)}
+.wrap{max-width:1180px;margin:0 auto;padding-inline:var(--gutter)}
+
+/* header: the home page's, on solid carbon */
+.top-bar{border-bottom:1px solid var(--rule)}
+.nav{display:flex;align-items:center;justify-content:space-between;gap:16px;padding-block:16px}
+.wordmark{display:flex;align-items:center;gap:11px;text-decoration:none}
+.wordmark svg{display:block}
+.wordmark span{font-family:var(--display);font-weight:800;font-stretch:80%;font-size:1.28rem;letter-spacing:.09em;color:var(--bone)}
+.wordmark span b{color:var(--amber);font-weight:800}
+.nav-links{display:flex;align-items:center;gap:26px}
+.nav-links .txt{font-size:.95rem;color:var(--mute);text-decoration:none}
+.nav-links .txt:hover{color:var(--bone)}
+.btn-ghost{display:inline-block;font-family:var(--display);font-weight:700;font-stretch:85%;letter-spacing:.06em;text-transform:uppercase;text-decoration:none;color:var(--bone);border:1px solid var(--rule-2);padding:9px 15px;font-size:.88rem;white-space:nowrap}
+.btn-ghost:hover{border-color:var(--bone)}
+
+/* the home page's buttons */
+.btn{display:inline-block;font-family:var(--display);font-weight:700;font-stretch:85%;font-size:1.02rem;letter-spacing:.06em;text-transform:uppercase;text-decoration:none;padding:16px 26px;transition:background-color .15s ease}
+.btn-amber{background:var(--amber);color:var(--ink)}
+.btn-amber:hover{background:var(--amber-hi)}
+.btn-ink{background:var(--ink);color:var(--bone)}
+.btn-ink:hover{background:var(--ink-3)}
+.cta{margin-top:26px;display:flex;flex-wrap:wrap;align-items:center;gap:12px 20px}
+.or{font-size:.95rem}
+.or a,.nw{white-space:nowrap}
+
+/* masthead: the question, the short answer, and the lines in the order the calculator checks them */
+.mast{padding-block:56px 48px;position:relative}
+.kicker{font-family:var(--mono);font-size:.74rem;letter-spacing:.04em;color:var(--mute)}
+.mast h1{margin-top:14px;font-size:clamp(2.6rem,10.4vw,5.4rem);line-height:.9;max-width:12em}
+.mast h1 span{display:block;color:var(--amber)}
+.mast .lede{margin-top:22px;font-size:1.12rem;color:var(--mute);max-width:32em}
+.mast .lede strong{color:var(--bone);font-weight:600}
+.glance{margin-top:8px;max-width:560px;border-top:1px solid var(--rule)}
+.glance div{display:grid;grid-template-columns:minmax(0,1fr) auto;align-items:baseline;gap:14px;padding:9px 0;border-bottom:1px solid var(--rule)}
+.glance dt{font-size:.95rem;color:var(--bone);line-height:1.35}
+.glance dd{font-family:var(--mono);font-size:.8rem;color:var(--mute);text-align:right;max-width:9.5em}
+.glance dd.hi{color:var(--amber)}
+.glance-h{font-family:var(--mono);font-size:.7rem;color:var(--mute);letter-spacing:.02em;margin-top:34px}
+
+/* the sections, on bone paper, numbered like the privacy page's clauses */
+.paper{background:var(--bone);color:var(--ink);position:relative}
+.paper::before{content:"";position:absolute;left:0;right:0;top:0;height:14px;pointer-events:none;
+  background:repeating-linear-gradient(90deg,rgba(8,8,7,.42) 0 1px,transparent 1px 8px) 0 0 / 100% 6px no-repeat,
+             repeating-linear-gradient(90deg,rgba(8,8,7,.78) 0 1px,transparent 1px 40px) 0 0 / 100% 13px no-repeat}
+.clauses{padding-block:56px 72px;counter-reset:c}
+.clause{counter-increment:c;border-top:1px solid var(--rule-paper);padding-block:22px 30px;display:grid;grid-template-columns:minmax(0,1fr);gap:10px}
+.clause:last-child{border-bottom:1px solid var(--rule-paper)}
+.clause h2{font-size:clamp(1.7rem,6.6vw,2.4rem);line-height:.98;display:flex;gap:12px;align-items:baseline}
+.clause h2::before{content:counter(c,decimal-leading-zero);font-family:var(--mono);font-weight:400;font-stretch:100%;font-size:.74rem;letter-spacing:0;color:var(--amber-deep);min-width:2.1em;flex:none;position:relative;top:-.2em}
+.body{min-width:0;max-width:38em}
+.body > * + *{margin-top:14px}
+.body p{color:var(--mute-paper);font-size:1.06rem}
+.body p strong{color:var(--ink);font-weight:600}
+.body a:not(.btn){color:var(--ink)}
+
+/* the five kinds: a ruled list, each with what comes off in the step-number hand */
+.kinds{list-style:none;border-top:1px solid var(--rule-paper)}
+.kinds li{padding:14px 0 16px;border-bottom:1px solid var(--rule-paper)}
+.kinds h3{font-weight:700;font-stretch:80%;font-size:1.36rem;line-height:1.15;color:var(--ink)}
+.kinds p{margin-top:6px}
+.kinds .off{font-family:var(--mono);font-size:.86rem;line-height:1.4;color:var(--amber-deep);letter-spacing:.01em}
+
+/* the lines: a short ruled ledger, line on the left, answer on the right */
+.lines{list-style:none;border-top:1px solid var(--rule-paper)}
+.lines li{padding:12px 0 14px;border-bottom:1px solid var(--rule-paper);color:var(--mute-paper)}
+.lines li b{display:block;font-family:var(--mono);font-weight:500;font-size:.86rem;line-height:1.4;color:var(--amber-deep);letter-spacing:.01em;margin-bottom:3px}
+
+.paper .or{color:var(--mute-paper)}
+
+/* the close: the check and the intro call */
+.close{padding-block:64px 72px}
+.close h2{font-size:clamp(2.4rem,9vw,4.2rem);line-height:.92}
+.close .body{margin-top:18px}
+.close .body p{color:var(--mute)}
+.close .body p strong{color:var(--bone)}
+.close .or{color:var(--mute)}
+.close .or a{color:var(--bone)}
+
+footer{background:var(--ink);color:var(--mute);border-top:1px solid var(--rule)}
+.foot{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px 28px;padding-block:24px 30px;font-size:.92rem}
+.foot nav{display:flex;flex-wrap:wrap;gap:8px 22px}
+.foot a{color:var(--bone)}
+
+@media (min-width:900px){
+  .nav{padding-block:22px}
+  .mast{padding-block:88px 72px}
+  .mast-grid{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,.85fr);gap:64px;align-items:end}
+  .glance-h{margin-top:0}
+  .clauses{padding-block:96px 110px}
+  .clause{grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr);gap:72px;padding-block:30px 38px}
+  .clause h2{font-size:2.3rem}
+  .body p{font-size:1.1rem}
+  .close{padding-block:96px 110px}
+  .close-grid{display:grid;grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr);gap:72px;align-items:start}
+  .close .body{margin-top:0}
+}
+@media (max-width:899px){ .nav-links .txt{display:none} }
+@media (max-width:420px){
+  .cta .btn{display:block;width:100%;text-align:center}
+  .cta .or{width:100%;text-align:center}
+}
+@media (prefers-reduced-motion:no-preference){
+  @keyframes rise{from{opacity:0;transform:translateY(.45em)}to{opacity:1;transform:none}}
+  .mast h1{animation:rise .8s cubic-bezier(.2,.7,.2,1) both}
+}
+@media (max-width:374px){
+  /* the header on one line at 320: a slightly tighter wordmark and button */
+  .nav{gap:10px}
+  .wordmark{gap:9px}
+  .wordmark span{font-size:1.12rem;letter-spacing:.07em}
+  .btn-ghost{padding-inline:11px}
+}
+@media (max-width:360px){
+  .cta .btn{font-size:.94rem;padding-inline:12px;letter-spacing:.04em}
+}
+</style>
+</head>
+<body>
+
+<header class="top-bar">
+  <div class="wrap nav">
+    <a class="wordmark" href="/" aria-label="Millwright, home">
+      <svg width="28" height="28" viewBox="0 0 32 32" aria-hidden="true">
+        <circle cx="16" cy="16" r="12" fill="none" stroke="#EFEBE1" stroke-width="1.6"/>
+        <path d="M16 11.2c2.2 3 3.4 4.8 3.4 6.4a3.4 3.4 0 0 1-6.8 0c0-1.6 1.2-3.4 3.4-6.4z" fill="#FFB23F"/>
+        <line x1="16" y1="0" x2="16" y2="6" stroke="#FFB23F" stroke-width="1.6"/>
+        <line x1="16" y1="26" x2="16" y2="32" stroke="#FFB23F" stroke-width="1.6"/>
+        <line x1="0" y1="16" x2="6" y2="16" stroke="#FFB23F" stroke-width="1.6"/>
+        <line x1="26" y1="16" x2="32" y2="16" stroke="#FFB23F" stroke-width="1.6"/>
+      </svg>
+      <span>MILLWRIGHT<b>.</b></span>
+    </a>
+    <nav class="nav-links" aria-label="Main">
+      <a class="txt" href="/#check">The Reality Check</a>
+      <a class="txt" href="/worth-fixing/">Calculator</a>
+      <a class="btn-ghost" aria-label="Book a free 20-minute intro call" href="/book/">Intro call</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <div class="mast">
+    <div class="wrap mast-grid">
+      <div>
+        <p class="kicker">A guide for owners · companies of 10 to 100 people</p>
+        <h1>Which manual jobs <span>are worth automating?</span></h1>
+        <p class="lede">The ones somebody uses, that mostly go straight through, and that would give back enough
+        hours to be worth changing how people work. Most of the time the fix is a tool you buy or one set up
+        properly, not new software. <strong>I build only when one job takes at least 15 to 20 hours a week by
+        hand.</strong></p>
+      </div>
+      <div>
+        <p class="glance-h" id="glance-h">The lines, checked in this order</p>
+        <dl class="glance" aria-labelledby="glance-h">
+          <div><dt>Nobody uses what it produces</dt><dd>Stop doing it</dd></div>
+          <div><dt>Under 5 in ten go straight through</dt><dd>Fix the input first</dd></div>
+          <div><dt>Under 0.75 hours a week would come off</dt><dd>Leave it alone</dd></div>
+          <div><dt>Under 1.5 hours a week off, copying between systems or the same facts in several places</dt><dd>Not first</dd></div>
+          <div><dt>One job at least 15 to 20 hours a week by hand, not judgment work</dt><dd class="hi">Build candidate</dd></div>
+          <div><dt>Everything else</dt><dd>Buy a tool, or set one up</dd></div>
+        </dl>
+      </div>
+    </div>
+  </div>
+
+  <div class="paper">
+    <div class="wrap clauses">
+
+      <section class="clause" aria-labelledby="c1">
+        <h2 id="c1">Five kinds of manual work</h2>
+        <div class="body">
+          <p>I sort every job done by hand into five kinds, and the kind sets the share I count as coming off.
+          The <a href="/worth-fixing/">free calculator</a> uses the same shares: my judgment, kept cautious,
+          not measurement.</p>
+          <ol class="kinds">
+            <li>
+              <h3>Typing in what arrives</h3>
+              <p>Orders typed in from email. The fix is one way in, such as a form.</p>
+              <p class="off">I count 75%.</p>
+            </li>
+            <li>
+              <h3>Copying between systems</h3>
+              <p>Invoices keyed from the job system into accounting. The fix is making the two talk.</p>
+              <p class="off">I count 70%.</p>
+            </li>
+            <li>
+              <h3>Chasing people</h3>
+              <p>Friday emails asking for timesheets. The fix is automatic reminders.</p>
+              <p class="off">I count 70%.</p>
+            </li>
+            <li>
+              <h3>Same facts, several places</h3>
+              <p>A customer's address in three places. The fix is one place allowed to be right.</p>
+              <p class="off">I count 50%.</p>
+            </li>
+            <li>
+              <h3>Judgment</h3>
+              <p>Quotes and drawing checks. A tool only makes the person quicker; I never build for it.</p>
+              <p class="off">I count 40%.</p>
+            </li>
+          </ol>
+          <p><strong>If nobody uses what a job produces, stop doing it.</strong> The whole job comes back at
+          no cost.</p>
+        </div>
+      </section>
+
+      <section class="clause" aria-labelledby="c2">
+        <h2 id="c2">How many go straight through</h2>
+        <div class="body">
+          <p>At least half have to, or automating won't work. <strong>Count out of ten how many need no phone call,
+          chase or exception.</strong> At eight to ten, the kind's share counts in full; at five to seven, I
+          count 70% to 90% of it; under five, fix the input first with one way in.</p>
+        </div>
+      </section>
+
+      <section class="clause" aria-labelledby="c3">
+        <h2 id="c3">Buy a tool, set one up, leave it alone, or build</h2>
+        <div class="body">
+          <p>The kind of work and the hours decide which.</p>
+          <ul class="lines">
+            <li><b>Buy a tool.</b>For typing in what arrives, chasing people and judgment. In the report, I
+            name the product and take no cut.</li>
+            <li><b>Set one up.</b>For copying and same-facts work: a fixed price from me, or your own admin
+            can do it with the same plan.</li>
+            <li><b>Leave it alone.</b>Under 0.75 hours a week off. Copying and same-facts jobs under 1.5 are
+            not first.</li>
+            <li><b>Build.</b>Only past the build line at the top, with the hours counted rather than guessed, and most weeks have none. A build costs a
+            tenth of what it takes off in its first year.</li>
+          </ul>
+          <p>The calculator checks the build line at the pay you enter, so the hours it needs move with the
+          pay.</p>
+        </div>
+      </section>
+
+      <section class="clause" aria-labelledby="c4">
+        <h2 id="c4">One job is rarely the whole five hours</h2>
+        <div class="body">
+          <p>Usually the five hours a week the guarantee needs come from several jobs. The AI
+          Reality Check adds them up. <strong>If I can't find at least five
+          hours a week of manual work I can help you get rid of, you pay nothing.</strong></p>
+        </div>
+      </section>
+
+      <section class="clause" aria-labelledby="c5">
+        <h2 id="c5">Try one of your jobs</h2>
+        <div class="body">
+          <p>The calculator runs one job through these same lines: six answers, about two minutes, no email
+          needed.</p>
+          <div class="cta">
+            <a class="btn btn-ink" href="/worth-fixing/">Run one of your own jobs through the free calculator</a>
+          </div>
+        </div>
+      </section>
+
+    </div>
+  </div>
+
+  <section class="close" aria-labelledby="close-h">
+    <div class="wrap close-grid">
+      <h2 id="close-h">The AI Reality Check</h2>
+      <div class="body">
+        <p>Two calls and a written report. The report names each job I found, what it costs in hours, and one
+        answer: stop doing it, buy a tool, have me set one up, build, or leave it alone.</p>
+        <p><strong>$999. $499 for my first five clients.</strong></p>
+        <div class="cta">
+          <a class="btn btn-amber" href="/book/">Book a free 20-minute intro call</a>
+          <span class="or">Twenty minutes to see whether a Reality Check is worth it for you. If it isn't, I'll say so.</span>
+        </div>
+        <p class="or">Or email <a href="mailto:kevin@millwright.works?subject=AI%20Reality%20Check">kevin@millwright.works</a>. I answer every email myself, within one working day.</p>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap foot">
+    <span>Millwright, West metro Atlanta, Georgia</span>
+    <nav aria-label="Footer">
+      <a href="/worth-fixing/">Free calculator</a>
+      <a href="/which-jobs/" aria-current="page">Guide</a>
+      <a href="/privacy/">Privacy</a>
+      <a href="mailto:kevin@millwright.works">kevin@millwright.works</a>
+    </nav>
+  </div>
+</footer>
+</body>
+</html>

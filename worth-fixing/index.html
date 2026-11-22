@@ -1,0 +1,1419 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Is It Worth Automating? Manual Work Calculator | Millwright</title>
+<meta name="description" content="Free calculator for one job your team does by hand: what it costs a year, what would really come off, and the cheapest fix. No email needed.">
+<link rel="canonical" href="https://millwright.works/worth-fixing/">
+<meta property="og:title" content="Is it worth fixing? One job, done by hand">
+<meta property="og:description" content="Two minutes, one job, real arithmetic. What it costs you a year, what would actually come off, and the cheapest way to get it back, including when the answer is a $50 subscription, not a project. No email needed to see the answer.">
+<meta property="og:url" content="https://millwright.works/worth-fixing/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Millwright">
+<meta property="og:image" content="https://millwright.works/assets/og-worth-fixing.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Is it worth fixing? One job done by hand: what it costs a year. No email needed to see it.">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Is it worth fixing? One job, done by hand">
+<meta name="twitter:description" content="Two minutes, one job, real arithmetic. What it costs you a year and what would actually come off. No email needed to see the answer.">
+<meta name="twitter:image" content="https://millwright.works/assets/og-worth-fixing.png">
+<meta name="twitter:image:alt" content="Is it worth fixing? One job done by hand: what it costs a year. No email needed to see it.">
+<meta name="theme-color" content="#080807">
+<link rel="icon" href="/favicon.ico" sizes="48x48">
+<link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="/assets/favicon-32.png" type="image/png" sizes="32x32">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..100,400..800&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebSite",
+      "@id": "https://millwright.works/#website",
+      "url": "https://millwright.works/",
+      "name": "Millwright",
+      "inLanguage": "en-US"
+    },
+    {
+      "@type": "WebPage",
+      "@id": "https://millwright.works/worth-fixing/#page",
+      "url": "https://millwright.works/worth-fixing/",
+      "name": "Is it worth fixing? A free calculator for one manual job",
+      "isPartOf": {"@id": "https://millwright.works/#website"},
+      "mainEntity": {"@id": "https://millwright.works/worth-fixing/#calculator"},
+      "breadcrumb": {"@id": "https://millwright.works/worth-fixing/#breadcrumb"},
+      "inLanguage": "en-US"
+    },
+    {
+      "@type": "WebApplication",
+      "@id": "https://millwright.works/worth-fixing/#calculator",
+      "name": "Is it worth fixing?",
+      "url": "https://millwright.works/worth-fixing/",
+      "description": "A free calculator for one job a team does by hand. From how often it happens, how long it takes, how many go straight through, who uses the result, what kind of work it is and who does it, it works out the hours a year the job costs, the hours that would come off, what those hours are worth, and a verdict: stop doing it, fix the input first, leave it alone, not first, buy a tool, set it up, count it first, or build candidate. The arithmetic runs in the browser and needs JavaScript; no email is needed to see the answer.",
+      "applicationCategory": "BusinessApplication",
+      "operatingSystem": "Any; runs in a web browser",
+      "browserRequirements": "Requires JavaScript.",
+      "isAccessibleForFree": true,
+      "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"},
+      "publisher": {"@type": "ProfessionalService", "@id": "https://millwright.works/#business", "name": "Millwright", "url": "https://millwright.works/"}
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://millwright.works/worth-fixing/#breadcrumb",
+      "itemListElement": [
+        {"@type": "ListItem", "position": 1, "name": "Millwright", "item": "https://millwright.works/"},
+        {"@type": "ListItem", "position": 2, "name": "Is it worth fixing?", "item": "https://millwright.works/worth-fixing/"}
+      ]
+    }
+  ]
+}
+</script>
+<style>
+:root{
+  --ink:#080807; --ink-2:#141412; --ink-3:#1F1E1B;
+  --bone:#EFEBE1; --bone-2:#E3DDCE; --field:#F7F4EC;
+  --amber:#FFB23F; --amber-hi:#FFC56C; --amber-deep:#9C420A;
+  --mute:#A9A598; --mute-paper:#57544A;
+  --rule:#2E2D29; --rule-2:#45433C; --rule-paper:#CBC4B2;
+  --keep:#7F9DBC;
+  --grain:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' seed='4'/%3E%3CfeColorMatrix values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 -1.6 1.9'/%3E%3C/filter%3E%3Crect width='160' height='160' filter='url(%23n)'/%3E%3C/svg%3E");
+  --display:'Archivo',system-ui,sans-serif; --body:'Archivo',system-ui,sans-serif; --mono:'IBM Plex Mono',ui-monospace,monospace;
+  --gutter:clamp(16px,4vw,48px);
+  --edge:max(var(--gutter),calc((100vw - 1180px) / 2 + var(--gutter)));
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{font-family:var(--body);font-size:1.0625rem;line-height:1.55;color:var(--bone);background:var(--ink);-webkit-font-smoothing:antialiased;overflow-x:hidden}
+h1,h2,h3{font-family:var(--display);font-weight:800;font-stretch:68%;text-wrap:balance;letter-spacing:-.005em;word-spacing:.06em}
+p{text-wrap:pretty}
+a{color:inherit;text-underline-offset:.22em;text-decoration-thickness:1px}
+a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,summary:focus-visible{outline:3px solid var(--amber);outline-offset:3px}
+.paper :focus-visible{outline-color:var(--ink)}
+.wrap{max-width:1180px;margin:0 auto;padding-inline:var(--gutter)}
+.sr-only{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+.mono-label{font-family:var(--mono);font-size:.72rem;letter-spacing:.04em}
+
+.btn{display:inline-block;font-family:var(--display);font-weight:700;font-stretch:85%;font-size:1.02rem;letter-spacing:.06em;text-transform:uppercase;text-decoration:none;padding:16px 26px;border:none;cursor:pointer;transition:background-color .15s ease}
+.btn-amber,.btn-orange{background:var(--amber);color:var(--ink)}
+.btn-amber:hover,.btn-orange:hover{background:var(--amber-hi)}
+.btn-ink{background:var(--ink);color:var(--bone)}
+.btn-ink:hover{background:var(--ink-3)}
+.btn-ghost{background:rgba(12,12,11,.35);color:var(--bone);border:1px solid var(--rule-2);padding:9px 15px;font-size:.88rem;white-space:nowrap}
+.btn-ghost:hover{border-color:var(--bone)}
+
+.top-bar{position:absolute;inset:0 0 auto 0;z-index:5;background:linear-gradient(rgba(8,8,7,.9),rgba(8,8,7,.8) 55%,rgba(8,8,7,0))}
+.nav{display:flex;align-items:center;justify-content:space-between;gap:16px;padding-block:16px 24px}
+.wordmark{display:flex;align-items:center;gap:11px;text-decoration:none}
+.wordmark svg{display:block}
+.wordmark span{font-family:var(--display);font-weight:800;font-stretch:80%;font-size:1.28rem;letter-spacing:.09em;color:var(--bone)}
+.wordmark span b{color:var(--amber);font-weight:800}
+.nav-links{display:flex;align-items:center;gap:26px}
+.nav-links .txt{font-size:.95rem;color:var(--mute);text-decoration:none}
+.nav-links .txt:hover,.nav-links .txt[aria-current]{color:var(--bone)}
+
+.hero{position:relative;background:var(--ink);overflow:hidden}
+.gauge{position:relative;height:clamp(150px,24svh,230px);z-index:0;
+  -webkit-mask-image:linear-gradient(#000 45%,transparent 96%);mask-image:linear-gradient(#000 45%,transparent 96%)}
+.gauge img,.gauge video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:62% 100%;display:block}
+.gauge video{opacity:0;transition:opacity .5s ease}
+.gauge.live video{opacity:1}
+.hero-copy{position:relative;z-index:2;margin-top:-34px;padding-bottom:34px}
+.kicker{font-family:var(--mono);font-size:.74rem;letter-spacing:.04em;color:var(--mute)}
+.hero h1{margin-top:10px;font-size:clamp(3rem,13.4vw,4.3rem);line-height:.9;letter-spacing:-.01em;word-spacing:.08em}
+.hero h1 .l1,.hero h1 .l2{display:block}
+.hero h1 .l2{color:var(--amber)}
+.hero .lede{margin-top:16px;font-size:1.1rem;color:var(--mute);max-width:24em}
+.hero .lede strong{color:var(--bone);font-weight:600}
+@media (prefers-reduced-motion:no-preference){
+  @keyframes rise{from{opacity:0;transform:translateY(.45em)}to{opacity:1;transform:none}}
+  @keyframes fadein{from{opacity:0}to{opacity:1}}
+  .hero h1 .l1,.hero h1 .l2{animation:rise .9s cubic-bezier(.2,.7,.2,1) both}
+  .hero h1 .l2{animation-delay:.18s}
+  .hero .lede{animation:fadein .8s ease .45s both}
+}
+
+.paper{background:var(--bone);color:var(--ink);position:relative}
+.paper::before{content:"";position:absolute;left:0;right:0;top:0;height:14px;pointer-events:none;
+  background:repeating-linear-gradient(90deg,rgba(8,8,7,.42) 0 1px,transparent 1px 8px) 0 0 / 100% 6px no-repeat,
+             repeating-linear-gradient(90deg,rgba(8,8,7,.78) 0 1px,transparent 1px 40px) 0 0 / 100% 13px no-repeat}
+section{padding-block:48px}
+.tool .wrap{max-width:980px}
+
+.q{border-top:1px solid var(--rule-paper);padding:20px 0 22px;display:grid;grid-template-columns:minmax(0,1fr);gap:12px}
+.q:first-of-type{border-top:none;padding-top:8px}
+.qhead{display:flex;flex-wrap:wrap;align-items:baseline;gap:4px 10px}
+.qn{font-family:var(--mono);font-size:.74rem;color:var(--amber-deep);flex:none;width:1.9em}
+.qt{font-family:var(--display);font-weight:800;font-stretch:72%;font-size:clamp(1.4rem,5.6vw,1.75rem);line-height:1.04;flex:1 1 0;min-width:0;text-wrap:balance}
+.qbody{display:grid;gap:12px;min-width:0}
+.qt .opt{font-family:var(--mono);font-weight:400;font-stretch:100%;font-size:.72rem;color:var(--mute-paper);letter-spacing:.04em;margin-left:.4em;white-space:nowrap}
+.hint{flex:none;align-self:center}
+.hint summary{list-style:none;cursor:pointer;width:30px;height:30px;border:1px solid var(--mute-paper);border-radius:50%;display:grid;place-items:center;
+  font-family:var(--mono);font-size:.9rem;line-height:1;color:var(--ink);background:var(--field);user-select:none}
+.hint summary::-webkit-details-marker{display:none}
+.hint summary:hover{border-color:var(--ink)}
+.hint[open] summary{background:var(--ink);color:var(--bone);border-color:var(--ink)}
+.hint p,.hint ul{margin-top:10px;font-size:.94rem;color:var(--mute-paper);max-width:34em}
+.hint ul{list-style:none}
+.hint li{margin-top:6px}
+.hint b{color:var(--ink);font-weight:600}
+.qhead .hint[open]{flex-basis:100%;order:3;padding-left:calc(1.9em + 10px)}
+.qhead .hint[open] summary{margin-bottom:0}
+
+input[type=text],input[type=number],select{font-family:var(--body);font-size:1.04rem;color:var(--ink);background:var(--field);
+  border:1px solid var(--mute-paper);padding:12px 14px;width:100%;max-width:34em;border-radius:0}
+input[type=number]{width:4.6em;font-family:var(--mono);font-size:1.3rem;padding:9px 12px;font-variant-numeric:tabular-nums}
+input::placeholder{color:#77746A}
+select{max-width:24em}
+.inline{display:flex;gap:10px;align-items:center;flex-wrap:wrap}
+.unit{font-family:var(--mono);font-size:.8rem;color:var(--mute-paper)}
+.times{font-family:var(--mono);font-size:1.1rem;color:var(--amber-deep);margin-inline:2px 4px}
+.money{display:flex;align-items:center;gap:8px}
+.money input[type=number]{width:6.4em}
+.meter{display:flex;align-items:baseline;gap:4px 8px;flex-wrap:wrap;font-family:var(--mono);font-size:.8rem;color:var(--mute-paper)}
+.meter[hidden]{display:none}
+.meter b{font-family:var(--display);font-weight:800;font-stretch:62%;font-size:2.4rem;line-height:.9;color:var(--ink);font-variant-numeric:tabular-nums;letter-spacing:-.01em}
+.meter .dot{color:var(--amber-deep)}
+/* an absurd entry (10^21 a week) prints a long number: it wraps instead of widening the page */
+.meter b,#hoJob{overflow-wrap:anywhere;min-width:0}
+
+.seg{display:flex;flex-wrap:wrap;gap:0}
+.seg label{border:1px solid var(--mute-paper);padding:11px 16px;cursor:pointer;font-size:.95rem;color:var(--ink);background:var(--field);margin:0 -1px -1px 0;line-height:1.3}
+.seg label:has(input:checked),.seg label.on{background:var(--ink);color:var(--bone);border-color:var(--ink);position:relative;z-index:1;box-shadow:inset 0 -4px 0 var(--amber)}
+.seg input{position:absolute;opacity:0;width:0;height:0}
+.seg.chips{gap:8px}
+.seg.chips label{margin:0}
+
+.scale{display:grid;grid-template-columns:repeat(10,minmax(0,1fr));gap:0;max-width:520px;border-left:1px solid var(--mute-paper)}
+.scale label{position:relative;height:48px;display:flex;align-items:flex-start;justify-content:center;padding-top:8px;
+  cursor:pointer;font-family:var(--mono);font-size:.9rem;color:var(--ink);background:var(--field);border:1px solid var(--mute-paper);border-left:0;font-variant-numeric:tabular-nums}
+.scale label::after{content:"";position:absolute;left:0;right:0;bottom:0;height:9px;background:transparent;transition:background-color .2s ease}
+.scale label:has(~ label input:checked)::after{background:var(--amber)}
+.scale label:has(input:checked),.scale label.on{background:var(--ink);color:var(--bone);border-color:var(--ink)}
+.scale label:has(input:checked)::after,.scale label.on::after{background:var(--amber)}
+.scale input{position:absolute;opacity:0;width:0;height:0}
+.scale-ends{display:flex;justify-content:space-between;max-width:520px;margin-top:-4px;color:var(--mute-paper);gap:12px}
+
+.seg label:has(input:focus-visible),.scale label:has(input:focus-visible){outline:3px solid var(--ink);outline-offset:2px;z-index:2}
+
+.rateline{margin-top:10px;font-family:var(--mono);font-size:.8rem;color:var(--mute-paper);background:var(--bone-2);border-left:3px solid var(--amber-deep);padding:10px 14px;max-width:44em}
+.nojs{margin:0 0 18px;border-left:3px solid var(--amber-deep);background:var(--bone-2);padding:12px 16px;font-size:.95rem;color:var(--ink);max-width:44em}
+.nojs summary{cursor:pointer;margin-top:6px;font-weight:600}
+.nojs ol{margin:10px 0 0 1.3em}
+.nojs li{margin-top:8px;font-size:.92rem;color:var(--ink)}
+.go{margin-top:8px;border-top:1px solid var(--ink);padding-top:22px;display:flex;gap:12px 18px;align-items:center;flex-wrap:wrap}
+.go .err{color:var(--amber-deep);font-size:.95rem;font-weight:600}
+.go .err:empty{display:none}
+.privacy{font-family:var(--mono);font-size:.76rem;color:var(--mute-paper)}
+.privacy .hint{display:inline-block;vertical-align:middle;margin-left:6px}
+.privacy .hint p{font-family:var(--body);font-size:.92rem}
+.privacy .hint summary{width:26px;height:26px;font-size:.8rem}
+
+.result{background:var(--ink);color:var(--bone)}
+.result[hidden]{display:none}
+.result .wrap{max-width:1180px}
+@media (max-width:899px){ .result{padding-top:12px} }
+.sheet{border:1px solid var(--rule);background:var(--ink-2);padding:20px 18px 18px}
+.sheet-head{color:var(--mute);border-bottom:1px solid var(--rule);padding-bottom:10px;font-size:.68rem;overflow-wrap:anywhere}
+.sheet-foot{display:none}
+.verdict{margin-top:18px}
+.verdict h2{font-size:clamp(2rem,8.4vw,3rem);line-height:.94;color:var(--bone)}
+.verdict h2:focus{outline:none}
+.headnum{margin-top:14px;display:flex;align-items:flex-end;gap:8px 14px;flex-wrap:wrap}
+.headnum .u{order:3;flex-basis:100%}
+.headnum .vstamp{order:2;margin-left:auto}
+.headnum .n{font-family:var(--display);font-weight:800;font-stretch:62%;font-size:clamp(4.2rem,22vw,6.4rem);line-height:.8;color:var(--amber);font-variant-numeric:tabular-nums;letter-spacing:-.02em;overflow-wrap:anywhere;max-width:100%}
+.headnum .u{font-family:var(--mono);font-size:.76rem;color:var(--mute);max-width:14em;padding-bottom:.2em}
+.vstamp{flex:none;margin:6px 0 2px 4px;font-family:var(--mono);font-weight:500;font-size:.86rem;line-height:1.2;letter-spacing:.05em;text-transform:uppercase;color:var(--amber);
+  border:3px solid var(--amber);outline:1px solid var(--amber);outline-offset:-8px;padding:11px 14px 10px;transform:rotate(-6deg);
+  -webkit-mask-image:var(--grain);
+  mask-image:var(--grain)}
+.vstamp:empty{display:none}
+@keyframes slam{0%{opacity:0;transform:rotate(-13deg) scale(1.8)}60%{opacity:1;transform:rotate(-5deg) scale(.95)}80%{transform:rotate(-6.5deg) scale(1.03)}100%{opacity:1;transform:rotate(-6deg) scale(1)}}
+@media (prefers-reduced-motion:no-preference){ .vstamp.hit{animation:slam .5s cubic-bezier(.3,.6,.3,1) .1s both} }
+.split{margin-top:18px}
+.split .axis{display:flex;justify-content:space-between;gap:12px;font-family:var(--mono);font-size:.66rem;color:var(--mute);padding-bottom:6px}
+.split .track{position:relative;height:20px;display:flex;--tw:10%;
+  background-image:repeating-linear-gradient(90deg,var(--rule-2) 0 1px,transparent 1px var(--tw));box-shadow:inset 0 -1px 0 var(--rule-2),inset -1px 0 0 var(--rule-2)}
+.split .track i{display:block;height:100%;width:0;transition:width .9s cubic-bezier(.65,0,.25,1)}
+.split .track i.o{background:var(--amber)}
+.split .track i.k{background:var(--keep);transition-delay:.25s}
+.split .axis{align-items:flex-end;flex-wrap:wrap}
+.split .legend{display:flex;gap:4px 14px;flex-wrap:wrap;font-family:var(--body);font-size:.8rem;color:var(--mute)}
+#vTick{margin-left:auto}
+.key{display:inline-block;width:.9em;height:.62em;vertical-align:baseline;margin-right:.3em;border-radius:1px}
+.key.off{background:var(--amber)}
+.key.keep{background:var(--keep)}
+@media (prefers-reduced-motion:reduce){ .split .track i{transition:none} }
+.ledger{margin-top:18px;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr) minmax(0,1.3fr);border-top:1px solid var(--rule-2);border-bottom:1px solid var(--rule-2)}
+.ledger > div{padding:12px 10px 12px 0;min-width:0}
+.ledger > div + div{padding-left:12px;border-left:1px solid var(--rule)}
+.ledger dt{font-family:var(--mono);font-size:.64rem;letter-spacing:.06em;text-transform:uppercase;color:var(--mute)}
+.ledger dd{margin-top:4px;font-family:var(--display);font-weight:800;font-stretch:62%;font-size:clamp(1.5rem,6.6vw,2.1rem);line-height:1;color:var(--bone);font-variant-numeric:tabular-nums;overflow-wrap:anywhere}
+.ledger dd small{display:block;margin-top:5px;font-family:var(--mono);font-weight:400;font-stretch:100%;font-size:.68rem;line-height:1.35;color:var(--mute);letter-spacing:0}
+.ledger .worth dd{color:var(--amber)}
+.ledger.long dd{font-size:clamp(1rem,4.2vw,1.5rem)}
+.step{margin-top:16px;font-size:1.08rem;line-height:1.45;color:var(--bone);max-width:34em}
+.notes{list-style:none;margin-top:10px}
+.notes:empty{display:none}
+.notes li{margin-top:8px;padding-left:16px;position:relative;font-size:.92rem;color:var(--mute);max-width:40em}
+.notes li::before{content:"";position:absolute;left:0;top:.5em;width:7px;height:7px;background:var(--amber)}
+.notes li b{color:var(--bone);font-weight:600}
+.more{margin-top:16px;display:inline-flex;align-items:center;gap:10px;background:none;border:0;border-bottom:1px solid var(--rule-2);padding:6px 0;cursor:pointer;
+  font-family:var(--mono);font-size:.78rem;letter-spacing:.04em;text-transform:uppercase;color:var(--bone)}
+.more::after{content:"+";color:var(--amber);font-size:1rem;line-height:1}
+.more[aria-expanded=true]::after{content:"\2212"}
+.more:hover{border-bottom-color:var(--bone)}
+.working{margin-top:18px;border-top:1px solid var(--rule);padding-top:4px}
+.working[hidden]{display:none}
+.verdict-body p{margin-top:14px;color:var(--mute);max-width:42em}
+.verdict-body p strong{color:var(--bone);font-weight:600}
+.verdict-body ol{margin:14px 0 0 0;padding-left:0;list-style:none;counter-reset:v}
+.verdict-body ol li{counter-increment:v;position:relative;padding:0 0 12px 36px;color:var(--mute);max-width:42em}
+.verdict-body ol li::before{content:counter(v,decimal-leading-zero);position:absolute;left:0;top:3px;font-family:var(--mono);font-size:.74rem;color:var(--amber)}
+.verdict-body ol li strong{color:var(--bone);font-weight:600}
+.calc{margin-top:24px;border-top:1px solid var(--rule);padding-top:16px}
+.calc h3,.limits-box h3{font-family:var(--mono);font-size:.7rem;font-weight:500;color:var(--amber);margin-bottom:8px;letter-spacing:.02em}
+.calc div + h3,.calc p + h3{margin-top:20px}
+.row{display:flex;justify-content:space-between;gap:16px;padding:8px 0;border-bottom:1px solid var(--rule);font-family:var(--mono);font-size:.82rem}
+.row .l{color:var(--mute)}
+.row .r{color:var(--bone);white-space:nowrap;font-variant-numeric:tabular-nums}
+.row.long{flex-wrap:wrap}
+.row.long .r{white-space:normal;overflow-wrap:anywhere;min-width:0}
+.row.tot{border-bottom:none;border-top:1px solid var(--rule-2);margin-top:4px;padding-top:10px}
+.row.tot .l,.row.tot .r{color:var(--bone)}
+.row.tot .r{color:var(--amber)}
+.calcnote{margin-top:14px;font-size:.9rem;color:var(--mute);max-width:44em}
+.calcnote strong{color:var(--bone);font-weight:600}
+.stopnote{margin:0 0 8px}
+.stopnote[hidden]{display:none}
+.flag{margin-top:14px;border-left:3px solid var(--amber);background:var(--ink-3);padding:13px 16px;font-size:.93rem;color:var(--mute);max-width:46em}
+.flag b,.flag strong{color:var(--bone);font-weight:600}
+.limits-box{margin-top:24px;border-top:1px solid var(--rule);padding-top:16px}
+.limits{list-style:none}
+.limits li{padding:10px 0;border-bottom:1px solid var(--rule);font-size:.92rem;color:var(--mute);max-width:46em}
+.limits li strong{color:var(--bone);font-weight:600}
+
+.handoff{margin-top:18px;border-top:3px solid var(--amber);padding-top:16px}
+.handoff h2{font-size:clamp(1.9rem,7.6vw,3rem);line-height:.94;color:var(--bone)}
+.handoff .ho-line{margin-top:10px;color:var(--mute);max-width:36em;font-size:1rem}
+.handoff .ho-line:empty{display:none}
+.handoff .ho-terms{margin-top:10px;color:var(--bone);max-width:34em;font-size:1.04rem;line-height:1.45}
+.ho-fig{margin-top:16px;max-width:560px}
+.ho-fig[hidden]{display:none}
+.ho-axis{display:flex;justify-content:space-between;gap:6px 14px;flex-wrap:wrap;color:var(--mute);padding-bottom:6px}
+.ho-axis b{color:var(--amber);font-weight:500}
+.ho-axis .ho-end{margin-left:auto}
+.ho-track{position:relative;height:16px;background-image:repeating-linear-gradient(90deg,var(--rule-2) 0 1px,transparent 1px 20%);box-shadow:inset 0 -1px 0 var(--rule-2),inset -1px 0 0 var(--rule-2)}
+.ho-track i{display:block;height:100%;width:0;background:var(--amber);transition:width .9s cubic-bezier(.65,0,.25,1) .2s}
+@media (prefers-reduced-motion:reduce){ .ho-track i{transition:none} }
+.handoff .cta{margin-top:20px}
+.handoff .or{color:var(--mute)}
+.handoff .or a{color:var(--bone)}
+.or .free{display:block;font-weight:600;color:var(--ink)}
+.handoff .or .free{color:var(--bone)}
+
+.after{margin-top:22px;display:flex;gap:10px;flex-wrap:wrap;align-items:center}
+.after .btn-line{background:transparent;color:var(--bone);border:1px solid var(--rule-2);font-family:var(--display);font-weight:700;font-stretch:85%;
+  font-size:.86rem;letter-spacing:.06em;text-transform:uppercase;padding:10px 16px;cursor:pointer;text-decoration:none}
+.after .btn-line:hover{border-color:var(--bone)}
+
+.capture{margin-top:22px;border:1px solid var(--rule-2);background:var(--ink-2);padding:22px 22px 18px}
+.capture[hidden]{display:none}
+.capture .ck{color:var(--mute);display:block;margin-bottom:10px}
+.capture p{color:var(--mute);font-size:.95rem;max-width:46em}
+.capture p strong{color:var(--bone);font-weight:600}
+.capture form{display:flex;gap:10px;margin-top:14px;flex-wrap:wrap}
+.capture input[type=email]{flex:1;min-width:220px;max-width:26em;font-family:var(--body);font-size:1rem;color:var(--bone);background:var(--ink);border:1px solid var(--rule-2);padding:12px 14px;border-radius:0}
+.capture input[type=email]::placeholder{color:var(--mute)}
+.capture .cmsg{margin-top:10px;font-size:.92rem;color:var(--mute);min-height:1.2em}
+.capture .cnote{margin-top:10px;font-family:var(--mono);font-size:.68rem;color:var(--mute)}
+
+.contact{background:var(--bone-2)}
+.contact[hidden]{display:none}
+.contact h2{font-size:clamp(2.2rem,8.6vw,3.4rem);line-height:.92}
+.pricetag{margin-top:22px;display:flex;align-items:flex-end;flex-wrap:wrap;gap:24px 26px}
+.pricetag .amt{font-family:var(--display);font-weight:800;font-stretch:62%;font-size:clamp(5.4rem,26vw,8rem);line-height:.8;letter-spacing:-.03em;color:var(--ink)}
+.contact .terms{margin-top:16px;max-width:34em;color:var(--ink);font-size:1rem;line-height:1.45}
+.stamp{position:relative;flex:none;margin:0 0 4px 6px;display:block;font-family:var(--mono);font-weight:500;font-size:.9rem;line-height:1.3;letter-spacing:.05em;text-transform:uppercase;color:var(--amber-deep);background:var(--bone-2);
+  border:3px solid var(--amber-deep);outline:1px solid var(--amber-deep);outline-offset:-8px;padding:12px 15px 11px;max-width:12.4em;transform:rotate(-7deg);
+  -webkit-mask-image:var(--grain);
+  mask-image:var(--grain)}
+.stamp b{font-weight:500;font-size:2em;line-height:1;margin-bottom:2px;display:block;letter-spacing:.02em}
+.cta{margin-top:24px;display:flex;flex-wrap:wrap;align-items:center;gap:12px 20px}
+.or{font-size:.95rem;color:var(--mute-paper)}
+.or a{white-space:nowrap;color:var(--ink)}
+
+footer{background:var(--ink);color:var(--mute);border-top:1px solid var(--rule)}
+.foot{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px 28px;padding-block:24px 30px;font-size:.92rem}
+.foot nav{display:flex;flex-wrap:wrap;gap:8px 22px}
+.foot a{color:var(--bone)}
+
+@media (min-width:900px){
+  .top-bar .nav{padding-block:22px 30px}
+  .hero{display:grid;grid-template-columns:minmax(0,1.25fr) minmax(0,.75fr);min-height:min(62svh,520px)}
+  .gauge{grid-column:2;grid-row:1;height:auto;min-height:100%;
+    -webkit-mask-image:linear-gradient(90deg,transparent 0,#000 26%);mask-image:linear-gradient(90deg,transparent 0,#000 26%)}
+  .gauge img,.gauge video{object-position:70% 72%}
+  .hero-copy{grid-column:1;grid-row:1;align-self:center;margin:0;padding:120px 24px 52px var(--edge)}
+  .hero h1{font-size:clamp(4.6rem,7.3vw,7.2rem)}
+  .hero .lede{font-size:1.18rem}
+  section{padding-block:64px}
+  .q{grid-template-columns:minmax(0,17rem) minmax(0,1fr);column-gap:40px;padding-block:24px 26px;align-items:start}
+  .q:first-of-type{padding-top:10px}
+
+  .qhead .hint[open]{padding-left:calc(1.9em + 10px)}
+  .sheet{padding:28px 30px 24px}
+  .vstamp{margin-left:auto;font-size:.95rem}
+  .headnum .u{order:1;flex-basis:auto}
+  .contact .wrap{display:grid;grid-template-columns:1fr auto;gap:24px 72px;align-items:end}
+  .contact .cta{margin-top:0}
+}
+@media (min-width:1000px){
+  .result .wrap{display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,.7fr);column-gap:44px;align-items:start}
+  .result .handoff{margin-top:0}
+  .handoff .btn{padding-inline:20px}
+  .handoff h2{font-size:clamp(2rem,3.4vw,2.8rem)}
+  .verdict h2{font-size:clamp(2.4rem,3.6vw,3.2rem)}
+  .ledger dd{font-size:2.2rem}
+}
+@media (max-width:899px){ .nav-links .txt{display:none} }
+@media (max-width:420px){
+  .cta .btn,.go .btn{display:block;width:100%;text-align:center}
+  .cta .or{width:100%;text-align:center}
+  .go{flex-direction:column;align-items:stretch}
+  .privacy{justify-content:center}
+  .sheet{padding:16px 14px 14px}
+  .row{font-size:.76rem}
+  .ledger > div{padding-right:6px}
+  .ledger > div + div{padding-left:8px}
+  .after .btn-line{flex:1 1 auto;text-align:center}
+  .capture form{flex-direction:column}
+  .capture input[type=email]{max-width:none}
+  .seg label{padding:11px 13px}
+}
+@media print{
+  header,.hero,.tool,.contact,.after,.capture,.handoff,.more,footer{display:none!important}
+  body{background:#fff;color:#000}
+  .result{background:#fff!important;color:#000;padding:0}
+  .result .wrap{display:block}
+  .sheet{border:1px solid #999;background:#fff}
+  .working{display:block!important}
+  .sheet-foot{display:flex;justify-content:space-between;gap:6px 12px;flex-wrap:wrap;color:#333;border-top:1px solid #bbb;margin-top:24px;padding-top:10px;font-size:.66rem}
+  .verdict h2,.row .r,.row.tot .l,.row.tot .r,.verdict-body p strong,.flag b,.flag strong,.headnum .n,.verdict-body ol li strong,.calcnote strong,.ledger dd,.ledger .worth dd,.step,.notes li b,.limits li strong{color:#000}
+  .verdict-body p,.row .l,.calcnote,.flag,.sheet-head,.verdict-body ol li,.headnum .u,.calc h3,.limits-box h3,.verdict-body ol li::before,.split .axis,.split .legend,.ledger dt,.ledger dd small,.notes li,.limits li{color:#333}
+  .flag{background:#fff;border-left-color:#666}
+  .row,.calc,.sheet-head,.ledger,.ledger > div,.working,.limits-box,.limits li{border-color:#bbb}
+  .vstamp{color:#8a3a08;border-color:#8a3a08;outline-color:#8a3a08;-webkit-mask-image:none;mask-image:none}
+  .split .track,.key,.notes li::before{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .split .track i{transition:none}
+  .split .track i.o,.key.off{background:#E89A24}
+  section{padding:0}
+}
+@media (max-width:374px){
+  .nav{gap:10px}
+  .wordmark{gap:9px}
+  .wordmark span{font-size:1.12rem;letter-spacing:.07em}
+  .btn-ghost{padding-inline:11px}
+  .seg label{padding:10px 11px;font-size:.92rem}
+}
+@media (max-width:360px){
+  .cta .btn{font-size:.94rem;padding-inline:12px;letter-spacing:.04em}
+}
+</style>
+</head>
+<body id="top">
+
+<header class="top-bar">
+  <div class="wrap nav">
+    <a class="wordmark" href="/" aria-label="Millwright, home">
+      <svg width="28" height="28" viewBox="0 0 32 32" aria-hidden="true">
+        <circle cx="16" cy="16" r="12" fill="none" stroke="#EFEBE1" stroke-width="1.6"/>
+        <path d="M16 11.2c2.2 3 3.4 4.8 3.4 6.4a3.4 3.4 0 0 1-6.8 0c0-1.6 1.2-3.4 3.4-6.4z" fill="#FFB23F"/>
+        <line x1="16" y1="0" x2="16" y2="6" stroke="#FFB23F" stroke-width="1.6"/>
+        <line x1="16" y1="26" x2="16" y2="32" stroke="#FFB23F" stroke-width="1.6"/>
+        <line x1="0" y1="16" x2="6" y2="16" stroke="#FFB23F" stroke-width="1.6"/>
+        <line x1="26" y1="16" x2="32" y2="16" stroke="#FFB23F" stroke-width="1.6"/>
+      </svg>
+      <span>MILLWRIGHT<b>.</b></span>
+    </a>
+    <nav class="nav-links" aria-label="Main">
+      <a class="txt" href="/#check">The Reality Check</a>
+      <a class="txt" href="/worth-fixing/" aria-current="page">Calculator</a>
+      <a class="btn btn-ghost" aria-label="Book a free 20-minute intro call" href="/book/">Intro call</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <div class="hero">
+    <div class="gauge" id="gauge" aria-hidden="true">
+      <picture>
+        <source media="(prefers-reduced-motion: no-preference) and (scripting: enabled)" srcset="/assets/gauge-low-720.jpg 720w, /assets/gauge-low.jpg 1080w" sizes="(min-width: 900px) 40vw, 100vw">
+        <img src="/assets/gauge-720.jpg" srcset="/assets/gauge-720.jpg 720w, /assets/gauge.jpg 1080w" sizes="(min-width: 900px) 40vw, 100vw" width="1080" height="1080" alt="" decoding="async" fetchpriority="high">
+      </picture>
+      <video muted playsinline preload="none" tabindex="-1">
+        <source data-src="/assets/gauge-720.mp4" type="video/mp4" media="(max-width: 899px)">
+        <source data-src="/assets/gauge-1080.mp4" type="video/mp4">
+      </video>
+    </div>
+    <div class="hero-copy wrap">
+      <p class="kicker">Free · no email · two minutes</p>
+      <h1><span class="l1">Is it worth</span> <span class="l2">fixing?</span></h1>
+      <p class="lede">One job your team does by hand. <strong>Six answers. The hours, and what they're worth.</strong></p>
+    </div>
+  </div>
+
+  <section class="tool paper" aria-label="The calculator">
+    <div class="wrap">
+      <noscript><div class="nojs"><p>This calculator needs JavaScript to work out an answer.</p>
+      <details><summary>The method, by hand</summary>
+      <ol>
+        <li>Hours a week: times a week &times; minutes each &divide; 60. Hours a year: times a week &times; minutes each &times; 0.8667 (52 weeks &divide; 60).</li>
+        <li>The share that would come off, by the kind of work: information coming in from outside 0.75; copying between two systems 0.70; chasing people 0.70; the same facts kept in several places 0.50; someone's judgment 0.40. If nobody uses what comes out, the work can stop: 0.80.</li>
+        <li>Times a factor for the ones that go straight through: 8 to 10 in ten, 1.00; 5 to 7 in ten, that number &divide; 10 + 0.20; under 5, 0.50.</li>
+        <li>Hours off a desk a week: hours a week &times; the share &times; the factor, and &times; 52 for a year. Worth: salary &times; 1.3 &divide; 1,750 an hour, times those hours. That is capacity, not cash. Salaries I use unless you change them: admin $40,000, field $45,000, bookkeeper $52,000, coordinator $60,000, manager $75,000, owner $50,000 (what it would cost to hire someone).</li>
+        <li>The verdict, checked in this order: nobody uses it, stop doing it; under 5 in ten straight through, fix the input first; under 0.75 hours a week off, leave it alone; under 1.5 hours a week off when the work is copying between systems or facts kept in several places, not first; the job's cost by hand at the salary entered (hours a year &times; salary &times; 1.3 &divide; 1,750) reaches the bar I build at (15 to 20 hours a week at typical office pay) and isn't judgment work, build candidate if you counted it, count it first if it's a feel; otherwise set it up (copying between systems, facts in several places) or buy a tool.</li>
+      </ol></details></div></noscript>
+
+      <form id="f" novalidate>
+        <div class="q">
+          <div class="qhead"><span class="qn" aria-hidden="true">01</span><label class="qt" for="task">The job <span class="opt">optional</span></label></div>
+          <div class="qbody">
+            <input type="text" id="task" maxlength="70" placeholder="e.g. re-typing orders from email">
+          </div>
+        </div>
+
+        <div class="q" role="group" aria-labelledby="q2t">
+          <div class="qhead"><span class="qn" aria-hidden="true">02</span><span class="qt" id="q2t">How often, how long?</span>
+            <details class="hint"><summary><span aria-hidden="true">?</span><span class="sr-only">What counts as one</span></summary>
+            <p>One go, start to finish, including finding the information. Not the afternoon it lives inside. <b>Most people's feel is wrong, usually low</b>, and it changes what I'll tell you.</p></details></div>
+          <div class="qbody">
+            <div class="inline">
+              <input type="number" id="freq" min="1" max="2000" step="1" inputmode="numeric" placeholder="12" aria-label="Times per week">
+              <span class="unit" aria-hidden="true">a week</span>
+              <span class="times" aria-hidden="true">&times;</span>
+              <input type="number" id="mins" min="1" max="480" step="1" inputmode="numeric" placeholder="15" aria-label="Minutes each">
+              <span class="unit" aria-hidden="true">min each</span>
+            </div>
+            <p class="meter" id="meter" hidden aria-live="polite"><b id="meterH"></b> h a week <span class="dot" aria-hidden="true">&middot;</span> <b id="meterY"></b> h a year</p>
+            <div class="seg" role="radiogroup" aria-label="Is that counted or estimated">
+              <label><input type="radio" name="counted" value="no" checked>A feel</label>
+              <label><input type="radio" name="counted" value="yes">Counted</label>
+            </div>
+          </div>
+        </div>
+
+        <div class="q" role="group" aria-labelledby="q3t">
+          <div class="qhead"><span class="qn" aria-hidden="true">03</span><span class="qt" id="q3t">Out of ten, how many go straight through?</span>
+            <details class="hint"><summary><span aria-hidden="true">?</span><span class="sr-only">Why this matters</span></summary>
+            <p>The odd ones don't count: the phone call, the chase, the exception. <b>This decides whether automating it would work</b>, and almost nobody asks it before selling you something.</p></details></div>
+          <div class="qbody">
+            <div class="scale" role="radiogroup" aria-label="Straight through, out of ten" id="scale"></div>
+            <div class="scale-ends mono-label" aria-hidden="true"><span>Messy</span><span>Clean</span></div>
+          </div>
+        </div>
+
+        <div class="q" role="group" aria-labelledby="q4t">
+          <div class="qhead"><span class="qn" aria-hidden="true">04</span><span class="qt" id="q4t">Does anyone use the result?</span></div>
+          <div class="qbody">
+            <div class="seg" role="radiogroup" aria-label="Who uses the output">
+              <label><input type="radio" name="consumer" value="yes" checked>Someone acts on it</label>
+              <label><input type="radio" name="consumer" value="no">Nobody would notice</label>
+            </div>
+          </div>
+        </div>
+
+        <div class="q" role="group" aria-labelledby="q5t">
+          <div class="qhead"><span class="qn" aria-hidden="true">05</span><span class="qt" id="q5t">What kind of work?</span>
+            <details class="hint"><summary><span aria-hidden="true">?</span><span class="sr-only">What each kind means</span></summary>
+            <ul>
+              <li><b>Typing in what arrives:</b> information comes in from outside however people send it, and someone puts it into your system.</li>
+              <li><b>Copying between systems:</b> the same information re-typed between two systems you already own.</li>
+              <li><b>Chasing people:</b> signatures, timesheets, receipts, approvals, payment.</li>
+              <li><b>Same facts, several places:</b> kept up to date in three or four of them.</li>
+              <li><b>Judgment:</b> reading, writing, checking, deciding. A tool could only make them quicker at it.</li>
+            </ul></details></div>
+          <div class="qbody">
+            <div class="seg chips" role="radiogroup" aria-label="What kind of work">
+              <label><input type="radio" name="kind" value="A" checked>Typing in what arrives</label>
+              <label><input type="radio" name="kind" value="B">Copying between systems</label>
+              <label><input type="radio" name="kind" value="C">Chasing people</label>
+              <label><input type="radio" name="kind" value="D">Same facts, several places</label>
+              <label><input type="radio" name="kind" value="E">Judgment</label>
+            </div>
+          </div>
+        </div>
+
+        <div class="q" role="group" aria-labelledby="q6t">
+          <div class="qhead"><span class="qn" aria-hidden="true">06</span><span class="qt" id="q6t">Who does it?</span>
+            <details class="hint"><summary><span aria-hidden="true">?</span><span class="sr-only">How the hour is priced</span></summary>
+            <p>A normal salary for the role, because almost nobody knows what an employee costs fully loaded. <b>Change it if mine is off.</b></p>
+            <div class="rateline" id="rateline"></div></details></div>
+          <div class="qbody">
+            <select id="role" aria-label="Who does the job">
+              <option value="admin">Admin, office or front desk</option>
+              <option value="field">Warehouse, field or production</option>
+              <option value="books" selected>Bookkeeper, AR or office manager</option>
+              <option value="coord">Estimator, scheduler or coordinator</option>
+              <option value="mgr">Manager or analyst</option>
+              <option value="owner">You, the owner</option>
+            </select>
+            <div class="money"><span class="unit" aria-hidden="true">$</span><input type="number" id="salary" min="15000" max="400000" step="1000" inputmode="numeric" value="52000" aria-label="Annual salary, dollars"><span class="unit" aria-hidden="true">a year</span></div>
+          </div>
+        </div>
+
+        <div class="go">
+          <button type="submit" class="btn btn-ink">Work it out</button>
+          <span class="err" id="err" role="alert"></span>
+          <div class="privacy">
+            <span>Nothing you type leaves unless you send it.</span>
+            <details class="hint"><summary><span aria-hidden="true">?</span><span class="sr-only">Privacy, in full</span></summary>
+            <p>There's no analytics on this page and no server doing the arithmetic. The only things that ever leave are the ones you send: the print dialog and the mail buttons under the result. The page loads its two typefaces from Google's font service, like the rest of this site; your answers are not part of that request.</p></details>
+          </div>
+        </div>
+        <p class="sr-only" id="announce" role="status"></p>
+      </form>
+    </div>
+  </section>
+
+  <section class="result" id="result" hidden>
+    <div class="wrap">
+      <div class="sheet">
+        <div class="sheet-head mono-label"><span id="sheetTitle">FIG. 02 — ONE JOB, COUNTED</span></div>
+
+        <div class="verdict">
+          <h2 id="vHead" tabindex="-1"></h2>
+          <div class="headnum">
+            <span class="n" id="vNum"></span>
+            <span class="u" id="vUnit"></span>
+            <span class="vstamp" id="vStamp" aria-hidden="true"></span>
+          </div>
+          <div class="split" id="vFig" aria-hidden="true">
+            <div class="axis"><span class="legend"><span><i class="key off"></i><span id="vOff">Comes off</span></span><span id="vKeepWrap"><i class="key keep"></i><span id="vKeep">Stays</span></span></span><span id="vTick"></span></div>
+            <div class="track" id="vTrack"><i class="o"></i><i class="k"></i></div>
+          </div>
+          <dl class="ledger" id="ledger">
+            <div><dt>By hand</dt><dd><span id="lgNow"></span><small id="lgNowW"></small></dd></div>
+            <div><dt>Comes off</dt><dd><span id="lgOff"></span><small id="lgOffW"></small></dd></div>
+            <div class="worth"><dt>Worth</dt><dd><span id="lgWorth"></span><small id="lgWorthW">a year of capacity, not cash</small></dd></div>
+          </dl>
+          <p class="step" id="vStep"></p>
+          <ul class="notes" id="vNotes"></ul>
+        </div>
+
+        <button type="button" class="more" id="vMore" aria-expanded="false" aria-controls="working">Show the working</button>
+        <div class="working" id="working" hidden>
+          <div class="verdict-body" id="vBody"></div>
+          <div class="calc">
+            <h3>What the job costs now</h3>
+            <div id="calcNow"></div>
+            <h3>What would actually come off</h3>
+            <p class="calcnote stopnote" id="stopNote" hidden>The headline above is the whole job. These rows count it cautiously, the way a report would, so they come out lower.</p>
+            <div id="calcOff"></div>
+            <h3>What that's worth</h3>
+            <div id="calcMoney"></div>
+            <p class="calcnote" id="moneyNote"></p>
+          </div>
+          <div id="flags"></div>
+          <div class="limits-box">
+            <h3>What this page doesn't know</h3>
+            <ul class="limits">
+              <li><strong>It's one job.</strong> The five hours a week I guarantee to find is rarely in one place: twenty minutes here, forty there, across four people.</li>
+              <li><strong>You gave me the numbers.</strong> I didn't watch the work. If the timing is a feel, count it for two weeks before spending anything.</li>
+              <li><strong>I haven't looked for the product.</strong> The price would be stale by the time you read it, and choosing one means knowing what else you run.</li>
+              <li><strong>The reduction rates are practitioner judgment, not measurement.</strong> They're the $999 report's, at the conservative end of each range. When they're measured, I'll change the numbers here and say so.</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="sheet-foot mono-label">
+          <span>MILLWRIGHT · MILLWRIGHT.WORKS</span>
+          <span id="stamp"></span>
+        </div>
+      </div>
+
+      <div class="side">
+      <div class="handoff" id="handoff" role="region" aria-labelledby="ho-h">
+        <h2 id="ho-h">That was one job.</h2>
+        <p class="ho-line" id="hoLine"></p>
+        <p class="ho-terms">The AI Reality Check counts your whole week. $999. $499 for my first five clients. If I can't find at least five hours a week of manual work I can help you get rid of, you pay nothing.</p>
+        <div class="ho-fig" id="hoFig">
+          <div class="ho-axis mono-label"><span>This job: <b id="hoJob"></b> h a week</span><span class="ho-end">5 h</span></div>
+          <div class="ho-track" aria-hidden="true"><i id="hoFill"></i></div>
+        </div>
+        <div class="cta">
+          <a class="btn btn-amber" href="/book/">Book a free 20-minute intro call</a>
+          <span class="or"><span class="free">No obligation.</span> Or email <a href="mailto:kevin@millwright.works?subject=AI%20Reality%20Check">kevin@millwright.works</a></span>
+        </div>
+      </div>
+
+      <div class="capture" id="capture" hidden>
+        <span class="ck mono-label">Optional — you already have your answer</span>
+        <p><strong>Want this in writing?</strong> Leave an email and I'll send this result back as a
+        PDF you can forward, plus a short series on where the rest of the five hours usually hides in
+        a week like yours. It ends on its own, and one click ends it sooner.</p>
+        <form id="cf" novalidate>
+          <input type="email" id="cemail" autocomplete="email" inputmode="email" placeholder="you@yourcompany.com" aria-label="Your email address">
+          <input type="text" id="chp" name="company_url" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px;width:0;height:0;border:0;padding:0">
+          <button type="submit" class="btn btn-orange" id="cbtn">Send it to me</button>
+        </form>
+        <p class="cmsg" id="cmsg" role="status" aria-live="polite"></p>
+        <p class="cnote">Sends your address and this result. Nothing else on this page goes with it.</p>
+      </div>
+
+      <div class="after">
+        <button type="button" class="btn-line" id="btnPrint">Print</button>
+        <a class="btn-line" id="btnMail" href="#">Email it to me</a>
+        <a class="btn-line" id="btnSend" href="#" aria-label="Ask Kevin by email whether he'd score it differently">Ask Kevin</a>
+      </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="contact paper" id="contact">
+    <div class="wrap">
+      <div>
+        <h2>The AI Reality Check.</h2>
+        <p class="pricetag"><span class="amt">$999</span><span class="sr-only">, or </span><span class="stamp"><b>$0</b> if I can't find five hours a week</span></p>
+        <p class="terms">$999. $499 for my first five clients. If I can't find at least five hours a week of manual work I can help you get rid of, you pay nothing.</p>
+      </div>
+      <div class="cta">
+        <a class="btn btn-ink" href="/book/">Book a free 20-minute intro call</a>
+        <span class="or"><span class="free">No obligation.</span> Or email <a href="mailto:kevin@millwright.works?subject=AI%20Reality%20Check">kevin@millwright.works</a></span>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap foot">
+    <span>Millwright, West metro Atlanta, Georgia</span>
+    <nav aria-label="Footer">
+      <a href="/worth-fixing/" aria-current="page">Free calculator</a>
+      <a href="/which-jobs/">Guide</a>
+      <a href="/privacy/">Privacy</a>
+      <a href="mailto:kevin@millwright.works">kevin@millwright.works</a>
+    </nav>
+  </div>
+</footer>
+
+<script>
+/* ============================================================================
+   worth-fixing — the Reality Check's triage engine, self-serve, on one job.
+   The ONLY network call in this script is the optional capture POST below, and
+   it fires exclusively on the reader's submit. The arithmetic never phones home.
+   ========================================================================= */
+
+/* ============================================================================
+   CAPTURE_ENDPOINT: the address the optional email capture posts to.
+   - Leave it '' and the capture card never renders: the page behaves exactly
+     like the no-capture version and every privacy sentence stays true.
+   - Point it at any endpoint that accepts a JSON POST: {email, result, source}.
+   - The page sends EXACTLY those three fields. If that ever changes, the
+     privacy block and the .cnote line under the form must change in the same
+     edit — they state it in writing.
+   - The offer copy promises a PDF of the result and a short email series.
+     Wiring this constant is also committing to fulfilling both.
+   ========================================================================= */
+var CAPTURE_ENDPOINT = '';
+
+/* Reduction rate by MECHANISM, conservative column. Never the range top. */
+var MECH = {
+  A:{name:'transfer',     rate:0.75, label:'The work moves to the person who has the information', seed:'T'},
+  B:{name:'automation',   rate:0.70, label:'A rule moves it and a person handles the odd ones',    seed:'Q'},
+  C:{name:'automation',   rate:0.70, label:'A rule chases instead of a person',                    seed:'T'},
+  D:{name:'consolidation',rate:0.50, label:'Fewer places that have to be kept right',              seed:'Q'},
+  E:{name:'assist',       rate:0.40, label:'A person still does it, just faster',                  seed:'T'}
+};
+var ELIM = {name:'elimination', rate:0.80, label:'The work stops happening'};
+
+/* Loaded hourly = salary x 1.3 burden / 1,750 productive hours */
+var BURDEN = 1.3, PRODUCTIVE = 1750;
+var ROLES = {
+  admin:{salary:40000}, field:{salary:45000}, books:{salary:52000},
+  coord:{salary:60000}, mgr:{salary:75000},   owner:{salary:50000, replacement:true}
+};
+
+/* The build bar: the internal build bar, a job's yearly cost by hand,
+   at the salary entered: hours by hand a year x salary x 1.3 / 1,750. ONE workflow. */
+var BUILD_BAR = 31000;
+/* Impact 1-2 is under 0.75 hrs/week freed. That is the "leave it alone" line. */
+var LEAVE_LINE = 0.75;
+/* Impact 3 (0.75 to 1.5 hrs/wk) is CHEAP TIDY-UP at low effort and NOT NOW
+   at high effort. This page can't score effort properly, so it takes the route as a
+   proxy: a fix that someone has to build is effort 3-4 by construction, a subscription is 1-2. */
+var IMPACT_4_LINE = 1.5;
+
+var $ = function(id){ return document.getElementById(id); };
+
+/* --- the 1-10 scale, built in JS so the markup stays readable --- */
+(function(){
+  var s = $('scale'), html = '';
+  for (var i=1;i<=10;i++){
+    html += '<label><input type="radio" name="st" value="'+i+'"'+(i===7?' checked':'')+
+            '><span>'+i+'</span></label>';
+  }
+  s.innerHTML = html;
+})();
+
+function radio(name){ var el = document.querySelector('input[name="'+name+'"]:checked'); return el ? el.value : null; }
+function money0(n){ return '$' + Math.round(n).toLocaleString(); }
+function money100(n){ return '$' + (Math.round(n/100)*100).toLocaleString(); }
+function hrs(n){ return n.toFixed(n < 10 ? 2 : 1); }
+
+/* :has() does the highlighting in CSS; this is the belt-and-braces fallback,
+   because in .seg and .scale the radio itself is visually hidden. */
+function paintSelected(){
+  var groups = document.querySelectorAll('.seg label, .scale label');
+  for (var i=0;i<groups.length;i++){
+    var input = groups[i].querySelector('input');
+    if (input) groups[i].classList.toggle('on', input.checked);
+  }
+}
+
+/* The exception adjustment. 8-10 of 10 -> no haircut (the conservative
+   rates already price a normal tail). 5-7 -> share + 0.20. Under 5 -> 0.50, AND
+   the recommendation has to change: fix the input before automating anything. */
+function exceptionFactor(st){
+  if (st >= 8) return 1.00;
+  if (st >= 5) return st/10 + 0.20;
+  return 0.50;
+}
+
+function loadedRate(salary){ return salary * BURDEN / PRODUCTIVE; }
+
+function syncRate(){
+  var r = ROLES[$('role').value];
+  var sal = parseFloat($('salary').value) || r.salary;
+  var rate = loadedRate(sal);
+  $('rateline').textContent =
+    money0(sal) + ' x 1.3 burden / 1,750 productive hours = $' + rate.toFixed(2) + ' an hour' +
+    (r.replacement ? '  (replacement rate: what it would cost to hire someone)' : '');
+}
+
+$('role').addEventListener('change', function(){
+  $('salary').value = ROLES[this.value].salary;
+  syncRate();
+});
+$('salary').addEventListener('input', function(){ syncRate(); if (computed) run(); });
+syncRate();
+paintSelected();
+
+var computed = false;
+
+document.getElementById('f').addEventListener('submit', function(e){
+  e.preventDefault();
+  run(true);
+});
+
+/* recompute live once they've seen an answer once */
+document.getElementById('f').addEventListener('change', function(){ paintSelected(); if (computed) run(); });
+$('freq').addEventListener('input', function(){ if (computed) run(); });
+$('mins').addEventListener('input', function(){ if (computed) run(); });
+$('task').addEventListener('input', function(){ if (computed) run(); });
+
+function run(scroll){
+  var n = parseFloat($('freq').value), m = parseFloat($('mins').value);
+  if (!(n > 0) || !(m > 0)){
+    $('err').textContent = 'I need both numbers: how many times a week, and how many minutes each.';
+    return;
+  }
+  $('err').textContent = '';
+
+  var task     = ($('task').value || '').trim();
+  var counted  = radio('counted') === 'yes';
+  var st       = parseInt(radio('st'), 10);
+  var consumed = radio('consumer') === 'yes';
+  var kind     = radio('kind');
+  var role     = $('role').value;
+  var salary   = parseFloat($('salary').value) || ROLES[role].salary;
+  var rate     = loadedRate(salary);
+
+  var mech   = consumed ? MECH[kind] : ELIM;
+  var factor = exceptionFactor(st);
+
+  /* hours now, and what the rate and the exception factor remove */
+  var hoursNow    = n * m / 60;
+  var annualNow   = n * m * 0.8667;                 /* the build bar's own formula */
+  var removedWeek = hoursNow * mech.rate * factor;
+  var removedYear = removedWeek * 52;
+  var capacity    = removedYear * rate;
+  var fte         = annualNow / PRODUCTIVE;
+  var costNow     = annualNow * rate;               /* what the job costs a year by hand, for the build bar */
+
+  /* ---- routing: P -> T -> Q -> B -> N, the order that is the debias ----
+     This is why 'assist' can never reach the build branch however big it is:
+     if the work is judgment each time there is no rule to run, and volume does
+     not change that. Check the assist pattern instead, or don't build. */
+  var judgmentWork = (mech.name === 'assist');
+  var effortHigh   = (mech.seed === 'Q');
+  var notNow = false, tidyUp = false, payLow = false;
+
+  var v;
+  if (!consumed)                       v = 'STOP';
+  else if (st < 5)                     v = 'INPUT';
+  else if (removedWeek < LEAVE_LINE)   v = 'LEAVE';
+  else if (removedWeek < IMPACT_4_LINE && effortHigh){
+    /* The NOT NOW quadrant: real hours, but the fix is a few days plus a
+       habit change and at this size that trade doesn't pay. Say so. */
+    v = 'LEAVE'; notNow = true;
+  }
+  else if (costNow >= BUILD_BAR && !judgmentWork)
+                                       v = counted ? 'LOOK' : 'COUNT';
+  else {
+    v = effortHigh ? 'SETUP' : 'BUY';
+    payLow = (!judgmentWork && costNow < BUILD_BAR);   /* only the pay kept this off the build verdict */
+    tidyUp = (removedWeek < IMPACT_4_LINE);   /* CHEAP TIDY-UP, not a priority */
+  }
+
+  render({
+    task:task, n:n, m:m, counted:counted, st:st, kind:kind, mech:mech, factor:factor,
+    hoursNow:hoursNow, annualNow:annualNow, removedWeek:removedWeek, removedYear:removedYear,
+    salary:salary, rate:rate, capacity:capacity, fte:fte, costNow:costNow, role:role, v:v,
+    notNow:notNow, tidyUp:tidyUp, payLow:payLow
+  });
+
+  computed = true;
+  $('result').hidden = false;
+  if (CAPTURE_ENDPOINT){
+    $('capture').hidden = false;
+    /* answers changed after a send: re-arm the button so the new result can go */
+    var cb = $('cbtn');
+    if (cb.disabled){ cb.disabled = false; cb.textContent = 'Send it to me'; $('cmsg').textContent = ''; }
+  }
+  if (scroll) $('result').scrollIntoView({behavior:'smooth', block:'start'});
+}
+
+function row(l, r, cls){
+  return '<div class="row'+(cls?' '+cls:'')+'"><span class="l">'+l+'</span><span class="r">'+r+'</span></div>';
+}
+
+var SHAPE = {
+  A:'one way for information to come in: a form, a booking link, a portal, a field somebody has to fill in before you\'ll accept the job',
+  B:'getting the two systems to talk to each other, or moving to one that does both jobs',
+  C:'reminders that go out on their own, so nobody has to remember to chase',
+  D:'picking one place that is allowed to be right, and making the others read from it',
+  E:'templates and drafting, so the person starts from something instead of a blank page'
+};
+var WHY_Q = {
+  B:'Two systems have to talk to each other, and somebody has to decide what happens when they disagree. That decision is the actual work.',
+  D:'Somebody has to decide which of those places is allowed to be right, and then everybody has to change habit on the same day. Software is the easy half.'
+};
+
+function esc(s){
+  return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+}
+
+function render(d){
+  var t = d.task ? '&ldquo;' + esc(d.task) + '&rdquo;' : 'this job';
+  var yr = Math.round(d.removedYear);
+  var yrS = isFinite(yr) ? yr.toLocaleString() : yr;
+  var yrNow = Math.round(d.annualNow);
+  var pct = Math.round(d.fte * 100);
+
+  $('sheetTitle').textContent = 'FIG. 02 — ' + (d.task ? d.task.toUpperCase().slice(0,44) : 'ONE JOB, COUNTED');
+  $('stamp').textContent = 'WORKED OUT IN YOUR BROWSER · ' + new Date().toISOString().slice(0,10);
+
+  var head, num, unit, body;
+
+  if (d.v === 'STOP'){
+    head = 'Stop doing it. Those hours are free.';
+    num  = yrNow; unit = 'hours a year, yours back at no cost';
+    body =
+      '<p><strong>' + (isFinite(yrNow) ? yrNow.toLocaleString() : yrNow) + ' hours a year</strong> come back to you here without buying anything, '+
+      'because you said nobody\'s really waiting for what comes out of ' + t + '. Stop producing it, '+
+      'or produce it monthly instead of weekly, and see who complains. Usually nobody does — and if '+
+      'somebody does, you\'ve just found out who the work was actually for, which is worth knowing '+
+      'too.</p>'+
+      '<p><strong>Nothing I could sell you beats free, which is exactly why nobody selling you '+
+      'software will ever suggest it.</strong> Automating a step that shouldn\'t exist is the second '+
+      'most expensive way to be helpful.</p>'+
+      '<p>And notice what just happened: a job nobody needed sat in your week until somebody asked '+
+      'one question about it. <strong>The reality check asks that question about everything your '+
+      'team does by hand</strong> — and the jobs people <em>are</em> waiting for, the ones that '+
+      'can\'t just stop, are where the five hours a week I guarantee to find actually live.</p>';
+  }
+
+  else if (d.v === 'INPUT'){
+    head = 'Worth fixing — starting with the way it arrives.';
+    num  = yrNow; unit = 'hours a year, blocked by the way work arrives';
+    body =
+      '<p>This job runs about <strong>' + (isFinite(yrNow) ? yrNow.toLocaleString() : yrNow) + ' hours a year</strong>, and a real share of it '+
+      'could come off — the mechanism is sitting right there. What\'s in the way: you said only ' + d.st + ' in '+
+      'ten go straight through, so <strong>the exception isn\'t the exception, it\'s most of the '+
+      'job.</strong> Any tool you buy today would handle the clean ones and hand the rest back to '+
+      'you, and the rest is the part you were already complaining about.</p>'+
+      '<p>The unlock costs almost nothing and it isn\'t glamorous: <strong>one way in.</strong> One '+
+      'form, one required field, one template the sender has to use, one thing you stop accepting '+
+      'five different ways. Do that for a month and this becomes a real automation candidate with an '+
+      'honest number on it — the arithmetic below runs at half rate to show what the mess is costing '+
+      'you today.</p>'+
+      '<p><strong>Messy input is rarely confined to one job.</strong> The same broken front door '+
+      'usually feeds two or three of them, and fixing it once cleans up all three. Mapping which of '+
+      'your jobs share a door is exactly what the reality check\'s whole-week walk is for — it\'s '+
+      'often where the first five hours come from.</p>';
+  }
+
+  else if (d.v === 'LEAVE'){
+    var whyLittle = {
+      elimination:'even with the work stopped outright',
+      transfer:'once the person who has the information fills it in themselves',
+      automation:'once a rule handles the standard ones',
+      consolidation:'and consolidating only ever gets you about half, because somebody still has to look',
+      assist:'and it\'s the number I trust least, because savings from making a person faster come back three minutes at a time and quietly refill with other work'
+    }[d.mech.name];
+    head = d.notNow ? 'Real, but not first.' : 'Leave it alone.';
+    num  = yr; unit = 'hours a year would actually come off';
+    body =
+      (d.notNow
+        ? '<p>About <strong>' + yrS + ' hours a year</strong> would come off ' + t + ', and those '+
+          'hours are real. <strong>The problem is the price of getting them.</strong> There\'s '+
+          'nothing here you can just go and buy: the fix is a few days of somebody\'s attention plus '+
+          'the whole team changing habit on the same day. At this many hours that trade doesn\'t pay '+
+          'yet, and a half-finished version of it is worse than leaving the work alone.</p>'+
+          '<p>The way "not first" becomes "now" is seeing what\'s ahead of it. <strong>That ranking '+
+          'is the report:</strong> the reality check prices this against everything else in your week '+
+          'and puts the fixes in order of hours-back per unit of hassle — so the few-days-of-'+
+          'attention jobs come after the subscription-and-an-afternoon ones.</p>'
+        : '<p>About <strong>' + yrS + ' hours a year</strong> would genuinely come off ' + t + ', ' +
+          whyLittle + '. That isn\'t enough to be worth a subscription, another login, another thing '+
+          'that breaks when the vendor changes something, and two weeks of everybody being annoyed '+
+          'about the new way. <strong>I\'d rather tell you that now than sell you a fix that costs '+
+          'more than the problem</strong> — and that answer doesn\'t change when the report is '+
+          'paid for.</p>'+
+          '<p>What it tells you is where the value actually is. <strong>You just priced the one job '+
+          'you could see. The five hours a week I guarantee to find is rarely in one place</strong> — '+
+          'it\'s twenty minutes here and forty there, across four people, which is exactly why '+
+          'nobody has ever added it up. Adding it up across your whole week is the reality check, '+
+          'and if the total comes in under five hours, you don\'t pay for it.</p>');
+  }
+
+  else if (d.v === 'BUY'){
+    head = 'Good news: this is a solved problem.';
+    num  = yr; unit = 'hours a year back, for less than a phone bill';
+    body =
+      '<p>About <strong>' + yrS + ' hours a year</strong> comes off ' + t + ', and the fix is the '+
+      'cheap kind: a lot of businesses do this job the same way, somebody has already built software '+
+      'for it and modeled it against ten thousand companies. The shape of the fix is <strong>' +
+      SHAPE[d.kind] + '</strong> — an afternoon, one person, a subscription. That\'s a searchable '+
+      'thing, starting this week.</p>'+
+      '<p><strong>I\'m not going to name the product on a static page.</strong> The price would be '+
+      'stale by the time you read it, and choosing between two of them means knowing what else you '+
+      'run and what you\'d have to stop using. A written report can do what this page can\'t: name '+
+      'it, with what it runs a month and what it replaces. And since I don\'t resell anything and '+
+      'take no commission from anyone I recommend, the name in the report has nothing in it for me.</p>'+
+      '<p><strong>This was also just the job you already suspected.</strong> In a company your size '+
+      'there are usually two or three more of these hiding, plus the ones nobody thinks to mention '+
+      'because "that\'s just how we do it." Finding all of them in one 45 to 60 minute call is what the '+
+      'reality check is — and a couple of them are usually exactly this cheap.</p>';
+  }
+
+  else if (d.v === 'SETUP'){
+    head = 'Worth setting up properly.';
+    num  = yr; unit = 'hours a year back, for a few days of setup';
+    body =
+      '<p>About <strong>' + yrS + ' hours a year</strong> comes off ' + t + ' — at the rate below, '+
+      'real money, every year, for a one-time fix. The reason it hasn\'t happened already is that '+
+      'there\'s nothing to just go and buy. ' + (WHY_Q[d.kind] || '') + ' That makes it a few days '+
+      'of work rather than an afternoon, and nobody in the building ever has a clear few days — '+
+      'which is the whole reason it\'s still eating ' + hrs(d.hoursNow) + ' hours a week.</p>'+
+      '<p><strong>For what it\'s worth, this is the kind of job I\'d most likely end up being paid '+
+      'for, so weigh this page accordingly.</strong> You can hand it to your own admin instead if '+
+      'you\'ve got one with the hours — the plan is the same either way.</p>'+
+      '<p>What the reality check adds is <strong>the plan itself, in writing</strong> — what happens '+
+      'on each of the four days, what order, what to abandon if it overruns — plus the rest of your '+
+      'week priced next to this job. That last part matters more than it sounds: the second-biggest '+
+      'job is sometimes the better first project, and you can\'t know that from one job priced '+
+      'alone.</p>';
+  }
+
+  else if (d.v === 'COUNT'){
+    head = 'This could be the valuable one. Go count it.';
+    num  = yrNow; unit = 'hours a year, if your feel for it is right';
+    body =
+      '<p>On the figures you gave me, ' + t + ' runs about <strong>' + (isFinite(yrNow) ? yrNow.toLocaleString() : yrNow) + ' hours a year</strong> '+
+      '— roughly ' + pct + '% of one person\'s working year, which clears the bar I build at. Most jobs '+
+      'aren\'t close. A build costs a tenth of what it takes off in its first year. If the number holds, this is the '+
+      'kind worth real money.</p>'+
+      '<p><strong>It rests on a feel, and this is the one place a feel isn\'t good enough.</strong> '+
+      'People are routinely wrong about how long things take, and the error here is big enough to '+
+      'move the answer either way. So: a tally sheet next to the keyboard for two weeks. Mark every '+
+      'one and how long it took. Then run this again. That instruction is straight out of the paid '+
+      'playbook, and it costs nothing — a build resting on a guess is how people end up owning '+
+      'software they didn\'t need.</p>'+
+      '<p><strong>The tally covers this one job. The reality check can cover the rest of your week '+
+      'while you count</strong> — most of a week\'s five hours needs no tally at all, because the '+
+      'fixes are subscriptions and afternoons, not builds. By the time your two weeks are up, '+
+      'you\'d know exactly where this one ranks.</p>';
+  }
+
+  else { /* LOOK */
+    head = 'This is the one I build for.';
+    num  = yrNow; unit = 'hours a year on a single job';
+    body =
+      '<p><strong>' + (isFinite(yrNow) ? yrNow.toLocaleString() : yrNow) + ' hours a year</strong> on one job, about ' + pct + '% of one person\'s '+
+      'working year — at the rate below, this is the biggest number this page can produce, and '+
+      'getting even most of it back changes somebody\'s entire job description. It clears the bar '+
+      'I build at, and almost nothing clears it. A build costs a tenth of what it takes off in its first year. <strong>A job '+
+      'this size is what an agent-first system on the Power Platform is for:</strong> an agent works '+
+      'the standard cases itself, your people get the exceptions, it lives in your tenant and you '+
+      'own the source. But before anyone builds you anything — me included — four more things have '+
+      'to be true, and in my experience they don\'t all hold:</p>'+
+      '<ol>'+
+      '<li><strong>No product already does 80% of it.</strong> That takes a search somebody actually '+
+      'runs, your industry first, and a written sentence on why each one it finds doesn\'t fit. '+
+      '"It doesn\'t do exactly what we do" is not one of those sentences.</li>'+
+      '<li><strong>The reason no product fits is that the job is peculiar to how you do business</strong>, '+
+      'rather than that your process is peculiar and should probably change. Those two look identical '+
+      'from the inside.</li>'+
+      '<li><strong>Somebody at your company will own it after it\'s built.</strong> Software with no '+
+      'owner degrades quietly and then the client blames the builder, correctly. That costs money '+
+      'every month, forever.</li>'+
+      '<li><strong>You\'re on Microsoft 365.</strong> It\'s the only thing I build on. If you\'re on '+
+      'Google or something else, nothing above changes. It just isn\'t me who builds it.</li>'+
+      '</ol>'+
+      '<p>And the line I\'d rather you heard from me now than found out later: <strong>if a $60 a '+
+      'month product does 80% of this, building the 100% version is malpractice</strong>, and the '+
+      'missing 20% is usually a process problem wearing a software costume.</p>'+
+      '<p><strong>Those four questions are the back half of a reality check report</strong> — the '+
+      'product search actually run with reasons in writing, the is-it-your-job-or-your-process call, '+
+      'the named owner, the platform answer — with the rest of your week priced beside it, so the '+
+      'build has to earn its place ahead of the cheap fixes. When it does, this is the work I\'m '+
+      'actually here for. If you only ever buy one $999 report, this verdict is the one to buy it '+
+      'for.</p>';
+  }
+
+  $('vHead').textContent = head;
+  $('vNum').textContent  = (typeof num === 'number') ? num.toLocaleString() : num;
+  $('vUnit').textContent = unit;
+  $('vBody').innerHTML   = body;
+
+  /* ---------------- the arithmetic, shown so it can be checked ------------- */
+  $('calcNow').innerHTML =
+    row(d.n + ' a week &times; ' + d.m + ' minutes', hrs(d.hoursNow) + ' hrs/week') +
+    row('&times; 52 weeks', yrNow.toLocaleString() + ' hrs/year') +
+    row('as a share of one person\'s working year (1,750 hrs)', pct + '%', 'tot');
+
+  $('calcOff').innerHTML =
+    row(d.mech.label, '&times; ' + d.mech.rate.toFixed(2)) +
+    row(d.st + ' in 10 go straight through', '&times; ' + d.factor.toFixed(2)) +
+    row('Hours off somebody\'s desk', hrs(d.removedWeek) + ' hrs/week') +
+    row('a year', Math.round(d.removedYear).toLocaleString() + ' hrs/year', 'tot');
+
+  $('calcMoney').innerHTML =
+    row(money0(d.salary) + ' &times; 1.3 burden / 1,750 productive hrs', '$' + d.rate.toFixed(2) + '/hr') +
+    row(Math.round(d.removedYear).toLocaleString() + ' hrs &times; $' + d.rate.toFixed(2),
+        money100(d.capacity) + ' a year', 'tot');
+
+  $('moneyNote').innerHTML = (ROLES[d.role].replacement
+    ? 'That\'s <strong>what it would cost to hire somebody to do this</strong>, not your rate. I\'m '+
+      'not going to invent an hourly rate for an owner. Your own hour is worth whatever you\'d do '+
+      'instead: if it becomes billable work, that\'s revenue; if it becomes your evening, that\'s '+
+      'worth something too, but it isn\'t cash and I\'m not going to put it in a table and call it a '+
+      'saving. '
+    : '') +
+    '<strong>This is capacity, not cash.</strong> Nothing comes off your payroll because of it. The '+
+    'person still works the same hours and spends them on something else. Hours only turn into money '+
+    'when a named cost actually falls, or when the freed time goes into work you bill for. Rounded to '+
+    'the nearest hundred, because it\'s an estimate built on numbers you gave me in ninety seconds.';
+
+  /* ---------------- the flags: what would change this answer -------------- */
+  var flags = '';
+  if (d.tidyUp){
+    flags += '<div class="flag"><b>Worth doing, not worth a project.</b> This one sits in the band '+
+      'where the hours are real but modest. In a report I\'d put it on day four of a four-day plan, '+
+      'after the bigger ones, and I\'d tell you to abandon it if the setup turns out to take longer '+
+      'than an afternoon.</div>';
+  }
+  if (!d.counted && d.v !== 'COUNT'){
+    flags += '<div class="flag"><b>You said the timing is a feel.</b> Everything above inherits that. '+
+      'If you want the number to be worth spending money on, tally it for two weeks first. It\'s free '+
+      'and it\'s the cheapest thing on this page.</div>';
+  }
+  if (d.mech.name === 'assist' && d.v !== 'LEAVE' && d.v !== 'STOP' && d.v !== 'INPUT'){
+    flags += '<div class="flag"><b>Treat this saving with more suspicion than the others.</b> When a '+
+      'person still does the work and a tool just makes them quicker, the time comes back in '+
+      'three-minute slivers and there\'s no moment where anybody sees it. It refills with other work. '+
+      'I won\'t count savings of this shape toward anything I guarantee unless somebody has watched '+
+      'them happen.</div>';
+  }
+  if (d.mech.name === 'assist' && d.costNow >= BUILD_BAR){
+    flags += '<div class="flag"><b>And it\'s big enough that I\'d normally be talking about building '+
+      'something. I\'m not going to.</b> You told me the work is judgment each time, which means '+
+      'there\'s no rule to run, and volume doesn\'t change that. A build here would be sold honestly, '+
+      'priced fairly, and fail. If somebody quotes you one on these numbers, ask them which steps are '+
+      'rules and which are judgment. If they can\'t name them, they haven\'t understood the job well '+
+      'enough to price it.</div>';
+  }
+  if (d.factor < 1 && d.v !== 'INPUT'){
+    flags += '<div class="flag"><b>The ' + d.factor.toFixed(2) + ' isn\'t pessimism, it\'s the '+
+      'exceptions.</b> Every reduction rate quietly assumes a rule handles the work and a person '+
+      'handles the leftovers. You said ' + d.st + ' in 10 run clean, so the leftovers are a real '+
+      'share of the volume, and they usually take longer than the clean ones.</div>';
+  }
+  if (d.v === 'STOP'){
+    flags += '<div class="flag"><b>One deliberate bit of conservatism, declared.</b> I\'ve kept the '+
+      'exception haircut on above even though stopping the work would end the odd ones too, so the '+
+      'real number is bigger than the one shown. On a paid job I\'d count it in full. This page can\'t '+
+      'ask you a follow-up question, so it errs low.</div>';
+  }
+  if (d.hoursNow > 40){
+    flags += '<div class="flag"><b>Check those numbers.</b> ' + hrs(d.hoursNow) + ' hours a week is '+
+      'more than one person\'s entire week on a single job. It happens, but it\'s worth confirming '+
+      'before you act on anything above.</div>';
+  }
+  $('flags').innerHTML = flags;
+
+  /* ---------------- the two mail buttons: their doing, not a gate ----------
+     Neither one sends anything. Both hand a pre-filled draft to the reader's own
+     mail client, which is why every privacy sentence on this page stays true.
+     `working` is the shared body; only btnMail carries the pitch tail, because
+     mailing the owner his own sales line back would make no sense. */
+  var working = [
+    (d.task ? d.task : 'One job done by hand'),
+    '',
+    'VERDICT: ' + head,
+    '',
+    d.n + ' a week x ' + d.m + ' minutes = ' + hrs(d.hoursNow) + ' hrs/week = ' + yrNow + ' hrs/year',
+    d.mech.label + ' x ' + d.mech.rate.toFixed(2),
+    d.st + ' in 10 straight through x ' + d.factor.toFixed(2),
+    'Hours off a desk: ' + hrs(d.removedWeek) + '/week, ' + Math.round(d.removedYear) + '/year',
+    'Loaded rate: ' + money0(d.salary) + ' x 1.3 / 1,750 = $' + d.rate.toFixed(2) + '/hr',
+    'Capacity: about ' + money100(d.capacity) + ' a year (capacity, not cash)',
+    'Timing was: ' + (d.counted ? 'counted' : 'a feel'),
+    '',
+    'Worked out at millwright.works/worth-fixing'
+  ].join('\n');
+  lastWorking = working;   /* what the optional capture form sends, verbatim */
+
+  var pitch = [
+    '',
+    '',
+    'That was one job. The AI Reality Check counts the whole week.',
+    '$999. $499 for my first five clients.',
+    '"If I can\'t find at least five hours a week of manual work I can help you get rid of, you pay nothing."',
+    'millwright.works/book - kevin@millwright.works'
+  ].join('\n');
+
+  $('btnMail').href = 'mailto:?subject=' +
+    encodeURIComponent('Worth fixing? ' + (d.task || 'one job') + ': ' + head) +
+    '&body=' + encodeURIComponent(working + pitch);
+
+  $('btnSend').href = 'mailto:kevin@millwright.works?subject=' +
+    encodeURIComponent('Second opinion: ' + (d.task || 'one job')) +
+    '&body=' + encodeURIComponent(
+      'Kevin, I ran this on your calculator and got the verdict below.\n' +
+      'Would you have scored it the same?\n\n' +
+      working + '\n\n' +
+      'What we do:\n' +
+      'Roughly how many people:\n' +
+      'Anything the six questions did not let me tell you:\n');
+}
+
+$('btnPrint').addEventListener('click', function(){ window.print(); });
+
+/* ---------------- the capture form: optional, after the answer -------------
+   Fires only when the reader submits. Sends email + the result summary +
+   a source tag to CAPTURE_ENDPOINT, and nothing else. The hidden `chp` field
+   is a honeypot: humans never see it, bots fill it, and a filled honeypot
+   gets a fake success instead of a POST. */
+var lastWorking = '';
+$('cf').addEventListener('submit', function(e){
+  e.preventDefault();
+  if (!CAPTURE_ENDPOINT) return;
+  var em = $('cemail').value.trim();
+  if (!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(em)){
+    $('cmsg').textContent = 'That email doesn\'t look right — one more look?';
+    return;
+  }
+  if ($('chp').value){ $('cmsg').textContent = 'Sent.'; return; }
+  var btn = $('cbtn');
+  btn.disabled = true; btn.textContent = 'Sending…';
+  fetch(CAPTURE_ENDPOINT, {
+    method:'POST',
+    headers:{'Content-Type':'application/json'},
+    body: JSON.stringify({ email: em, result: lastWorking, source: 'worth-fixing' })
+  }).then(function(r){
+    if (!r.ok) throw new Error('bad status');
+    btn.textContent = 'Sent';
+    $('cmsg').textContent = 'Done — the PDF is on its way to ' + em + '.';
+  }).catch(function(){
+    btn.disabled = false; btn.textContent = 'Send it to me';
+    $('cmsg').textContent = 'That didn\'t go through. Email kevin@millwright.works and I\'ll send it by hand.';
+  });
+});
+</script>
+
+<script>
+/* The page's own additions, kept apart from the arithmetic above (which is unchanged). Nothing here
+   computes a new answer: every figure is read from what render() was given, printed with the same
+   formatters the rows use (hrs, money100, toLocaleString), so the summary and the rows never disagree. */
+(function(){
+  var g = function(id){ return document.getElementById(id); };
+  var meter = g('meter');
+  function meterTick(){
+    var n = parseFloat(g('freq').value), m = parseFloat(g('mins').value);
+    if (!(n > 0) || !(m > 0)) { meter.hidden = true; return; }
+    g('meterH').textContent = hrs(n * m / 60);
+    g('meterY').textContent = Math.round(n * m * 0.8667).toLocaleString();
+    meter.hidden = false;
+  }
+  g('freq').addEventListener('input', meterTick);
+  g('mins').addEventListener('input', meterTick);
+  meterTick();
+
+  var STAMP = { STOP:'Stop doing it', INPUT:'Fix the input first', BUY:'Buy a tool', SETUP:'Set it up',
+                COUNT:'Count it first', LOOK:'Build candidate' };
+  var track = g('vTrack'), off = track.querySelector('.o'), kept = track.querySelector('.k'), stampEl = g('vStamp');
+  function stampText(d){ return d.v === 'LEAVE' ? (d.notNow ? 'Not first' : 'Leave it') : STAMP[d.v]; }
+  function drawFig(d){
+    var tot = d.hoursNow, o = Math.max(0, Math.min(d.removedWeek, tot)), k = tot - o;
+    // "Stop doing it": the headline is the whole job coming back, so the bar shows the whole job stopping
+    var stop = d.v === 'STOP';
+    if (stop) { o = tot; k = 0; }
+    // a scale that fits: from one minute a tick up, at most twelve ticks across the job
+    var steps = [1/60, 2/60, 5/60, 10/60, 0.25, 0.5, 1, 2, 5, 10, 20, 50, 100, 200, 500, 1000, 2000, 5000], step = steps[steps.length - 1];
+    for (var i = 0; i < steps.length; i++) { if (tot / steps[i] <= 12) { step = steps[i]; break; } }
+    var sane = isFinite(tot) && tot >= 1/60 && tot / step <= 12;
+    track.style.setProperty('--tw', sane ? Math.min(100, step / tot * 100).toFixed(3) + '%' : '100%');
+    var mins = Math.round(step * 60);
+    g('vTick').textContent = !sane ? '' : 'each tick is ' + (step < 1 ? mins + (mins === 1 ? ' minute' : ' minutes') : step.toLocaleString() + (step === 1 ? ' hour' : ' hours'));
+    if (!isFinite(tot) || !(tot > 0)) { o = 0; k = 0; tot = 1; }
+    off.style.width = (o / tot * 100).toFixed(2) + '%';
+    kept.style.width = (k / tot * 100).toFixed(2) + '%';
+    g('vOff').textContent = stop ? 'The whole job stops' : 'Comes off';
+    g('vKeepWrap').hidden = stop;
+    var s = stampText(d);
+    if (s !== stampEl.textContent) {
+      stampEl.textContent = s;
+      stampEl.classList.remove('hit'); void stampEl.offsetWidth; stampEl.classList.add('hit');
+    }
+  }
+
+  // The three numbers, in the rows' own formatting: by hand, what comes off, what it's worth.
+  function drawLedger(d){
+    g('lgNow').textContent = Math.round(d.annualNow).toLocaleString() + ' h';
+    g('lgNowW').textContent = 'a year';
+    g('lgOff').textContent = Math.round(d.removedYear).toLocaleString() + ' h';
+    g('lgOffW').textContent = d.v === 'STOP' ? 'a year, counted low' : 'a year';
+    g('lgWorth').textContent = money100(d.capacity);
+    g('lgWorthW').textContent = ROLES[d.role].replacement ? 'a year at a hire’s rate: capacity, not cash' : 'a year of capacity, not cash';
+    // past seven characters a figure would break mid-number in a narrow cell, so all three get smaller
+    g('ledger').classList.toggle('long', [g('lgNow'), g('lgOff'), g('lgWorth')].some(function(e){ return e.textContent.length > 7; }));
+  }
+
+  // Pay moves the hours: one plain line, only where pay alone decides the build verdict (the build bar is in dollars,
+  // so higher pay needs fewer hours and lower pay needs more). d.payLow is set by the routing in run().
+  function payLine(d){
+    if ((d.v === 'COUNT' || d.v === 'LOOK') && d.hoursNow < 15) return ' At this pay, a job this size is enough for me to build.';
+    if (d.payLow && d.hoursNow >= 15) return ' At this pay, a job has to take more hours before I build it.';
+    return '';
+  }
+
+  // The next step, one line, said the way the full reasoning says it.
+  function stepLine(d){
+    return stepBase(d) + payLine(d);
+  }
+  function stepBase(d){
+    switch (d.v) {
+      case 'STOP':  return 'Stop producing it, or do it monthly, and see who notices. Free beats anything I could sell you.';
+      case 'INPUT': return 'Fix how it arrives first: one form, one required field. Then it can be automated.';
+      case 'LEAVE': return d.notNow ? 'The hours are real, but the fix is days of work and a change of habit. Do the cheaper ones first.'
+                                    : 'Too small to be worth a subscription, a login and two weeks of a new way.';
+      case 'BUY':   return 'Somebody already sells the fix: an afternoon and a subscription.';
+      case 'SETUP': return 'Nothing to buy: a few days of setup, once, and the hours come back every year.';
+      case 'COUNT': return 'Count it before anyone builds anything: a tally for two weeks, then run this again.';
+      default:      return 'Big enough to build for, if four things hold. They are in the working.';
+    }
+  }
+
+  // The cautions that stop a number being over-read, short. The full text of each is in the working.
+  function notes(d){
+    var out = [];
+    if (d.tidyUp) out.push('<b>Worth doing, not worth a project.</b>');
+    if (!d.counted && d.v !== 'COUNT') out.push('<b>The timing is a feel.</b> Tally it for two weeks before you spend anything.');
+    if (d.mech.name === 'assist' && d.costNow >= BUILD_BAR) out.push('<b>Judgment work: no rule to run,</b> so not a build, however big.');
+    if (d.v === 'STOP') out.push('Stopping returns the whole job; the rows count it cautiously.');
+    if (d.hoursNow > 40) out.push('<b>Check those numbers:</b> that is more than one person’s week.');
+    return out.map(function(t){ return '<li>' + t + '</li>'; }).join('');
+  }
+
+  // The fold: everything explanatory, one press away (and always printed).
+  var more = g('vMore'), working = g('working');
+  more.addEventListener('click', function(){
+    var open = working.hidden;
+    working.hidden = !open;
+    more.setAttribute('aria-expanded', open ? 'true' : 'false');
+    more.textContent = open ? 'Hide the working' : 'Show the working';
+  });
+  window.addEventListener('beforeprint', function(){ working.hidden = false; });
+  window.addEventListener('afterprint', function(){ working.hidden = more.getAttribute('aria-expanded') !== 'true'; });
+
+  var resultEl = g('result'), contact = g('contact');
+  var _render = render;
+  render = function(d){
+    var first = resultEl.hidden;
+    if (first) { off.style.transition = kept.style.transition = 'none'; off.style.width = kept.style.width = '0'; }
+    _render(d);
+    g('stopNote').hidden = d.v !== 'STOP';
+    // a figure too long for one line on a phone (only absurd inputs make one) may wrap instead of widening the page
+    Array.prototype.forEach.call(document.querySelectorAll('.calc .row'), function(r){ var v = r.querySelector('.r'); r.classList.toggle('long', !!v && v.textContent.length > 22); });
+    drawLedger(d);
+    g('vStep').textContent = stepLine(d);
+    g('vNotes').innerHTML = notes(d);
+    drawHandoff(d, first);
+    contact.hidden = true;
+    g('announce').textContent = g('vHead').textContent + ' ' + g('vNum').textContent + ' ' + g('vUnit').textContent + '. Worth ' + g('lgWorth').textContent + ' a year, capacity, not cash.';
+    if (first) {
+      requestAnimationFrame(function(){ requestAnimationFrame(function(){ off.style.transition = kept.style.transition = ''; drawFig(d); }); });
+      drawFigText(d);
+    } else drawFig(d);
+  };
+  // after "Work it out", keyboard and screen-reader users land on the verdict (run() does the scrolling)
+  g('f').addEventListener('submit', function(){
+    // only when this press produced an answer: an error leaves focus where the visitor is typing
+    if (!resultEl.hidden && !g('err').textContent) g('vHead').focus({ preventScroll: true });
+  });
+
+  // The hero film: the gauge fills once, then rests on its last frame. Only when motion is welcome.
+  var gauge = g('gauge'), gv = gauge && gauge.querySelector('video');
+  var calm = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (gv && gv.play && !calm && 'IntersectionObserver' in window) {
+    gv.addEventListener('playing', function(){ gauge.classList.add('live'); });
+    var gio = new IntersectionObserver(function(es){
+      if (!es[0].isIntersecting) return;
+      gio.disconnect();
+      Array.prototype.forEach.call(gv.querySelectorAll('source'), function(s){ s.src = s.getAttribute('data-src'); });
+      gv.load();
+      var p = gv.play(); if (p && p.catch) p.catch(function(){});
+    }, { threshold: 0.1 });
+    gio.observe(gauge);
+  }
+
+  // The hand-off: this job's hours off a desk (the row "Hours off somebody's desk") against the five hours
+  // a week the Reality Check has to find. A saving of the "a person still does it, just faster" shape is
+  // not counted toward that, so its bar is hidden and the line says why.
+  var hoLine = g('hoLine'), hoFig = g('hoFig'), hoJob = g('hoJob'), hoFill = g('hoFill');
+  function drawHandoff(d, first){
+    var r = parseFloat(hrs(d.removedWeek)), assist = d.mech.name === 'assist', finite = isFinite(r);
+    hoFig.hidden = assist || !finite;
+    var dec = hrs(d.removedWeek).split('.')[1] || '';
+    hoJob.textContent = finite ? r.toLocaleString('en-US', { minimumFractionDigits: dec.length, maximumFractionDigits: dec.length }) : '';
+    if (assist) hoLine.textContent = 'Time saved by making a person faster doesn’t count toward the five hours until it has been watched happening.';
+    else if (finite && r >= 5) hoLine.textContent = 'On your numbers, this job alone comes to five hours a week or more. The Reality Check tests that with you, and counts the rest beside it.';
+    else hoLine.textContent = '';
+    var w = (Math.min(1, Math.max(0, r / 5)) * 100).toFixed(2) + '%';
+    if (first) { hoFill.style.width = '0'; requestAnimationFrame(function(){ requestAnimationFrame(function(){ hoFill.style.width = w; }); }); }
+    else hoFill.style.width = w;
+  }
+  function drawFigText(d){ var w1 = off.style.width, w2 = kept.style.width; drawFig(d); off.style.width = w1; kept.style.width = w2; }
+})();
+</script>
+
+</body>
+</html>
