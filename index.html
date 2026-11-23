@@ -812,10 +812,45 @@ html.lowh:not(.pin) .row{padding-top:4px}
   var vid = drip && drip.querySelector('video');
   if (vid && motion && hasIO && vid.play) {
     vid.addEventListener('playing', function () { drip.classList.add('live'); });
+    // the whole film is downloaded once at page load and played from memory, so it cannot run out of data mid-play;
+    // until it is ready (or if that cannot be done and the plain sources are used) the poster shows
+    var vidReady = false, vidWanted = false, vidBlobUrl = null, vidFell = false, vidTimer = 0;
+    // if the film in memory has not started within 5 seconds of being asked to play, use the plain sources instead (once)
+    var vidDisarm = function () { if (vidTimer) { clearTimeout(vidTimer); vidTimer = 0; } };
+    var vidSwitch = function () {
+      vidDisarm();
+      if (!vidBlobUrl || vidFell || !vid.getAttribute('src')) return;
+      vidFell = true;
+      vid.removeAttribute('src'); vid.load(); if (vidWanted) vidPlay();
+    };
+    var vidPlay = function () {
+      if (vidBlobUrl && !vidFell && !vidTimer && vid.getAttribute('src')) vidTimer = setTimeout(vidSwitch, 5000);
+      var p = vid.play(); if (p && p.catch) p.catch(function () {});
+    };
+    var vidGo = function () { vidReady = true; if (vidWanted) vidPlay(); };
+    var vidFallback = function () { if (!vidReady) vidGo(); };
+    // if the browser cannot play the film from memory, go back to the plain sources
+    vid.addEventListener('error', vidSwitch);
+    vid.addEventListener('playing', vidDisarm);
+    try {
+      var vidSrc = (window.matchMedia && window.matchMedia('(max-width: 899px)').matches) ? '/assets/drip-720.mp4' : '/assets/drip-1080.mp4';
+      if (!window.fetch || !window.URL || !URL.createObjectURL) { vidFallback(); }
+      else {
+        fetch(vidSrc).then(function (r) { if (!r.ok) throw new Error('film'); return r.blob(); }).then(function (b) {
+          if (!b || !b.size) throw new Error('film');
+          vidBlobUrl = URL.createObjectURL(b);
+          vid.src = vidBlobUrl;
+          vid.load();
+          vidGo();
+        }).catch(vidFallback);
+      }
+    } catch (err) { vidFallback(); }
+    window.addEventListener('pagehide', function (e) { if (!e.persisted && vidBlobUrl) { URL.revokeObjectURL(vidBlobUrl); vidBlobUrl = null; } });
     var vio = new IntersectionObserver(function (es) {
       es.forEach(function (e) {
-        if (e.isIntersecting) { var p = vid.play(); if (p && p.catch) p.catch(function () {}); }
-        else vid.pause();
+        vidWanted = e.isIntersecting;
+        if (e.isIntersecting) { if (vidReady) vidPlay(); }
+        else { vidDisarm(); vid.pause(); }
       });
     }, { threshold: 0.05 });
     vio.observe(drip);
@@ -827,7 +862,7 @@ html.lowh:not(.pin) .row{padding-top:4px}
   var cvid = cup && cup.querySelector('video');
   var cupTick = function () {};
   if (cvid && motion && hasIO && cvid.play) {
-    var cupLoaded = false, cupLanded = false, cupIn = false, cupSeeked = false, FALL_A = 0.35, FALL_B = 1.5;
+    var cupBlobUrl = null, cupLoaded = false, cupLanded = false, cupIn = false, cupSeeked = false, FALL_A = 0.35, FALL_B = 1.5;
     var cupPlay = function () { var p = cvid.play(); if (p && p.catch) p.catch(function () {}); };
     // show the film only once a frame is decoded, so the still is never covered by an empty video
     var cupShow = function () { if (cvid.readyState >= 2) cup.classList.add('live'); };
@@ -850,21 +885,49 @@ html.lowh:not(.pin) .row{padding-top:4px}
       cvid.currentTime = FALL_A + (FALL_B - FALL_A) * p;
     };
     cvid.addEventListener('loadedmetadata', function () { cupTick(); });
-    // wide observer (two screens out): fetch and prime only. It never plays or pauses.
+    // wide observer (two screens out): download the film only. It never plays or pauses.
     var cio = new IntersectionObserver(function (es) {
       es.forEach(function (e) {
         if (e.isIntersecting && !cupLoaded) {
             cupLoaded = true;
-            Array.prototype.forEach.call(cvid.querySelectorAll('source'), function (s) { s.src = s.getAttribute('data-src'); });
-            cvid.preload = 'auto';
-            cvid.load();
-            // prime: a muted play then pause so iPhone Safari buffers before the landing (the film stays hidden until a decoded frame is shown)
-            var pp = cvid.play(); if (pp && pp.catch) pp.catch(function () {});
-            cvid.pause();
+            // download the whole film once and play it from memory, so it cannot run out of data mid-play;
+            // if that cannot be done, fall back to the plain sources. The still and poster show until a frame is decoded.
+            var cupFallback = function () {
+              if (cupFell) return; cupFell = true;
+              Array.prototype.forEach.call(cvid.querySelectorAll('source'), function (s) { s.src = s.getAttribute('data-src'); });
+              cvid.preload = 'auto';
+              cvid.load();
+            };
+            var cupFell = false, cupTimer = 0;
+            // if the browser cannot play the film from memory, go back to the plain sources
+            var cupSwitch = function () {
+              if (cupTimer) { clearTimeout(cupTimer); cupTimer = 0; }
+              if (!cupBlobUrl || cupFell || !cvid.getAttribute('src')) return;
+              cvid.removeAttribute('src'); cupLanded = false; cupFallback();
+            };
+            cvid.addEventListener('error', cupSwitch);
+            // the film in memory must report its length within 5 seconds of being set, or the plain sources are used (once)
+            cvid.addEventListener('loadedmetadata', function () { if (cupTimer) { clearTimeout(cupTimer); cupTimer = 0; } });
+            try {
+              var cupSrc = (window.matchMedia && window.matchMedia('(max-width: 899px)').matches) ? '/assets/cup-720.mp4' : '/assets/cup-1080.mp4';
+              if (!window.fetch || !window.URL || !URL.createObjectURL) { cupFallback(); }
+              else {
+                fetch(cupSrc).then(function (r) { if (!r.ok) throw new Error('film'); return r.blob(); }).then(function (b) {
+                  if (!b || !b.size) throw new Error('film');
+                  cupBlobUrl = URL.createObjectURL(b);
+                  cvid.preload = 'auto';
+                  cvid.src = cupBlobUrl;
+                  cvid.load();
+                  cupTimer = setTimeout(cupSwitch, 5000);
+                }).catch(cupFallback);
+              }
+            } catch (err) { cupFallback(); }
         }
       });
     }, { rootMargin: '200% 0px', threshold: 0 });
     cio.observe(cup);
+    // the film in memory is released only when the page is really going away (not when it may be restored from the back-forward cache)
+    window.addEventListener('pagehide', function (e) { if (!e.persisted && cupBlobUrl) { URL.revokeObjectURL(cupBlobUrl); cupBlobUrl = null; } });
     // near observer (half a screen out, as before the fetch fix): owns cupIn, play and pause, so the film never runs off screen
     var cio2 = new IntersectionObserver(function (es) {
       es.forEach(function (e) {
