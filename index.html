@@ -187,7 +187,6 @@ a:focus-visible,button:focus-visible,summary:focus-visible{outline:3px solid var
 .drip video{opacity:0;transition:opacity .8s ease}
 .drip.live video{opacity:1}
 .hero-copy{position:relative;z-index:2;margin-top:-34px;padding-bottom:44px}
-.hero .ask{margin:0 0 12px;font-family:var(--mono);font-size:.82rem;line-height:1.4;letter-spacing:.04em;color:var(--mute)}
 .hero h1{font-size:clamp(3rem,13.4vw,4.3rem);line-height:.9;letter-spacing:-.01em;word-spacing:.08em}
 h2{word-spacing:.06em}
 .hero h1 .l2{display:block;color:var(--amber)}
@@ -197,18 +196,11 @@ h2{word-spacing:.06em}
 .hero .or,.close .or{color:var(--mute)}
 .hero .or a,.close .or a{color:var(--bone)}
 .hero .price{margin-top:16px;font-family:var(--mono);font-size:.8rem;color:var(--mute);letter-spacing:.01em}
-/* phones: the hero's gaps are tighter so the intro-call button stays on the first screen with the small line above the headline */
-@media (max-width:600px){
-  .hero-copy{margin-top:-40px}
-  .hero .ask{margin-bottom:8px}
-  .hero .lede{margin-top:14px}
-  .hero .cta{margin-top:16px}
-}
 
 /* hero entrance, only when motion is welcome */
 @keyframes rise{from{opacity:0;transform:translateY(.45em)}to{opacity:1;transform:none}}
 @keyframes fadein{from{opacity:0}to{opacity:1}}
-.motion .hero .ask,.motion .hero h1 .l1,.motion .hero h1 .l2{animation:rise .9s cubic-bezier(.2,.7,.2,1) both}
+.motion .hero h1 .l1,.motion .hero h1 .l2{animation:rise .9s cubic-bezier(.2,.7,.2,1) both}
 .motion .hero h1 .l1{display:block}
 .motion .hero h1 .l2{animation-delay:.18s}
 .motion .hero .lede,.motion .hero .cta,.motion .hero .price{animation:fadein .8s ease .45s both}
@@ -575,19 +567,10 @@ html.lowh:not(.pin) .row{padding-top:4px}
      about half the frame's height. */
   .drip{--dh:max(150px,calc(128svh - 616px));height:var(--dh);--top:calc(var(--dh) * .5 - max(132vw,470px) * .355);
     -webkit-mask-image:linear-gradient(#000 62%,transparent 96%);mask-image:linear-gradient(#000 62%,transparent 96%)}
-
-  /* the film's falling drop passes behind the small line here: the line gets the page's own ink behind it, so its text keeps 4.5:1 at every frame */
-  .hero .ask{width:fit-content;max-width:calc(100% + 16px);margin-left:-8px;padding:3px 8px;background:var(--ink);text-wrap:balance;position:relative}
-  /* the backing fades in at its top edge, so the film's falling drop dissolves into the ink before the line instead of being cut off flat */
-  .hero .ask::before{content:"";position:absolute;left:0;right:0;bottom:100%;height:26px;pointer-events:none;background:linear-gradient(transparent,var(--ink))}
-}
-@media (max-width:600px) and (max-height:760px){
-  /* phones only: the film frame is 16 px shorter still (the nozzle tip stays at half the frame), so the button stays on the first screen */
-  .drip{--dh:max(150px,calc(128svh - 632px))}
 }
 @media (max-width:600px) and (max-height:600px){
-  /* the shortest phones (about 320x568, 375x548): the film frame shrinks to 100 px so the button comes up toward the first screen */
-  .drip{--dh:100px}
+  /* the shortest phones (about 320x568, 375x548): the film frame is 128 px so the button stays on or no lower than the first screen */
+  .drip{--dh:128px}
 }
 @media (max-width:374px){
   /* the header on one line at 320: a slightly tighter wordmark and button */
@@ -638,7 +621,6 @@ html.lowh:not(.pin) .row{padding-top:4px}
     </video>
   </div>
   <div class="hero-copy wrap">
-    <p class="ask">AI and automation for companies of 10 to 100 people.</p>
     <h1><span class="l1">Your team loses hours every week,</span> <span class="l2">four minutes at a time.</span></h1>
     <p class="lede">Start by counting what your team still does by hand. <strong>I'll count it with you, then put AI and automation in place. If I can't find at least five hours a week of manual work I can help you get rid of, you pay nothing.</strong></p>
     <div class="cta">
@@ -742,6 +724,7 @@ html.lowh:not(.pin) .row{padding-top:4px}
   <div class="wrap check-grid">
     <div class="rv">
       <h2 id="check-h">The AI Reality Check</h2>
+      <p class="sub">For companies of 10 to 100 people.</p>
       <p class="pricetag"><span class="amt">$999</span><span class="sr-only">, or </span><span class="stamp"><b>$0</b> if I can't find five hours a week</span></p>
       <p class="first5">$499 for my first five clients.</p>
     </div>
