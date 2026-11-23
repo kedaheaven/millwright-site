@@ -1,6 +1,6 @@
 # Millwright
 
-> Millwright is a one-person practice run by Kevin Hudgens, based in west metro Atlanta, Georgia, working with companies locally and remotely. It puts AI and automation in place for companies of 10 to 100 people, after counting their manual work: mostly tools they already have or can buy, new software only for the biggest jobs. The first step is a free 20-minute intro call, with no obligation.
+> Millwright is run by Kevin Hudgens, based in west metro Atlanta, Georgia, working with companies locally and remotely. It puts AI and automation in place for companies of 10 to 100 people, after counting their manual work: mostly tools they already have or can buy, new software only for the biggest jobs. The first step is a free 20-minute intro call, with no obligation.
 
 ## How to start
 
