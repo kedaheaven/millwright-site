@@ -6,13 +6,13 @@
     "on": the booking form; the email block is hidden.
   Change only that one word. Nothing else in the page needs to change.
 -->
-<html lang="en" data-booking-form="on">
+<html lang="en" data-booking-form="off">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data:; media-src 'self'; connect-src https://book.millwright.works; form-action 'none'; base-uri 'none'; object-src 'none'">
 <title>Book a Free 20-Minute Intro Call | Millwright</title>
-<meta name="description" content="Pick a time for a free 20-minute call with Kevin Hudgens, shown in your own time zone. Free, no obligation.">
+<meta name="description" content="Book a free 20-minute call with Kevin Hudgens. For now it's booked by email: your name, your company and two or three times that suit you. Free, no obligation.">
 <link rel="canonical" href="https://millwright.works/book/">
 <meta property="og:title" content="Book a free 20-minute intro call">
 <meta property="og:description" content="Twenty minutes to see whether a Reality Check is worth it for you. If it isn't, I'll say so. Free, no obligation.">
@@ -52,16 +52,10 @@
       "@id": "https://millwright.works/book/#page",
       "url": "https://millwright.works/book/",
       "name": "Book a free 20-minute intro call",
-      "description": "The booking form for the free 20-minute intro call with Kevin Hudgens on Microsoft Teams. It shows the open times in the visitor's own time zone and asks for a name and an email address. Free, no obligation. It needs JavaScript; without it, the page links to Kevin's Microsoft booking page and his email address.",
+      "description": "How to book the free 20-minute intro call with Kevin Hudgens on Microsoft Teams. For now it is booked by email: a name, a company and two or three times that suit, with a time zone, sent to kevin@millwright.works. Kevin answers every email himself, within one working day. Free, no obligation.",
       "isPartOf": {"@id": "https://millwright.works/#website"},
       "about": {"@id": "https://millwright.works/#intro-call"},
       "breadcrumb": {"@id": "https://millwright.works/book/#breadcrumb"},
-      "potentialAction": {
-        "@type": "ReserveAction",
-        "name": "Book a free 20-minute intro call",
-        "object": {"@id": "https://millwright.works/#intro-call"},
-        "target": {"@type": "EntryPoint", "urlTemplate": "https://millwright.works/book/", "actionPlatform": ["https://schema.org/DesktopWebPlatform", "https://schema.org/MobileWebPlatform"]}
-      },
       "inLanguage": "en-US"
     },
     {
@@ -381,12 +375,6 @@ footer{background:var(--ink);color:var(--mute);border-top:1px solid var(--rule)}
         <p class="addr">kevin@millwright.works</p>
         <div class="cta"><a class="btn btn-ink" href="mailto:kevin@millwright.works?subject=Intro%20call&amp;body=Name%3A%20%0D%0ACompany%3A%20%0D%0ATwo%20or%20three%20times%20that%20suit%20me%2C%20with%20my%20time%20zone%3A%20%0D%0A">Write the email</a></div>
       </div>
-
-      <noscript><div class="nojs">
-        <p>This booking form needs JavaScript to show the open times.</p>
-        <p>You can book the same call on Microsoft's booking page, or email <a href="mailto:kevin@millwright.works?subject=Intro%20call">kevin@millwright.works</a>.</p>
-        <div class="cta"><a class="btn btn-ink" href="https://bookings.cloud.microsoft/bookwithme/user/73bc17138422435f99f5ee6f41186201@millwright.works/meetingtype/PrR5ajATlEiAxdjIvDMYWg2?anonymous&amp;ismsaljsauthenabled" target="_blank" rel="noopener">Book on Microsoft's page</a></div>
-      </div></noscript>
 
       <div id="app" hidden>
         <div class="loading" id="loading" role="status">
@@ -966,7 +954,6 @@ footer{background:var(--ink);color:var(--mute);border-top:1px solid var(--rule)}
         var f = FIELDS.indexOf(b.field) >= 0 ? b.field : 'note';
         setFieldError(f, b.reason === 'link' ? "Leave links out; I'll ask on the call."
           : b.reason === 'phone' ? "Leave phone numbers out; I'll ask on the call."
-          : (b.reason === 'missing' && f === 'name') ? "Add your name."
           : "That's more than I can take here. Shorten it?");
         announce($(f + '-err').textContent); return $(f).focus();
       case 'slot_not_open':

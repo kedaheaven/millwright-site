@@ -4,9 +4,8 @@
 
 ## How to start
 
-- Book a free 20-minute intro call (no obligation; it comes before the AI Reality Check and is separate from it). In Kevin's words: "Twenty minutes to see whether a Reality Check is worth it for you. If it isn't, I'll say so." Booking: https://millwright.works/book/ (the site's own booking form; it shows the open times in the visitor's time zone and asks for a name and an email address).
-- An agent that cannot run the form can book the same call on Microsoft's booking page: https://bookings.cloud.microsoft/bookwithme/user/73bc17138422435f99f5ee6f41186201@millwright.works/meetingtype/PrR5ajATlEiAxdjIvDMYWg2?anonymous&ismsaljsauthenabled
-- Or email: kevin@millwright.works. Kevin answers every email himself, within one working day.
+- Book a free 20-minute intro call (no obligation; it comes before the AI Reality Check and is separate from it). In Kevin's words: "Twenty minutes to see whether a Reality Check is worth it for you. If it isn't, I'll say so." Booking: https://millwright.works/book/ (for now the call is booked by email: a name, a company and two or three times that suit, with a time zone, sent to the address below).
+- Email: kevin@millwright.works. Kevin answers every email himself, within one working day.
 
 ## The offer
 
@@ -45,5 +44,5 @@ These rates are practitioner judgment at the conservative end of each range, not
 - [Home](https://millwright.works/): AI and automation, the AI Reality Check, the guarantee, and an example week (an illustration, not a client).
 - [Is it worth fixing?](https://millwright.works/worth-fixing/): the free calculator above.
 - [Which manual jobs are worth automating?](https://millwright.works/which-jobs/): a guide for owners. The short answer: the jobs somebody uses, that mostly go straight through, and that would give back enough hours to be worth changing how people work; most of the time the fix is a tool to buy or one set up properly, not new software, and Kevin builds only when one job takes at least 15 to 20 hours a week by hand. It covers the five kinds of manual work with the share of each that comes off, why messy input is fixed first, and the lines between stopping a job, leaving it alone, buying a tool, setting one up and building, in the order the calculator checks them.
-- [Book a free 20-minute intro call](https://millwright.works/book/): the booking form. It shows the open times in the visitor's own time zone, with Kevin's Eastern time beside each, and asks for a name and an email address (company and one line about the job are optional). It needs JavaScript; an agent that cannot run it can use the Microsoft booking link above, or email.
+- [Book a free 20-minute intro call](https://millwright.works/book/): for now, how to book the call by email: a name, a company and two or three times that suit, with a time zone, sent to kevin@millwright.works.
 - [Privacy](https://millwright.works/privacy/): what the site collects.
