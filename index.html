@@ -55,7 +55,13 @@
       "areaServed": "Based in west metro Atlanta, Georgia; works with companies locally and remotely",
       "founder": {"@id": "https://millwright.works/#kevin"},
       "knowsAbout": ["Business operations", "Process automation", "Artificial intelligence", "Microsoft Power Platform", "Microsoft 365"],
-      "makesOffer": [{"@id": "https://millwright.works/#intro-call-offer"}, {"@id": "https://millwright.works/#reality-check-offer"}]
+      "makesOffer": [{"@id": "https://millwright.works/#intro-call-offer"}, {"@id": "https://millwright.works/#reality-check-offer"}],
+      "potentialAction": {
+        "@type": "ReserveAction",
+        "name": "Book a free 20-minute intro call",
+        "description": "No obligation. It comes before the AI Reality Check and is separate from it. Or email kevin@millwright.works; Kevin answers every email himself, within one working day.",
+        "target": {"@type": "EntryPoint", "urlTemplate": "https://millwright.works/book/", "actionPlatform": ["https://schema.org/DesktopWebPlatform", "https://schema.org/MobileWebPlatform"]}
+      }
     },
     {
       "@type": "Offer",
